@@ -1,10 +1,8 @@
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
-import Image from "next/image";
 import Button from "./Button";
 import { BsPlayCircle } from "react-icons/bs";
-import playStore from "@/images/playStore.png";
 import ExtraLogos from "./ExtraLogos";
 import BackgroundDesign from "./BackgroundDesign";
 import PhoneFrame from "./PhoneFrame";

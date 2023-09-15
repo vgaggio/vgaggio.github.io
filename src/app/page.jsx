@@ -1,8 +1,8 @@
-import Model from "@/components/Model";
-import CallToAction from "@/components/CallToAction";
-import Feature from "@/components/Feature";
-import Hero from "@/components/Hero";
-import Reviews from "@/components/Reviews";
+import Model from "../components/Model";
+import CallToAction from "../components/CallToAction";
+import Feature from "../components/Feature";
+import Hero from "../components/Hero";
+import Reviews from "../components/Reviews";
 
 export default function Home() {
   return (

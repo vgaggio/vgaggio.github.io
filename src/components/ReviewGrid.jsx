@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { BiSolidStar } from "react-icons/bi";
 import clsx from "clsx";
 import { useInView } from "framer-motion";
-import { reviews } from "@/constants";
+import { reviews } from "../constants";
 
 const StarRating = ({ rating }) => {
   return (

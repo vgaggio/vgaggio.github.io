@@ -1,17 +1,7 @@
 import { useId } from "react";
-import AppScreen from "@/components/AppScreen";
+import AppScreen from "../components/AppScreen";
 import { motion } from "framer-motion";
 import { FaUser } from "react-icons/fa";
-import {
-  DiageoLogo,
-  LaravelLogo,
-  MirageLogo,
-  ReversableLogo,
-  StatamicLogo,
-  StaticKitLogo,
-  TransistorLogo,
-  TupleLogo,
-} from "@/components/StockLogos";
 import clsx from "clsx";
 
 const MotionAppScreenHeader = motion(AppScreen.Header);

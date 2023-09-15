@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
-import { modelData } from "@/constants";
+import { modelData } from "../constants";
 
 const Model = () => {
   return (

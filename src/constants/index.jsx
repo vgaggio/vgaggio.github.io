@@ -5,7 +5,7 @@ import {
   DeviceListIcon,
   DeviceLockIcon,
   DeviceChartIcon,
-} from "@/components/StockLogos";
+} from "../components/StockLogos";
 
 export const navData = [
   { _id: 101, title: "Home", href: "#home" },

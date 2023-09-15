@@ -1,4 +1,4 @@
-import logoSA from "@/images/logos/sanatorioallende.svg";
+import logoSA from "../images/logos/sanatorioallende.svg";
 // import logoCbs from "@/images/logos/cbs.svg";
 // import logoCnn from "@/images/logos/cnn.svg";
 // import logoFastCompany from "@/images/logos/fast-company.svg";
