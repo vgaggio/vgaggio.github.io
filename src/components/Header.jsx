@@ -110,9 +110,9 @@ const Header = () => {
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button href="#" variant="outline">
-                              Get Advice
+                              Book a Demo
                             </Button>
-                            <Button href="#">Hire me</Button>
+                            <Button href="#">Talk to Us</Button>
                           </div>
                         </Popover.Panel>
                       </>
