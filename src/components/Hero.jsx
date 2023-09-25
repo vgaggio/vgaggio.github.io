@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
@@ -7,8 +8,11 @@ import ExtraLogos from "./ExtraLogos";
 import BackgroundDesign from "./BackgroundDesign";
 import PhoneFrame from "./PhoneFrame";
 import AppFeature from "./AppFeature";
+import { useTranslation } from 'next-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
+  console.log(t('heroSubtitle'));
   return (
     <section
       id="home"
@@ -18,16 +22,15 @@ const Hero = () => {
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           {/* Right side */}
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
-            <Title title="Automate communication with your customers with AI" className="text-4xl" />
+            <Title title={t('heroTitle')} className="text-4xl" />
             <p className="mt-6 text-lg text-gray-600">
-            Automate customer service, marketing, sales and collection interactions,
-            with chatbots that behave like a human.
+            {t('heroSubtitle')}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-4">
               {/* <Image className="w-32 h-auto" src={playStore} alt="playImg" /> */}
               <Button variant="outline" href="https://drive.google.com/file/d/1p1Gm1soZN0j8KtQzeuEoGTeOb00hMXYB/view?usp=drive_link">
                 <BsPlayCircle className="text-xl" />
-                <span className="ml-2.5">Watch the video</span>
+                <span className="ml-2.5">{t('heroWatchTheVideo')}</span>
               </Button>
             </div>
           </div>

@@ -1,13 +1,17 @@
+"use client";
 import Header from "../components/Header";
 import "./globals.css";
 import Footer from "../components/Footer";
+import LogoBlack from "../components/LogoBlack";
+import { appWithTranslation } from "next-i18next";
 
-export const metadata = {
-  title: "BircleAI",
-  description: "Generate your dream chat in seconds.",
-};
+// export const metadata = {
+//   image: <LogoBlack />,
+//   title: "BircleAI",
+//   description: "Generate your dream chat in seconds.",
+// };
 
-export default function RootLayout({ children }) {
+function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
@@ -18,3 +22,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+export default appWithTranslation(RootLayout);

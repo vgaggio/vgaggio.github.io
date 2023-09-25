@@ -4,7 +4,7 @@ import Feature from "../components/Feature";
 import Hero from "../components/Hero";
 import Reviews from "../components/Reviews";
 
-export default function Home() {
+function Home() {
   return (
     <main>
       <Hero />
@@ -15,3 +15,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home

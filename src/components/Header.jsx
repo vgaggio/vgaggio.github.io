@@ -10,6 +10,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import { navData } from "../constants";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 const MobileNavLink = ({ children, ...props }) => {
   return (
@@ -24,6 +25,7 @@ const MobileNavLink = ({ children, ...props }) => {
 };
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -57,10 +59,10 @@ const Header = () => {
           {/* Buttons */}
           <div className="flex items-center gap-6">
             <Button href="#" variant="outline" className="hidden lg:block">
-              Book a Demo
+            {t('buttonOne')}
             </Button>
             <Button href="#" className="hidden lg:block">
-              Talk to Us
+            {t('buttonTwo')}
             </Button>
             {/* Mobile NavLinks */}
             <Popover className="lg:hidden">
@@ -110,9 +112,9 @@ const Header = () => {
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button href="#" variant="outline">
-                              Book a Demo
+                            {t('buttonOne')}
                             </Button>
-                            <Button href="#">Talk to Us</Button>
+                            <Button href="#">{t('buttonTwo')}</Button>
                           </div>
                         </Popover.Panel>
                       </>

@@ -8,10 +8,10 @@ import {
 } from "../components/StockLogos";
 
 export const navData = [
-  { _id: 101, title: "Home", href: "#home" },
-  { _id: 102, title: "Features", href: "#features" },
-  { _id: 103, title: "Model", href: "#model" },
-  { _id: 104, title: "Reviews", href: "#reviews" },
+  { _id: 101, title: "home", href: "#home" },
+  { _id: 102, title: "features", href: "#features" },
+  { _id: 103, title: "model", href: "#model" },
+  { _id: 104, title: "reviews", href: "#reviews" },
 ];
 
 export const modelData = [
