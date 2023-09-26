@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import CircleBackground from "./CircleBackground";
 import Container from "./Container";
 import Title from "./Title";
+import { useTranslation } from "next-i18next";
 
 const CallToAction = () => {
+  const { t } = useTranslation();
   return (
     <section
       id="get-free-shares-today"
@@ -15,11 +18,11 @@ const CallToAction = () => {
       <Container className="relative">
         <div className="mx-auto max-w-md sm:text-center">
           <Title
-            title="Manage all your interactions from one place"
+            title={t('manageAllCommunicationsTitle')}
             className="text-3xl text-white sm:text-4xl"
           />
           <p className="mt-4 text-lg text-gray-300">
-          An enterprise-level messaging platform powered by artificial intelligence that consolidates customer communication for organizations that market, sell, and provide support through instant messaging and online chat.
+          {t('manageAllCommunicationsSubtitle')}
           </p>
         </div>
       </Container>

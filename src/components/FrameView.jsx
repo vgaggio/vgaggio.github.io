@@ -308,23 +308,30 @@ function InvestScreen({ custom, animated = false }) {
 
 export const features = [
   {
-    name: "Autonomous Chatbots",
+    name: "featureOneTitle",
     description:
-      "Leave your customers in good hands. Train your bot to behave exactly as you would, 24 hours a day.",
+      "featureOneSubtitle",
     icon: DeviceUserIcon,
     screen: InviteScreen,
   },
   {
-    name: "Omnichannel Inbox",
+    name: "featureTwoTitle",
     description:
-      "Manage conversations with all your customers from a single place. Take manual control of the conversation at any time.",
+      "featureTwoSubtitle",
     icon: DeviceNotificationIcon,
     screen: StocksScreen,
   },
   {
-    name: "Broadcast Campaigns",
+    name: "featureThreeTitle",
     description:
-      "Upload your contact list and let your chatbot handle all interactions from the initial contact to the sale.",
+      "featureThreeSubtitle",
+    icon: DeviceTouchIcon,
+    screen: InvestScreen,
+  },
+  {
+    name: "featureFourTitle",
+    description:
+      "featureFourSubtitle",
     icon: DeviceTouchIcon,
     screen: InvestScreen,
   },

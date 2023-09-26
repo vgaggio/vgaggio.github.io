@@ -4,6 +4,7 @@ import { BiSolidStar } from "react-icons/bi";
 import clsx from "clsx";
 import { useInView } from "framer-motion";
 import { reviews } from "../constants";
+import { useTranslation } from "next-i18next";
 
 const StarRating = ({ rating }) => {
   return (
@@ -22,6 +23,7 @@ const StarRating = ({ rating }) => {
 };
 
 const Review = ({ title, body, author, rating, className, ...props }) => {
+  const { t } = useTranslation();
   let animationDelay = useMemo(() => {
     let possibleAnimationDelays = [
       "0s",
@@ -48,12 +50,12 @@ const Review = ({ title, body, author, rating, className, ...props }) => {
       <blockquote className="text-gray-900">
         <StarRating rating={rating} />
         <p className="mt-4 text-lg font-semibold leading-6 before:content-['“'] after:content-['”']">
-          {title}
+        {t(title)}
         </p>
-        <p className="mt-3 text-base leading-7">{body}</p>
+        <p className="mt-3 text-base leading-7">{t(body)}</p>
       </blockquote>
       <figcaption className="mt-3 text-sm text-gray-600 before:content-['–_']">
-        {author}
+      {t(author)}
       </figcaption>
     </figure>
   );

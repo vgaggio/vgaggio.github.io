@@ -7,8 +7,10 @@ import logoSA from "../images/logos/sanatorioallende.svg";
 // import logoTechcrunch from "@/images/logos/techcrunch.svg";
 // import logoWired from "@/images/logos/wired.svg";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 const ExtraLogos = () => {
+  const { t } = useTranslation();
   const logos = [
     { _id: 2001, title: "Sanatorio Allende", logo: logoSA},
     // { _id: 2002, title: "TechCrunch", logo: logoTechcrunch },
@@ -22,7 +24,7 @@ const ExtraLogos = () => {
   return (
     <div className="relative -mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6">
       <p className="text-center text-sm font-semibold text-gray-900 lg:text-left">
-        Trusted by top companies
+        {t('heroTrusted')}
       </p>
       <ul
         role="list"

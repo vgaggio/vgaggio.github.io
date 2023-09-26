@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { features } from "./FrameView";
 import CircleBackground from "./CircleBackground";
 import PhoneFrame from "./PhoneFrame";
+import { useTranslation } from "next-i18next";
 
 const usePrevious = (value) => {
   let ref = useRef();
@@ -16,6 +17,7 @@ const usePrevious = (value) => {
 };
 
 const DesktopFeature = () => {
+  const { t } = useTranslation();
   let [changeCount, setChangeCount] = useState(0);
   let [selectedIndex, setSelectedIndex] = useState(0);
   let prevIndex = usePrevious(selectedIndex);
@@ -41,7 +43,7 @@ const DesktopFeature = () => {
       <Tab.List className="relative z-10 order-last col-span-6 space-y-6">
         {features.map((feature, featureIndex) => (
           <div
-            key={feature.name}
+            key={t(feature.name)}
             className="relative rounded-2xl transition-colors hover:bg-gray-800/30"
           >
             {featureIndex === selectedIndex && (
@@ -56,11 +58,11 @@ const DesktopFeature = () => {
               <h3 className="mt-6 text-lg font-semibold text-white">
                 <Tab className="text-left [&:not(:focus-visible)]:focus:outline-none outline-none">
                   <span className="absolute inset-0 rounded-2xl" />
-                  {feature.name}
+                  {t(feature.name)}
                 </Tab>
               </h3>
               <p className="mt-2 text-sm text-gray-400">
-                {feature.description}
+              {t(feature.description)}
               </p>
             </div>
           </div>
@@ -101,6 +103,7 @@ const DesktopFeature = () => {
 export default DesktopFeature;
 
 export const FeatureMobile = () => {
+  const { t } = useTranslation();
   let [activeIndex, setActiveIndex] = useState(0);
   let slideContainerRef = useRef();
   let slideRefs = useRef([]);
@@ -156,10 +159,10 @@ export const FeatureMobile = () => {
               <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
                 <feature.icon className="h-8 w-8" />
                 <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
-                  {feature.name}
+                {t(feature.name)}
                 </h3>
                 <p className="mt-2 text-sm text-gray-400">
-                  {feature.description}
+                {t(feature.description)}
                 </p>
               </div>
             </div>

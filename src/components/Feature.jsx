@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
 import DesktopFeature, { FeatureMobile } from "./DesktopFeature";
+import { useTranslation } from "next-i18next";
 
 const Feature = () => {
+  const { t } = useTranslation();
   return (
     <section
       id="features"
@@ -13,13 +16,11 @@ const Feature = () => {
       <Container>
         <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-3xl">
           <Title
-            title="Tools to manage your communication intelligently"
+            title={t('featuresTitle')}
             className="text-white text-2xl"
           />
           <p className="mt-2 text-lg text-gray-400">
-          Welcome to a comprehensive solution for managing your communication intelligently. 
-          In a world where interacting with your customers is crucial, our tools provide you 
-          with the edge you need to stand out and meet their needs.
+          {t('featuresSubtitle')}
           </p>
         </div>
       </Container>

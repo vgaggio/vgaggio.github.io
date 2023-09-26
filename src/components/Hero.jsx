@@ -12,7 +12,6 @@ import { useTranslation } from 'next-i18next';
 
 const Hero = () => {
   const { t } = useTranslation();
-  console.log(t('heroSubtitle'));
   return (
     <section
       id="home"

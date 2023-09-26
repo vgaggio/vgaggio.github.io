@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
 import ReviewGrid from "./ReviewGrid";
+import { useTranslation } from "next-i18next";
 
 const Reviews = () => {
+  const { t } = useTranslation();
   return (
     <section
       id="reviews"
@@ -12,12 +15,12 @@ const Reviews = () => {
     >
       <Container>
         <Title
-          title="Everyone is changing their business with BircleAI."
+          title={t('reviewsTitle')}
           id="reviews-title"
           className="text-3xl font-medium tracking-tight text-gray-900 sm:text-center"
         />
         <p className="mt-2 text-lg text-gray-600 sm:text-center">
-          Dont take our word for it.
+        {t('reviewsSubtitle')}
         </p>
         <ReviewGrid />
       </Container>
