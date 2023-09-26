@@ -106,7 +106,7 @@ const Header = () => {
                           <div className="space-y-4">
                             {navData.map(({ _id, title, href }) => (
                               <MobileNavLink href={href} key={_id}>
-                                {title}
+                                {t(title)}
                               </MobileNavLink>
                             ))}
                           </div>
