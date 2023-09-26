@@ -58,11 +58,20 @@ const Header = () => {
           </div>
           {/* Buttons */}
           <div className="flex items-center gap-6">
-            <Button href="#" variant="outline" className="hidden lg:block">
-            {t('buttonOne')}
+            <Button
+              href="https://cal.com/marcoslozada/demo-bircleai"
+              variant="outline"
+              className="hidden lg:block"
+              target="_blank"
+            >
+              {t("buttonOne")}
             </Button>
-            <Button href="#" className="hidden lg:block">
-            {t('buttonTwo')}
+            <Button
+              href="https://api.whatsapp.com/send?phone=5493516152680"
+              className="hidden lg:block"
+              target="_blank"
+            >
+              {t("buttonTwo")}
             </Button>
             {/* Mobile NavLinks */}
             <Popover className="lg:hidden">
@@ -111,10 +120,19 @@ const Header = () => {
                             ))}
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="#" variant="outline">
-                            {t('buttonOne')}
+                            <Button
+                              href="https://cal.com/marcoslozada/demo-bircleai"
+                              variant="outline"
+                              target="_blank"
+                            >
+                              {t("buttonOne")}
                             </Button>
-                            <Button href="#">{t('buttonTwo')}</Button>
+                            <Button
+                              href="https://api.whatsapp.com/send?phone=5493516152680"
+                              target="_blank"
+                            >
+                              {t("buttonTwo")}
+                            </Button>
                           </div>
                         </Popover.Panel>
                       </>

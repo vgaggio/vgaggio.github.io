@@ -8,7 +8,7 @@ import ExtraLogos from "./ExtraLogos";
 import BackgroundDesign from "./BackgroundDesign";
 import PhoneFrame from "./PhoneFrame";
 import AppFeature from "./AppFeature";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -21,15 +21,30 @@ const Hero = () => {
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           {/* Right side */}
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
-            <Title title={t('heroTitle')} className="text-4xl" />
-            <p className="mt-6 text-lg text-gray-600">
-            {t('heroSubtitle')}
-            </p>
+            <Title title={t("heroTitle")} className="text-4xl" />
+            <p className="mt-6 text-lg text-gray-600">{t("heroSubtitle")}</p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-4">
               {/* <Image className="w-32 h-auto" src={playStore} alt="playImg" /> */}
-              <Button variant="outline" href="https://drive.google.com/file/d/1p1Gm1soZN0j8KtQzeuEoGTeOb00hMXYB/view?usp=drive_link">
+              <Button
+                variant="outline"
+                href="https://drive.google.com/file/d/1p1Gm1soZN0j8KtQzeuEoGTeOb00hMXYB/view?usp=drive_link"
+              >
                 <BsPlayCircle className="text-xl" />
-                <span className="ml-2.5">{t('heroWatchTheVideo')}</span>
+                <span className="ml-2.5">{t("heroWatchTheVideo")}</span>
+              </Button>
+              <Button
+                href="https://cal.com/marcoslozada/demo-bircleai"
+                variant="outline"
+                target="_blank"
+              >
+                {t("buttonOne")}
+              </Button>
+              <Button
+                href="https://api.whatsapp.com/send?phone=5493516152680"
+                variant="outline"
+                target="_blank"
+              >
+                {t("buttonTwo")}
               </Button>
             </div>
           </div>
