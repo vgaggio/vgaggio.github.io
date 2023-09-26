@@ -3,6 +3,7 @@ import CallToAction from "../components/CallToAction";
 import Feature from "../components/Feature";
 import Hero from "../components/Hero";
 import Reviews from "../components/Reviews";
+import Pricing from "../components/Pricing";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Feature />
       <Model />
       <CallToAction />
+      <Pricing />
       <Reviews />
     </main>
   );

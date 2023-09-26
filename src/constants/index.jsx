@@ -11,7 +11,8 @@ export const navData = [
   { _id: 101, title: "home", href: "#home" },
   { _id: 102, title: "features", href: "#features" },
   { _id: 103, title: "model", href: "#model" },
-  { _id: 104, title: "reviews", href: "#reviews" },
+  { _id: 104, title: "pricing", href: "#pricing" },
+  { _id: 105, title: "reviews", href: "#reviews" },
 ];
 
 export const modelData = [
@@ -51,6 +52,25 @@ export const modelData = [
   //     "Edit the prompt to prevent hallucinations, maintain voice and format requirements.",
   //   icon: DeviceChartIcon,
   // },
+];
+
+export const pricingData = [
+  {
+    name: "pricingOneTitle",
+    description:
+      "pricingOneSubtitle",
+    ammount: 
+      "pricingOneAmmount",
+    icon: DeviceArrowIcon,
+  },
+  {
+    name: "pricingTwoTitle",
+    description:
+      "pricingTwoSubtitle",
+    ammount: 
+      "pricingTwoAmmount",
+    icon: DeviceCardsIcon,
+  },
 ];
 
 export const reviews = [
