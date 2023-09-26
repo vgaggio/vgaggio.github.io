@@ -3,14 +3,16 @@ import { TextField } from "./Fields";
 import Button from "./Button";
 import Container from "./Container";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer>
       <Container>
         <div className="flex flex-col items-center border-t border-gray-200 pb-12 pt-8 md:flex-row md:justify-between md:pt-6">
           <p className="text-xs text-gray-500">
-            &copy; Copyright - BircleAI © Bircle Corp. {new Date().getFullYear()}. All rights reserved.
+            &copy; Copyright - BircleAI © Bircle Corp. {new Date().getFullYear()}. {t('allRightsReserved')}
           </p>
           {/* <form className="flex w-full justify-center md:w-auto mt-6 md:mt-0">
             <TextField
