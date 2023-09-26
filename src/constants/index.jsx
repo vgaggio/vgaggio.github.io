@@ -1,11 +1,12 @@
-import {
-  DeviceArrowIcon,
-  DeviceCardsIcon,
-  DeviceClockIcon,
-  // DeviceListIcon,
-  DeviceLockIcon,
-  // DeviceChartIcon,
-} from "../components/StockLogos";
+// import {
+//   DeviceArrowIcon,
+//   DeviceCardsIcon,
+//   DeviceClockIcon,
+//   // DeviceListIcon,
+//   DeviceLockIcon,
+//   // DeviceChartIcon,
+// } from "../components/StockLogos";
+
 
 export const navData = [
   { _id: 101, title: "home", href: "#home" },
@@ -20,25 +21,25 @@ export const modelData = [
     name: "modelOneTitle",
     description:
       "modelOneSubtitle",
-    icon: DeviceArrowIcon,
+    icon: "/Elementos-2D-01.svg",
   },
   {
     name: "modelTwoTitle",
     description:
       "modelTwoSubtitle",
-    icon: DeviceCardsIcon,
+      icon: "/Elementos-2D-02.svg",
   },
   {
     name: "modelThreeTitle",
     description:
       "modelThreeSubtitle",
-    icon: DeviceClockIcon,
+      icon: "/Elementos-2D-03.svg",
   },
   {
     name: "modelFourTitle",
     description:
       "modelFourSubtitle",
-    icon: DeviceLockIcon,
+      icon: "/Elementos-2D-04.svg",
   },
   // {
   //   name: "Privacy-first features",
@@ -61,7 +62,7 @@ export const pricingData = [
       "pricingOneSubtitle",
     ammount: 
       "pricingOneAmmount",
-    icon: DeviceArrowIcon,
+      icon: "/Elementos-2D-10.svg",
   },
   {
     name: "pricingTwoTitle",
@@ -69,7 +70,7 @@ export const pricingData = [
       "pricingTwoSubtitle",
     ammount: 
       "pricingTwoAmmount",
-    icon: DeviceCardsIcon,
+      icon: "/Elementos-2D-15.svg",
   },
 ];
 

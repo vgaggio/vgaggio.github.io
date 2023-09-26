@@ -4,6 +4,7 @@ import Container from "./Container";
 import Title from "./Title";
 import { modelData } from "../constants";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 const Model = () => {
   const { t } = useTranslation();
@@ -32,7 +33,8 @@ const Model = () => {
               key={t(item.name)}
               className="rounded-2xl border border-gray-200 hover:border-gray-300 p-8 group hover:bg-gray-100 duration-300 cursor-pointer"
             >
-              <item.icon className="h-8 w-8" />
+              {/* <item.icon className="h-8 w-8" /> */}
+              <Image className="h-16 w-16" src={item.icon} alt="" height={10} width={10}/>
               <h3 className="mt-6 font-semibold text-gray-900 group-hover:text-black duration-300">
                 {t(item.name)}
               </h3>

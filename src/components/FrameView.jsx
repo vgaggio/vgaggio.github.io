@@ -311,28 +311,28 @@ export const features = [
     name: "featureOneTitle",
     description:
       "featureOneSubtitle",
-    icon: DeviceUserIcon,
+    icon: "/Elementos-2D-07.svg",
     screen: InviteScreen,
   },
   {
     name: "featureTwoTitle",
     description:
       "featureTwoSubtitle",
-    icon: DeviceNotificationIcon,
+    icon: "/Elementos-2D-08.svg",
     screen: StocksScreen,
   },
   {
     name: "featureThreeTitle",
     description:
       "featureThreeSubtitle",
-    icon: DeviceTouchIcon,
+    icon: "/Elementos-2D-09.svg",
     screen: InvestScreen,
   },
   {
     name: "featureFourTitle",
     description:
       "featureFourSubtitle",
-    icon: DeviceTouchIcon,
+    icon: "/Elementos-2D-13.svg",
     screen: InvestScreen,
   },
 ];

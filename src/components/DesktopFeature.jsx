@@ -8,6 +8,7 @@ import { features } from "./FrameView";
 import CircleBackground from "./CircleBackground";
 import PhoneFrame from "./PhoneFrame";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 const usePrevious = (value) => {
   let ref = useRef();
@@ -54,7 +55,8 @@ const DesktopFeature = () => {
               />
             )}
             <div className="relative z-10 p-8">
-              <feature.icon className="h-8 w-8" />
+              {/* <feature.icon className="h-8 w-8" /> */}
+              <Image className="h-16 w-16" src={feature.icon} alt="" height={10} width={10}/>
               <h3 className="mt-6 text-lg font-semibold text-white">
                 <Tab className="text-left [&:not(:focus-visible)]:focus:outline-none outline-none">
                   <span className="absolute inset-0 rounded-2xl" />
@@ -157,7 +159,8 @@ export const FeatureMobile = () => {
                 <feature.screen />
               </PhoneFrame>
               <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
-                <feature.icon className="h-8 w-8" />
+                {/* <feature.icon className="h-8 w-8" /> */}
+                <Image className="h-16 w-16" src={feature.icon} alt="" height={10} width={10}/>
                 <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
                 {t(feature.name)}
                 </h3>
