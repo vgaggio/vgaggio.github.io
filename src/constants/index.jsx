@@ -13,7 +13,7 @@ export const navData = [
   { _id: 102, title: "features", href: "#features" },
   { _id: 103, title: "model", href: "#model" },
   { _id: 104, title: "pricing", href: "#pricing" },
-  { _id: 105, title: "reviews", href: "#reviews" },
+  { _id: 105, title: "howitworks", href: "#howitworks" },
 ];
 
 export const modelData = [
@@ -55,6 +55,27 @@ export const modelData = [
   // },
 ];
 
+export const howData = [
+  {
+    name: "howOneTitle",
+    description:
+      "howOneSubtitle",
+    icon: "/Elementos-2D-10.svg",
+  },
+  {
+    name: "howTwoTitle",
+    description:
+      "howTwoSubtitle",
+    icon: "/Elementos-2D-15.svg",
+  },
+  {
+    name: "howThreeTitle",
+    description:
+      "howThreeSubtitle",
+    icon: "/Elementos-2D-15.svg",
+  },
+];
+
 export const pricingData = [
   {
     name: "pricingOneTitle",
@@ -62,7 +83,7 @@ export const pricingData = [
       "pricingOneSubtitle",
     ammount: 
       "pricingOneAmmount",
-      icon: "/Elementos-2D-10.svg",
+    icon: "/Elementos-2D-10.svg",
   },
   {
     name: "pricingTwoTitle",
@@ -70,7 +91,7 @@ export const pricingData = [
       "pricingTwoSubtitle",
     ammount: 
       "pricingTwoAmmount",
-      icon: "/Elementos-2D-15.svg",
+    icon: "/Elementos-2D-15.svg",
   },
 ];
 

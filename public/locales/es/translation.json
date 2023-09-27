@@ -3,7 +3,7 @@
   "features": "Características",
   "model": "Modelo",
   "pricing": "Precios",
-  "reviews": "Reseñas",
+  "howitworks": "Cómo funciona?",
   "buttonOne": "Agendá una Demo",
   "buttonTwo": "Escribinos",
   "heroTitle": "Automatiza tus áreas de atención al cliente y de ventas, con agentes de IA que actúan como tu mejor empleado.",
@@ -67,7 +67,15 @@
   "reviewEightBody": "Este producto ha mejorado enormemente la experiencia del cliente en nuestra empresa. Los chatbots ofrecen respuestas instantáneas y precisas, lo que se traduce en una mayor satisfacción del cliente.",
   "reviewEightAuthor": "Diego Pérez",
   "allRightsReserved": "Todos los derechos reservados.",
-  "backedBy": "Respaldados por"
+  "backedBy": "Respaldados por",
+  "howItWorksTitle": "Cómo funciona?",
+  "howItWorksSubtitle": "Tres simples pasos y ya esta listo.",
+  "howOneTitle": "Compartí los links y documentos de tu empresa con nosotros",
+  "howOneSubtitle": "Conecta tu página web, perfiles en redes sociales, artículos, videos y más. Simplemente agrega los enlaces o cuentas con las que deseas entrenar a tu agente de IA.",
+  "howTwoTitle": "La IA de BircleAI crea tu asistente",
+  "howTwoSubtitle": "La tecnología de inteligencia artificial de BircleAI analiza y procesa el contenido seleccionado, convirtiéndolo en un chat conversacional interactivo que brinda respuestas instantáneas a tus usuarios las 24 horas, los 7 días de la semana.",
+  "howThreeTitle": "Listo para usar en los canales que a tus clientes les encantan",
+  "howThreeSubtitle": "El agente es omnicanal desde el principio, respondiendo a tus clientes en los canales en los que interactúan actualmente."
 }
 
 

@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import Reviews from "../components/Reviews";
 import Pricing from "../components/Pricing";
 import BackedBy from "../components/BackedBy";
+import HowItWorks from "../components/HowItWorks";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Feature />
       <Model />
       <CallToAction />
+      <HowItWorks />
       <Pricing />
       <BackedBy />
       <Reviews />

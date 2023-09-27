@@ -3,7 +3,7 @@
   "features": "Features",
   "model": "Model",
   "pricing": "Pricing",
-  "reviews": "Reviews",
+  "howitworks": "How it works?",
   "buttonOne": "Book a Demo",
   "buttonTwo": "Talk to Us",
   "heroTitle": "Automate your customer service and sales areas, with AI agents that act as your best employee.",
@@ -67,5 +67,13 @@
   "reviewEightBody": "This product has greatly improved the customer experience in our company. The chatbots deliver instant and accurate responses, resulting in higher customer satisfaction.",
   "reviewEightAuthor": "Diego Perez",
   "allRightsReserved": "All rights reserved.",
-  "backedBy": "Backed by"
+  "backedBy": "Backed by",
+  "howItWorksTitle": "How it works.",
+  "howItWorksSubtitle": "Three simple steps and it's ready to use.",
+  "howOneTitle": "Share your company's links with us",
+  "howOneSubtitle": "Connect your website, social media profiles, articles, videos, and more. Simply add the links or accounts you want to train your AI agent with.",
+  "howTwoTitle": "BircleAI's AI creates your assistant",
+  "howTwoSubtitle": "BircleAI's artificial intelligence technology analyzes and processes the selected content, turning it into an interactive conversational chat that provides instant responses to your users 24/7.",
+  "howThreeTitle": "Ready to use on the channels your customers love",
+  "howThreeSubtitle": "The agent is omnichannel from the get-go, responding to your customers on the channels where they currently interact."
 }
