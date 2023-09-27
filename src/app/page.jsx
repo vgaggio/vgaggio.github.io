@@ -4,6 +4,7 @@ import Feature from "../components/Feature";
 import Hero from "../components/Hero";
 import Reviews from "../components/Reviews";
 import Pricing from "../components/Pricing";
+import BackedBy from "../components/BackedBy";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Model />
       <CallToAction />
       <Pricing />
+      <BackedBy />
       <Reviews />
     </main>
   );
