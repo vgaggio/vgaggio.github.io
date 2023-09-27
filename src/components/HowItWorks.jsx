@@ -11,7 +11,7 @@ const HowItWorks = () => {
   return (
     <section>
       <Container
-        id="howItWorks"
+        id="howitworks"
         aria-label="Features for building a portfolio"
         className="py-20 sm:py-32"
       >
