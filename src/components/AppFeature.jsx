@@ -99,8 +99,9 @@ const AppFeature = () => {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder= {t("appTypeMessage")}
+          disabled
         />
-        <button onClick={handleSendMessage} style={styles.button}>
+        <button onClick={handleSendMessage} style={styles.button} disabled>
         <Image
               alt="header text"
               src="/send.svg"
@@ -151,6 +152,7 @@ const styles = {
     height: "40px",
     borderRadius: "10px",
     textAlign: "center",
+    backgroundColor: "#ffffff",
   },
   button: {
     padding: "5px",

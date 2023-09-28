@@ -56,7 +56,13 @@ const DesktopFeature = () => {
             )}
             <div className="relative z-10 p-8">
               {/* <feature.icon className="h-8 w-8" /> */}
-              <Image className="h-16 w-16" src={feature.icon} alt="" height={10} width={10}/>
+              <Image
+                className="h-16 w-16"
+                src={feature.icon}
+                alt=""
+                height={10}
+                width={10}
+              />
               <h3 className="mt-6 text-lg font-semibold text-white">
                 <Tab className="text-left [&:not(:focus-visible)]:focus:outline-none outline-none">
                   <span className="absolute inset-0 rounded-2xl" />
@@ -64,7 +70,7 @@ const DesktopFeature = () => {
                 </Tab>
               </h3>
               <p className="mt-2 text-sm text-gray-400">
-              {t(feature.description)}
+                {t(feature.description)}
               </p>
             </div>
           </div>
@@ -74,29 +80,25 @@ const DesktopFeature = () => {
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <CircleBackground color="#2563eb" className="animate-spin-slower" />
         </div>
-        <PhoneFrame className="z-10 mx-auto w-full max-w-[366px]">
-          <Tab.Panels as={Fragment}>
-            <AnimatePresence
+
+        <Tab.Panels as={Fragment}>
+          {/* <AnimatePresence
               initial={false}
               custom={{ isForwards, changeCount }}
-            >
-              {features.map((feature, featureIndex) =>
-                selectedIndex === featureIndex ? (
-                  <Tab.Panel
-                    static
-                    key={feature.name + changeCount}
-                    className="col-start-1 row-start-1 flex focus:outline-offset-[32px] [&:not(:focus-visible)]:focus:outline-none"
-                  >
-                    <feature.screen
-                      animated
-                      custom={{ isForwards, changeCount }}
-                    />
-                  </Tab.Panel>
-                ) : null
-              )}
-            </AnimatePresence>
-          </Tab.Panels>
-        </PhoneFrame>
+            > */}
+          {features.map((feature, featureIndex) =>
+            selectedIndex === featureIndex ? (
+              <Tab.Panel
+                static
+                key={feature.name + changeCount}
+                className="col-start-1 row-start-1 flex focus:outline-offset-[32px] [&:not(:focus-visible)]:focus:outline-none"
+              >
+                <feature.screen animated custom={{ isForwards, changeCount }} />
+              </Tab.Panel>
+            ) : null
+          )}
+          {/* </AnimatePresence> */}
+        </Tab.Panels>
       </div>
     </Tab.Group>
   );
@@ -155,17 +157,23 @@ export const FeatureMobile = () => {
                   className="animate-spin-slower"
                 />
               </div>
-              <PhoneFrame className="relative mx-auto w-full max-w-[366px]">
-                <feature.screen />
-              </PhoneFrame>
+
+              <feature.screen />
+
               <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
                 {/* <feature.icon className="h-8 w-8" /> */}
-                <Image className="h-16 w-16" src={feature.icon} alt="" height={10} width={10}/>
+                <Image
+                  className="h-16 w-16"
+                  src={feature.icon}
+                  alt=""
+                  height={10}
+                  width={10}
+                />
                 <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
-                {t(feature.name)}
+                  {t(feature.name)}
                 </h3>
                 <p className="mt-2 text-sm text-gray-400">
-                {t(feature.description)}
+                  {t(feature.description)}
                 </p>
               </div>
             </div>

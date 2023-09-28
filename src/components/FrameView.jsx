@@ -3,6 +3,7 @@ import AppScreen from "../components/AppScreen";
 import { motion } from "framer-motion";
 import { FaUser } from "react-icons/fa";
 import clsx from "clsx";
+import Image from "next/image";
 
 const MotionAppScreenHeader = motion(AppScreen.Header);
 const MotionAppScreenBody = motion(AppScreen.Body);
@@ -129,125 +130,30 @@ const bodyAnimation = {
 function FirstScreen({ custom, animated = false }) {
   return (
     <AppScreen className="w-full">
-      <MotionAppScreenHeader {...(animated ? headerAnimation : {})}>
-        <AppScreen.Title>Hi, Im Juan Pablo</AppScreen.Title>
-        <AppScreen.Subtitle>
-          How can I help you? 
-          {/* <span className="text-white">5s sooner</span> for every
-          invite. */}
-        </AppScreen.Subtitle>
-      </MotionAppScreenHeader>
-      <MotionAppScreenBody {...(animated ? { ...bodyAnimation, custom } : {})}>
-        <div className="px-4 py-6">
-          <div className="space-y-6">
-            {[
-              { label: "Full name", value: "Rocio Perez" },
-              { label: "Email address", value: "rocioperez@email.com" },
-            ].map((field) => (
-              <div key={field.label}>
-                <div className="text-sm text-gray-500">{field.label}</div>
-                <div className="mt-2 border-b border-gray-200 pb-2 text-sm text-gray-900">
-                  {field.value}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white">
-            Chat
-          </div>
-        </div>
-      </MotionAppScreenBody>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/nara2.webp"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
     </AppScreen>
   );
 }
 function SecondScreen({ custom, animated = false }) {
   return (
     <AppScreen className="w-full">
-      <MotionAppScreenHeader {...(animated ? headerAnimation : {})}>
-        <AppScreen.Title>Inbox</AppScreen.Title>
-        <AppScreen.Subtitle>March 9, 2022</AppScreen.Subtitle>
-      </MotionAppScreenHeader>
-      <MotionAppScreenBody {...(animated ? { ...bodyAnimation, custom } : {})}>
-        <div className="divide-y divide-gray-100 flex flex-col gap-4">
-          {[
-            {
-              name: "Rocio Perez",
-              price: "11:25hs",
-              change: "+1 wapp",
-              color: "#98C9F0",
-            },
-            {
-              name: "Juana Aliaga",
-              price: "11:24hs",
-              change: "+1 wapp",
-              color: "#98C9F0",
-            },
-            {
-              name: "Marcos Rauch",
-              price: "11:22hs",
-              change: "+1 chat",
-              color: "#98C9F0",
-            },
-            {
-              name: "Teo Libedo",
-              price: "11:20hs",
-              change: "+1 chat",
-              color: "#98C9F0",
-            },
-            {
-              name: "Miguel Acuña",
-              price: "11:18hs",
-              change: "+1 wapp",
-              color: "#98C9F0",
-            },
-            {
-              name: "Pedro Flores",
-              price: "11:15hs",
-              change: "+1 wapp",
-              color: "#98C9F0",
-            },
-            {
-              name: "Milagros Miranda",
-              price: "11:15hs",
-              change: "+1 wapp",
-              color: "#98C9F0",
-            },
-            {
-              name: "Francisco Gauss",
-              price: "11:13hs",
-              change: "+1 chat",
-              color: "#98C9F0",
-            },
-          ].map((stock) => (
-            <div key={stock.name} className="flex items-center gap-4 px-4 py-3">
-              <div
-                className="flex w-10 h-10 justify-center items-center rounded-full"
-                style={{ backgroundColor: stock.color }}
-              >
-                <FaUser className="text-xl text-white" />
-              </div>
-              <div className="flex-auto text-sm text-gray-900">
-                {stock.name}
-              </div>
-              <div className="flex-none text-right">
-                <div className="text-sm font-medium text-gray-900">
-                  {stock.price}
-                </div>
-                <div
-                  className={clsx(
-                    "text-xs leading-5",
-                    stock.change.startsWith("+")
-                      ? "text-blue-600"
-                      : "text-gray-500"
-                  )}
-                >
-                  {stock.change}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </MotionAppScreenBody>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/nara.webp"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
     </AppScreen>
   );
 }
@@ -255,53 +161,31 @@ function SecondScreen({ custom, animated = false }) {
 function ThirdScreen({ custom, animated = false }) {
   return (
     <AppScreen className="w-full">
-      <MotionAppScreenHeader {...(animated ? headerAnimation : {})}>
-        <AppScreen.Title>Broadcast Campaign</AppScreen.Title>
-        <AppScreen.Subtitle>
-          {/* <span className="text-white">$34.28</span>  */}
-          Reach a big audience, get started:
-        </AppScreen.Subtitle>
-      </MotionAppScreenHeader>
-      <MotionAppScreenBody {...(animated ? { ...bodyAnimation, custom } : {})}>
-        <div className="px-4 py-6">
-          <div className="space-y-4">
-            {[
-              { label: "Chats", value: "100" },
-              {
-                label: "Scope",
-                value: (
-                  <div className="flex">
-                    +5%
-                    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-                      <path
-                        d="M17 15V7H9M17 7 7 17"
-                        stroke="#2563eb"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                ),
-              },
-              { label: "Estimated cost", value: "$5.00" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="flex justify-between border-b border-gray-100 pb-4"
-              >
-                <div className="text-sm text-gray-500">{item.label}</div>
-                <div className="text-sm font-semibold text-gray-900">
-                  {item.value}
-                </div>
-              </div>
-            ))}
-            <div className="rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white">
-              Next
-            </div>
-          </div>
-        </div>
-      </MotionAppScreenBody>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/nara3.webp"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
+    </AppScreen>
+  );
+}
+
+function FourthScreen({ custom, animated = false }) {
+  return (
+    <AppScreen className="w-full">
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/nara4.webp"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
     </AppScreen>
   );
 }
@@ -309,30 +193,26 @@ function ThirdScreen({ custom, animated = false }) {
 export const features = [
   {
     name: "featureOneTitle",
-    description:
-      "featureOneSubtitle",
+    description: "featureOneSubtitle",
     icon: "/Elementos-2D-07.svg",
     screen: FirstScreen,
   },
   {
     name: "featureTwoTitle",
-    description:
-      "featureTwoSubtitle",
+    description: "featureTwoSubtitle",
     icon: "/Elementos-2D-08.svg",
     screen: SecondScreen,
   },
   {
     name: "featureThreeTitle",
-    description:
-      "featureThreeSubtitle",
+    description: "featureThreeSubtitle",
     icon: "/Elementos-2D-09.svg",
     screen: ThirdScreen,
   },
   {
     name: "featureFourTitle",
-    description:
-      "featureFourSubtitle",
+    description: "featureFourSubtitle",
     icon: "/Elementos-2D-13.svg",
-    screen: ThirdScreen,
+    screen: FourthScreen,
   },
 ];
