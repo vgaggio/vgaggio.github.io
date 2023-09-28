@@ -75,5 +75,14 @@
   "howTwoTitle": "BircleAI's AI creates your assistant",
   "howTwoSubtitle": "BircleAI's artificial intelligence technology analyzes and processes the selected content, turning it into an interactive conversational chat that provides instant responses to your users 24/7.",
   "howThreeTitle": "Ready to use on the channels your customers love",
-  "howThreeSubtitle": "The agent is omnichannel from the get-go, responding to your customers on the channels where they currently interact."
+  "howThreeSubtitle": "The agent is omnichannel from the get-go, responding to your customers on the channels where they currently interact.",
+  "appHello": "Hello!",
+  "appAnswerOne": "Hi there! Marcos here from BircleAI, nice to meet you! How can we assist you today?",
+  "appAnswerTwo": "We are doing well, thank you! How can we assist you today?",
+  "appAnswerThree": "An AI agent that facilitates customer communication for companies that market, sell and provide support through instant messaging and online chat.",
+  "appAnswerDefault": "Hi, Marcos here from BircleAI, nice to meet you! Our tool provides AI like-human chat agents for any use case, a fast way to create production-ready chats with your company data. How can we assist you today?",
+  "appTypeMessage": "Type a message",
+  "appCaseOne": "hello hi",
+  "appCaseTwo": "how are you?",
+  "appCaseThree": "what services do you offer?"
 }

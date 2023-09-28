@@ -75,12 +75,14 @@
   "howTwoTitle": "La IA de BircleAI crea tu asistente",
   "howTwoSubtitle": "La tecnología de inteligencia artificial de BircleAI analiza y procesa el contenido seleccionado, convirtiéndolo en un chat conversacional interactivo que brinda respuestas instantáneas a tus usuarios las 24 horas, los 7 días de la semana.",
   "howThreeTitle": "Listo para usar en los canales que a tus clientes les encantan",
-  "howThreeSubtitle": "El agente es omnicanal desde el principio, respondiendo a tus clientes en los canales en los que interactúan actualmente."
+  "howThreeSubtitle": "El agente es omnicanal desde el principio, respondiendo a tus clientes en los canales en los que interactúan actualmente.",
+  "appHello": "Hola!",
+  "appAnswerOne": "¡Hola! Soy Marcos de BircleAI, ¡Encantado de conocerte! ¿En qué podemos ayudarte hoy?",
+  "appAnswerTwo": "Estamos bien, ¡Gracias! ¿En qué podemos ayudarte hoy?",
+  "appAnswerThree": "Un agente de inteligencia artificial que facilita la comunicación con los clientes para empresas que agendan, venden y brindan soporte a través de mensajería instantánea y chats en línea.",
+  "appAnswerDefault": "Hola, soy Marcos de BircleAI, ¡Encantado de conocerte! Nuestra herramienta proporciona agentes de chat con inteligencia artificial que se comportan como humanos para cualquier caso de uso, una forma rápida de interactuar con tus clientes 24/7 con los datos de tu empresa. ¿En qué podemos ayudarte hoy?",
+  "appTypeMessage": "Escribe un mensaje",
+  "appCaseOne": "hola",
+  "appCaseTwo": "como estas?",
+  "appCaseThree": "que servicios ofrecen?"
 }
-
-
-
-
-
-
-  

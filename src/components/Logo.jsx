@@ -8,7 +8,7 @@ const Logo = ({ className, props }) => {
       <Image
         alt="header text"
         src="/logo2.svg"
-        className="object-cover "
+        className="object-cover"
         width={30}
         height={30}
       />

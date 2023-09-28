@@ -1,245 +1,161 @@
 "use client";
-import React, { useState, useId, useRef } from "react";
-import { motion, useInView, useMotionValue } from "framer-motion";
-import AppScreen from "./AppScreen";
+import React, { useState, useEffect } from "react";
+//import AppScreen from "./AppScreen";
 import clsx from "clsx";
+import "../app/AppFeature.css";
+import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
-const users = [
-  97, 140, 220, 650, 788, 996, 1805, 2320, 2999, 3688, 4250, 4965, 5478, 6020, 6680, 7295, 7800, 
-  8450, 9100, 9650, 10000, 10150, 11000, 11750, 12345, 13500, 14000, 15000, 15750, 16503, 17045, 
-  18568, 19056, 20057
-];
-
-const maxUsers = Math.max(...users);
-const minUsers = Math.min(...users);
-
-const Chart = ({
-  className,
-  activePointIndex,
-  onChangeActivePointIndex,
-  width: totalWidth,
-  height: totalHeight,
-  paddingX = 0,
-  paddingY = 0,
-  gridLines = 6,
-  ...props
-}) => {
-  let width = totalWidth - paddingX * 2;
-  let height = totalHeight - paddingY * 2;
-
-  let id = useId();
-  let svgRef = useRef();
-  let pathRef = useRef();
-  let isInView = useInView(svgRef, { amount: 0.5, once: true });
-  let pathWidth = useMotionValue(0);
-  let [interactionEnabled, setInteractionEnabled] = useState(false);
-
-  let path = "";
-  let points = [];
-
-  for (let index = 0; index < users.length; index++) {
-    let x = paddingX + (index / (users.length - 1)) * width;
-    let y =
-      paddingY +
-      (1 - (users[index] - minUsers) / (maxUsers - minUsers)) * height;
-    points.push({ x, y });
-    path += `${index === 0 ? "M" : "L"} ${x.toFixed(4)} ${y.toFixed(4)}`;
-  }
-
-  return (
-    <svg
-      ref={svgRef}
-      viewBox={`0 0 ${totalWidth} ${totalHeight}`}
-      className={clsx(className, "overflow-visible")}
-      {...(interactionEnabled
-        ? {
-            onPointerLeave: () => onChangeActivePointIndex(null),
-            onPointerMove: (event) => {
-              let x = event.nativeEvent.offsetX;
-              let closestPointIndex;
-              let closestDistance = Infinity;
-              for (
-                let pointIndex = 0;
-                pointIndex < points.length;
-                pointIndex++
-              ) {
-                let point = points[pointIndex];
-                let distance = Math.abs(point.x - x);
-                if (distance < closestDistance) {
-                  closestDistance = distance;
-                  closestPointIndex = pointIndex;
-                } else {
-                  break;
-                }
-              }
-              onChangeActivePointIndex(closestPointIndex);
-            },
-          }
-        : {})}
-      {...props}
-    >
-      <defs>
-        <clipPath id={`${id}-clip`}>
-          <path d={`${path} V ${height + paddingY} H ${paddingX} Z`} />
-        </clipPath>
-        <linearGradient id={`${id}-gradient`} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#1d4ed8" />
-          <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {[...Array(gridLines - 1).keys()].map((index) => (
-        <line
-          key={index}
-          stroke="#a3a3a3"
-          opacity="0.1"
-          x1="0"
-          y1={(totalHeight / gridLines) * (index + 1)}
-          x2={totalWidth}
-          y2={(totalHeight / gridLines) * (index + 1)}
-        />
-      ))}
-      <motion.rect
-        y={paddingY}
-        width={pathWidth}
-        height={height}
-        fill={`url(#${id}-gradient)`}
-        clipPath={`url(#${id}-clip)`}
-        opacity="0.5"
-      />
-      <motion.path
-        ref={pathRef}
-        d={path}
-        fill="none"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={{ pathLength: 0 }}
-        transition={{ duration: 1 }}
-        {...(isInView ? { stroke: "#3b82f6", animate: { pathLength: 1 } } : {})}
-        onUpdate={({ pathLength }) => {
-          pathWidth.set(
-            pathRef.current.getPointAtLength(
-              pathLength * pathRef.current.getTotalLength()
-            ).x
-          );
-        }}
-        onAnimationComplete={() => setInteractionEnabled(true)}
-      />
-      {activePointIndex !== null && (
-        <>
-          <line
-            x1="0"
-            y1={points[activePointIndex].y}
-            x2={totalWidth}
-            y2={points[activePointIndex].y}
-            stroke="#06b6d4"
-            strokeDasharray="1 3"
-          />
-          <circle
-            r="4"
-            cx={points[activePointIndex].x}
-            cy={points[activePointIndex].y}
-            fill="#fff"
-            strokeWidth="2"
-            stroke="#06b6d4"
-          />
-        </>
-      )}
-    </svg>
-  );
-};
 const AppFeature = () => {
-  let [activePointIndex, setActivePointIndex] = useState(null);
-  let activePriceIndex = activePointIndex ?? users.length - 1;
-  let activeValue = users[activePriceIndex];
-  let previousValue = users[activePriceIndex - 1];
-  let percentageChange =
-    activePriceIndex === 0
-      ? null
-      : ((activeValue - previousValue) / previousValue) * 100;
+  const { t } = useTranslation();
+  const [messages, setMessages] = useState([
+    { id: 1, user: "You", text: t("appHello") },
+  ]);
+  const [newMessage, setNewMessage] = useState("");
+
+  const handleSendMessage = () => {
+    if (newMessage.trim()) {
+      setMessages([
+        ...messages,
+        { id: messages.length + 1, user: "You", text: newMessage },
+      ]);
+      setNewMessage("");
+    }
+  };
+
+  useEffect(() => {
+    if (messages.length && messages[messages.length - 1].user === 'You') {
+      const userMessage = messages[messages.length - 1].text.toLowerCase();
+      let replyText = '';
+
+      switch (userMessage) {
+        case t("appCaseOne"):
+          replyText = t("appAnswerOne");
+          break;
+        case t("appCaseTwo"):
+          replyText = t("appAnswerTwo");
+          break;
+        case t("appCaseThree"):
+          replyText = t("appAnswerThree");
+          break;
+        default:
+          replyText = t("appAnswerDefault");
+      }
+
+      const timeoutId = setTimeout(() => {
+        setMessages([...messages, { id: messages.length + 1, user: 'BircleAI', text: replyText }]);
+      }, 1000);
+
+      return () => clearTimeout(timeoutId);  // Clear timeout if component unmounts
+    }
+  }, [messages]);
+
   return (
-    <AppScreen>
-      <AppScreen.Body>
-        <div className="p-4">
-          <div className="flex gap-2">
-            {/* <div className="text-xs leading-6 text-gray-500">
-              Hola
-            </div> */}
-            <div className="text-sm text-gray-900">Sanatorio Allende</div>
-            <svg viewBox="0 0 24 24" className="ml-auto h-6 w-6" fill="none">
-              <path
-                d="M5 12a7 7 0 1 1 14 0 7 7 0 0 1-14 0ZM12 9v6M15 12H9"
-                stroke="#171717"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+    <div
+      className="whatsapp-simulation"
+      style={{
+        backgroundImage:
+          "url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')",
+      }}
+    >
+      <header className="chat-header">
+        <div className="header-content">
+          <div className="header-title">
+            <Image
+              alt="header text"
+              src="/logo2.svg"
+              className="object-cover invert mr-2"
+              width={30}
+              height={30}
+            />
+            BircleAI
+            <svg
+              className="checkmark"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="#075E54"
+            >
+              <path d="M14.3 5.7a.999.999 0 0 1 1.4 1.4l-8 8a.997.997 0 0 1-1.4 0l-4-4a.999.999 0 1 1 1.4-1.4l3.3 3.3 7.3-7.3z" />
             </svg>
           </div>
-          {/*  */}
-          <div className="mt-3 border-t border-gray-200 pt-5">
-            <div className="flex items-baseline gap-2">
-              <div className="text-2xl tabular-nums tracking-tight text-gray-900">
-                {activeValue.toFixed(2)}
-              </div>
-              <div className="text-sm text-gray-900">Users</div>
-              {percentageChange && (
-                <div
-                  className={clsx(
-                    "ml-auto text-sm tabular-nums tracking-tight",
-                    percentageChange >= 0 ? "text-blue-500" : "text-gray-500"
-                  )}
-                >
-                  {`${
-                    percentageChange >= 0 ? "+" : ""
-                  }${percentageChange.toFixed(2)}%`}
-                </div>
-              )}
-            </div>
-            {/*  */}
-            <div className="mt-6 flex gap-4 text-xs text-gray-500">
-              <div>1D</div>
-              <div>5D</div>
-              <div className="font-semibold text-blue-600">1M</div>
-              <div>6M</div>
-              <div>1Y</div>
-              <div>5Y</div>
-            </div>
-            {/*  */}
-            <div className="mt-3 rounded-lg bg-gray-50 ring-1 ring-inset ring-black/5">
-              <Chart
-                width={286}
-                height={208}
-                paddingX={16}
-                paddingY={32}
-                activePointIndex={activePointIndex}
-                onChangeActivePointIndex={setActivePointIndex}
-              />
-            </div>
-            {/*  */}
-            <div className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-center text-sm font-semibold text-white">
-              Details
-            </div>
-            {/*  */}
-            <div className="mt-3 divide-y divide-gray-100 text-sm">
-              <div className="flex justify-between py-1">
-                <div className="text-gray-500">First week</div>
-                <div className="font-medium text-gray-900">1805</div>
-              </div>
-              <div className="flex justify-between py-1">
-                <div className="text-gray-500">Last week</div>
-                <div className="font-medium text-gray-900">20057</div>
-              </div>
-              {/* <div className="flex justify-between py-1">
-                <div className="text-gray-500">Average</div>
-                <div className="font-medium text-gray-900">6,322.01</div>
-              </div> */}
-            </div>
-          </div>
+          {/* Additional header elements can go here */}
         </div>
-      </AppScreen.Body>
-    </AppScreen>
+      </header>
+      <div className="chat-body" style={styles.chatBody}>
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            className={`message `}
+            style={message.user === "You" ? styles.sent : styles.received}
+          >
+            <div className="message-text">{message.text}</div>
+          </div>
+        ))}
+      </div>
+      <div className="chat-footer" style={styles.chatFooter}>
+        <input
+          style={styles.input}
+          type="text"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+          placeholder= {t("appTypeMessage")}
+        />
+        <button onClick={handleSendMessage} style={styles.button}>
+        <Image
+              alt="header text"
+              src="/send.svg"
+              className="object-cover"
+              width={30}
+              height={30}
+            />
+        </button>
+      </div>
+    </div>
   );
 };
 
 export default AppFeature;
+
+// Styles
+const styles = {
+  sent: {
+    margin: "10px 0",
+    padding: "10px",
+    borderRadius: "10px",
+    backgroundColor: "#dcf8c6",
+    alignSelf: "flex-end",
+    marginRight: "10px",
+  },
+  received: {
+    margin: "10px 0",
+    padding: "10px",
+    borderRadius: "10px",
+    backgroundColor: "#ffffff",
+    alignSelf: "flex-start",
+    marginLeft: "10px",
+  },
+  chatBody: {
+    display: "flex",
+    flexDirection: "column",
+    padding: "10px",
+    overflowY: "auto",
+  },
+  chatFooter: {
+    display: "flex",
+    justifyContent: "space-around",
+    padding: "10px",
+    borderTop: "1px solid #ccc",
+  },
+  input: {
+    padding: "19px",
+    height: "40px",
+    borderRadius: "10px",
+    textAlign: "center",
+  },
+  button: {
+    padding: "5px",
+    height: "40px",
+    borderRadius: "10px",
+    backgroundColor: "#dcf8c6",
+  },
+};
