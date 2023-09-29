@@ -5,15 +5,17 @@ import Footer from "../components/Footer";
 import { appWithTranslation } from "next-i18next";
 import "../../i18n";
 import { metadata } from './metadata';
+import Head from "next/head";
 
 function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <meta property="og:logo" content={`${DOMAIN}/logo2.svg`}></meta>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-      </head>
+        <meta property="og:image" content={`${DOMAIN}/logo2.svg`}></meta>
+      </Head>
       <body>
         <Header />
         {children}
