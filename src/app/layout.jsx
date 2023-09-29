@@ -11,10 +11,10 @@ const DOMAIN = "https://bircle-aiwebsite.vercel.app";
   return (
     <html lang="en">
       <head>
-        <meta property="og:logo" content={`${DOMAIN}/forma-BLANCO.png`}></meta>
+        <meta property="og:logo" content={`${DOMAIN}/forma-NEGRO.png`}></meta>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <meta property="og:image" content={`${DOMAIN}/forma-BLANCO.png`}></meta>
+        <meta property="og:image" content={`${DOMAIN}/forma-NEGRO.png`}></meta>
       </head>
       <body>
         <Header />
