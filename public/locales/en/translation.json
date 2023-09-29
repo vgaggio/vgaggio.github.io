@@ -80,7 +80,7 @@
   "appAnswerOne": "Hi there! Marcos here from BircleAI, nice to meet you! How can we assist you today?",
   "appAnswerTwo": "We are doing well, thank you! How can we assist you today?",
   "appAnswerThree": "An AI agent that facilitates customer communication for companies that market, sell and provide support through instant messaging and online chat.",
-  "appAnswerDefault": "Hi, Marcos here from BircleAI, nice to meet you! Our tool provides AI like-human chat agents for any use case, a fast way to create production-ready chats with your company data. How can we assist you today?",
+  "appAnswerDefault": "Hi, Marcos here from BircleAI, nice to meet you! Our tool provides AI like-human chat agents for any use case, a fast way to create production-ready chats with your company data... we call it: talk to software! How can we assist you today?",
   "appTypeMessage": "Type a message",
   "appCaseOne": "hello hi",
   "appCaseTwo": "how are you?",

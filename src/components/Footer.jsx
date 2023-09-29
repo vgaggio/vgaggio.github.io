@@ -15,20 +15,6 @@ const Footer = () => {
             &copy; Copyright - BircleAI © Bircle Corp.{" "}
             {new Date().getFullYear()}. {t("allRightsReserved")}
           </p>
-          {/* <form className="flex w-full justify-center md:w-auto mt-6 md:mt-0">
-            <TextField
-              type="email"
-              aria-label="Email address"
-              placeholder="Email address"
-              autoComplete="email"
-              required
-              className="w-60 min-w-0 shrink"
-            />
-            <Button type="submit" color="blue" className="ml-4 flex-none">
-              <span className="hidden lg:inline">Join our newsletter</span>
-              <span className="lg:hidden">Join newsletter</span>
-            </Button>
-          </form> */}
           <div className="flex w-full justify-center md:w-auto mt-6 md:mt-0">
             <Link
               href="https://twitter.com/BircleAI"

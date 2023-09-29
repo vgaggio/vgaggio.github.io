@@ -60,19 +60,19 @@ export const howData = [
     name: "howOneTitle",
     description:
       "howOneSubtitle",
-    icon: "/Elementos-2D-10.svg",
+    icon: "/uno.svg",
   },
   {
     name: "howTwoTitle",
     description:
       "howTwoSubtitle",
-    icon: "/Elementos-2D-15.svg",
+    icon: "/dos.svg",
   },
   {
     name: "howThreeTitle",
     description:
       "howThreeSubtitle",
-    icon: "/Elementos-2D-15.svg",
+    icon: "/tres.svg",
   },
 ];
 

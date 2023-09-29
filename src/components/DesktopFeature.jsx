@@ -2,11 +2,10 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Tab } from "@headlessui/react";
 import { useDebouncedCallback } from "use-debounce";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import clsx from "clsx";
 import { features } from "./FrameView";
 import CircleBackground from "./CircleBackground";
-import PhoneFrame from "./PhoneFrame";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
@@ -78,7 +77,7 @@ const DesktopFeature = () => {
       </Tab.List>
       <div className="relative col-span-6">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <CircleBackground color="#2563eb" className="animate-spin-slower" />
+          <CircleBackground color="#98C9F0" className="animate-spin-slower" />
         </div>
 
         <Tab.Panels as={Fragment}>
@@ -93,7 +92,7 @@ const DesktopFeature = () => {
                 key={feature.name + changeCount}
                 className="col-start-1 row-start-1 flex focus:outline-offset-[32px] [&:not(:focus-visible)]:focus:outline-none"
               >
-                <feature.screen animated custom={{ isForwards, changeCount }} />
+                {/* <feature.screen animated custom={{ isForwards, changeCount }} /> */}
               </Tab.Panel>
             ) : null
           )}
@@ -153,14 +152,14 @@ export const FeatureMobile = () => {
             <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6">
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <CircleBackground
-                  color="#2563eb"
+                  color="#98C9F0"
                   className="animate-spin-slower"
                 />
               </div>
 
-              <feature.screen />
+              {/* <feature.screen /> */}
 
-              <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
+              <div className="inset-x-0 bottom-0 p-6 backdrop-blur sm:p-10">
                 {/* <feature.icon className="h-8 w-8" /> */}
                 <Image
                   className="h-16 w-16"
