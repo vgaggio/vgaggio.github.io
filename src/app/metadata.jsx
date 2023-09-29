@@ -1,8 +1,6 @@
-import LogoBlack from "../components/LogoBlack";
-
 // metadata.js
 export const metadata = {
-    image: <LogoBlack />,
+    image: "logo2.svg",
     title: "BircleAI",
     description: "Generate your dream chat in seconds.",
   };
