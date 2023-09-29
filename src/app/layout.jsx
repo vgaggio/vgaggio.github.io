@@ -6,10 +6,8 @@ import { appWithTranslation } from "next-i18next";
 import "../../i18n";
 import { metadata } from './metadata';
 
-const DOMAIN = "https://bircle-aiwebsite.vercel.app";
-
 function RootLayout({ children }) {
-  
+const DOMAIN = "https://bircle-aiwebsite.vercel.app";
   return (
     <html lang="en">
       <head>
