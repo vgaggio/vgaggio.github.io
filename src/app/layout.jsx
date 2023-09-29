@@ -7,7 +7,7 @@ import "../../i18n";
 import { metadata } from './metadata';
 
 function RootLayout({ children }) {
-const DOMAIN = "https://bircle-aiwebsite.vercel.app";
+const DOMAIN = "https://bircle.ai";
   return (
     <html lang="en">
       <head>
