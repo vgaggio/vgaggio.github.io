@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import { appWithTranslation } from "next-i18next";
 import "../../i18n";
 import { metadata } from './metadata';
-import Head from "next/head";
 
 const DOMAIN = "https://bircle-aiwebsite.vercel.app";
 
