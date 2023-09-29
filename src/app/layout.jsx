@@ -10,14 +10,15 @@ import Head from "next/head";
 const DOMAIN = "https://bircle-aiwebsite.vercel.app";
 
 function RootLayout({ children }) {
+  
   return (
     <html lang="en">
-      <Head>
+      <head>
         <meta property="og:logo" content={`${DOMAIN}/logo2.svg`}></meta>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta property="og:image" content={`${DOMAIN}/logo2.svg`}></meta>
-      </Head>
+      </head>
       <body>
         <Header />
         {children}
