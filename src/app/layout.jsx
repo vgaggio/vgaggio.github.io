@@ -10,7 +10,7 @@ function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta property="image" content={metadata.image} />
+        <meta property="og:image" content={metadata.image} />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
