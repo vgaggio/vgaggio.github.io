@@ -5,13 +5,12 @@ import Footer from "../components/Footer";
 import { appWithTranslation } from "next-i18next";
 import "../../i18n";
 import { metadata } from './metadata';
-import LogoBlack from "../components/LogoBlack";
 
 function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta property="og:image" content={metadata.image} />
+        <meta property="image" content={metadata.image} />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
