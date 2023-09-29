@@ -11,7 +11,7 @@ function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta image />
+        <meta property="image" content={metadata.image} />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
