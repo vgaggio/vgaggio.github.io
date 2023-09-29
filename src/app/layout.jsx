@@ -2,20 +2,17 @@
 import Header from "../components/Header";
 import "./globals.css";
 import Footer from "../components/Footer";
-import LogoBlack from "../components/LogoBlack";
 import { appWithTranslation } from "next-i18next";
-
 import "../../i18n";
-
-// export const metadata = {
-//   image: <LogoBlack />,
-//   title: "BircleAI",
-//   description: "Generate your dream chat in seconds.",
-// };
+import { metadata } from './metadata';
 
 function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </head>
       <body>
         <Header />
         {children}

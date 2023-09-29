@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-//import AppScreen from "./AppScreen";
-import clsx from "clsx";
 import "../app/AppFeature.css";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
@@ -145,7 +143,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-around",
     padding: "10px",
-    borderTop: "1px solid #ccc",
+    borderTop: "2px solid #ccc",
   },
   input: {
     padding: "19px",
