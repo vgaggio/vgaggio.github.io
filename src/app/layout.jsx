@@ -7,6 +7,8 @@ import "../../i18n";
 import { metadata } from './metadata';
 import Head from "next/head";
 
+const DOMAIN = "https://bircle-aiwebsite.vercel.app";
+
 function RootLayout({ children }) {
   return (
     <html lang="en">
