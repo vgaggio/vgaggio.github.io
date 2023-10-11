@@ -4,7 +4,7 @@ import Container from "./Container";
 import Title from "./Title";
 import Button from "./Button";
 import { BsPlayCircle } from "react-icons/bs";
-import ExtraLogos from "./ExtraLogos";
+// import ExtraLogos from "./ExtraLogos";
 import BackgroundDesign from "./BackgroundDesign";
 import PhoneFrame from "./PhoneFrame";
 import AppFeature from "./AppFeature";
@@ -57,7 +57,7 @@ const Hero = () => {
               </PhoneFrame>
             </div>
           </div>
-          <ExtraLogos />
+          {/* <ExtraLogos /> */}
         </div>
       </Container>
     </section>
