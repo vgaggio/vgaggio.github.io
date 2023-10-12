@@ -11,10 +11,10 @@ const DOMAIN = "https://bircle.ai";
   return (
     <html lang="en">
       <head>
-        <meta property="og:logo" content={`${DOMAIN}/forma-NEGRO.png`}></meta>
+        <meta property="og:logo" content={`${DOMAIN}/BircleAI.png`}></meta>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <meta property="og:image" content={`${DOMAIN}/forma-NEGRO.png`}></meta>
+        <meta property="og:image" content={`${DOMAIN}/BircleAI.png`}></meta>
       </head>
       <body>
         <Header />
