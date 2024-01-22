@@ -4,14 +4,14 @@ import CircleBackgroundBig from "./CircleBackgroundBig";
 import Container from "./Container";
 import Title from "./Title";
 
-import logoWharton from "../images/logos/wharton-sin-color.svg";
-import logoPlatanus from "../images/logos/platanusventures-blanco.svg";
-import logoLatitud from "../images/logos/latitud-logo.svg";
-import logoAWS from "../images/logos/aws-blanco.svg";
-import logoOpen from "../images/logos/openai.svg";
-import logoCypher from "../images/logos/cypher-sin-color.svg";
+import logoWharton from "../../images/logos/wharton-sin-color.svg";
+import logoPlatanus from "../../images/logos/platanusventures-blanco.svg";
+import logoLatitud from "../../images/logos/latitud-logo.svg";
+import logoAWS from "../../images/logos/aws-blanco.svg";
+import logoOpen from "../../images/logos/openai.svg";
+import logoCypher from "../../images/logos/cypher-sin-color.svg";
 //import logoMicrosoft from "@/images/logos/microsoft.svg";
-//import logoCypherB from "../images/logos/cypher-sin-color.svg";
+//import logoCypherB from "../../images/logos/cypher-sin-color.svg";
 
 import Image from "next/image";
 import { useTranslation } from "next-i18next";

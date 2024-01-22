@@ -2,7 +2,7 @@
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
-import { howData } from "../constants";
+import { howData } from "../../constants";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 

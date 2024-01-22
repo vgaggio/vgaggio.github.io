@@ -5,7 +5,7 @@
 //   // DeviceListIcon,
 //   DeviceLockIcon,
 //   // DeviceChartIcon,
-// } from "../components/StockLogos";
+// } from "../components/customersupport/StockLogos";
 
 
 export const navData = [

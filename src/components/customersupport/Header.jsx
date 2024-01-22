@@ -7,7 +7,7 @@ import Button from "./Button";
 import { Popover } from "@headlessui/react";
 import { TbMenu2 } from "react-icons/tb";
 import { IoIosArrowUp } from "react-icons/io";
-import { navData } from "../constants";
+import { navData } from "../../constants";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";

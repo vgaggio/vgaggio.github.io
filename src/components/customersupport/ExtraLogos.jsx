@@ -1,4 +1,4 @@
-import logoSA from "../images/logos/sanatorioallende.svg";
+import logoSA from "../../images/logos/sanatorioallende.svg";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 

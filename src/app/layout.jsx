@@ -1,7 +1,7 @@
 "use client";
-import Header from "../components/Header";
+import Header from "../components/customersupport/Header";
 import "./globals.css";
-import Footer from "../components/Footer";
+import Footer from "../components/customersupport/Footer";
 import { appWithTranslation } from "next-i18next";
 import "../../i18n";
 import { metadata } from './metadata';
