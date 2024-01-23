@@ -1,5 +1,5 @@
 // metadata.js
 export const metadata = {
     title: "BircleAI",
-    description: "Our solution provides 24/7 answers to your customer's queries, retaining them and increasing their satisfaction."
+    description: "Start getting paid on autopilot, with AI agents acting as your best and most respectful debt collector."
   };
