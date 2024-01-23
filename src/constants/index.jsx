@@ -41,6 +41,7 @@ export const modelData = [
       "modelFourSubtitle",
       icon: "/Elementos-2D-04.svg",
   },
+
   // {
   //   name: "Privacy-first features",
   //   description:
@@ -54,6 +55,34 @@ export const modelData = [
   //   icon: DeviceChartIcon,
   // },
 ];
+
+export const modelDataCol = [
+  {
+    name: "modelOneTitleCol",
+    description:
+      "modelOneSubtitleCol",
+    icon: "/Elementos-2D-01.svg",
+  },
+  {
+    name: "modelTwoTitleCol",
+    description:
+      "modelTwoSubtitleCol",
+      icon: "/Elementos-2D-02.svg",
+  },
+  {
+    name: "modelThreeTitleCol",
+    description:
+      "modelThreeSubtitleCol",
+      icon: "/Elementos-2D-03.svg",
+  },
+  {
+    name: "modelFourTitleCol",
+    description:
+      "modelFourSubtitleCol",
+      icon: "/Elementos-2D-04.svg",
+  },
+  
+]
 
 export const howData = [
   {
@@ -76,6 +105,27 @@ export const howData = [
   },
 ];
 
+export const howDataCol = [
+  {
+    name: "howOneTitleCol",
+    description:
+      "howOneSubtitleCol",
+    icon: "/uno.svg",
+  },
+  {
+    name: "howTwoTitleCol",
+    description:
+      "howTwoSubtitleCol",
+    icon: "/dos.svg",
+  },
+  {
+    name: "howThreeTitleCol",
+    description:
+      "howThreeSubtitleCol",
+    icon: "/tres.svg",
+  },
+];
+
 export const pricingData = [
   {
     name: "pricingOneTitle",
@@ -91,6 +141,25 @@ export const pricingData = [
       "pricingTwoSubtitle",
     ammount: 
       "pricingTwoAmmount",
+    icon: "/Elementos-2D-15.svg",
+  },
+];
+
+export const pricingDataCol = [
+  {
+    name: "pricingOneTitleCol",
+    description:
+      "pricingOneSubtitleCol",
+    ammount: 
+      "pricingOneAmmountCol",
+    icon: "/Elementos-2D-10.svg",
+  },
+  {
+    name: "pricingTwoTitleCol",
+    description:
+      "pricingTwoSubtitleCol",
+    ammount: 
+      "pricingTwoAmmountCol",
     icon: "/Elementos-2D-15.svg",
   },
 ];

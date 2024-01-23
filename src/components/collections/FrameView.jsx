@@ -111,26 +111,26 @@ function FourthScreen({ custom, animated = false }) {
 
 export const features = [
   {
-    name: "featureOneTitle",
-    description: "featureOneSubtitle",
+    name: "featureOneTitleCol",
+    description: "featureOneSubtitleCol",
     icon: "/Elementos-2D-16.svg",
     screen: FirstScreen,
   },
   {
-    name: "featureTwoTitle",
-    description: "featureTwoSubtitle",
+    name: "featureTwoTitleCol",
+    description: "featureTwoSubtitleCol",
     icon: "/Elementos-2D-08.svg",
     screen: SecondScreen,
   },
   {
-    name: "featureThreeTitle",
-    description: "featureThreeSubtitle",
+    name: "featureThreeTitleCol",
+    description: "featureThreeSubtitleCol",
     icon: "/Elementos-2D-12.svg",
     screen: ThirdScreen,
   },
   {
-    name: "featureFourTitle",
-    description: "featureFourSubtitle",
+    name: "featureFourTitleCol",
+    description: "featureFourSubtitleCol",
     icon: "/Elementos-2D-06.svg",
     screen: FourthScreen,
   },
