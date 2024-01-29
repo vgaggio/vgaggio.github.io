@@ -9,7 +9,7 @@ import { metadata } from './metadata';
 function RootLayout({ children }) {
 const DOMAIN = "https://bircle.ai";
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <meta property="og:logo" content={`${DOMAIN}/BircleAI.png`}></meta>
         <title>{metadata.title}</title>
