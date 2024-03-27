@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../../app/AppFeature.css";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import Typewriter from "./Typewriter";
-
+import Typewriter from "../collections/TypeWriter"
 
 const AppFeature = () => {
   const { t } = useTranslation();

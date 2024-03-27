@@ -16,7 +16,7 @@ export const navData = [
   { _id: 105, title: "pricing", href: "#pricing" },
 ];
 
-/*
+
 export const modelData = [
   {
     name: "modelOneTitle",
@@ -55,7 +55,7 @@ export const modelData = [
   //     "Edit the prompt to prevent hallucinations, maintain voice and format requirements.",
   //   icon: DeviceChartIcon,
   // },
-];*/
+];
 
 /*
 export const modelDataCol = [
