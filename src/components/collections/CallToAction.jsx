@@ -19,9 +19,9 @@ const CallToAction = () => {
         <div className="mx-auto max-w-md sm:text-center">
           <Title
             title={t('manageAllCommunicationsTitleCol')}
-            className="text-3xl text-white sm:text-4xl"
+            className="text-3xl text-white sm:text-4xl text-center"
           />
-          <p className="mt-4 text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300 text-center">
           {t('manageAllCommunicationsSubtitleCol')}
           </p>
         </div>

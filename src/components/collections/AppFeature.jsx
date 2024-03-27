@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import "../../app/AppFeature.css";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
+import Typewriter from "./Typewriter";
+
 
 const AppFeature = () => {
   const { t } = useTranslation();
@@ -22,9 +24,9 @@ const AppFeature = () => {
   };
 
   useEffect(() => {
-    if (messages.length && messages[messages.length - 1].user === 'You') {
+    if (messages.length && messages[messages.length - 1].user === "You") {
       const userMessage = messages[messages.length - 1].text.toLowerCase();
-      let replyText = '';
+      let replyText = "";
 
       switch (userMessage) {
         case t("appCaseOne"):
@@ -42,10 +44,13 @@ const AppFeature = () => {
       }
 
       const timeoutId = setTimeout(() => {
-        setMessages([...messages, { id: messages.length + 1, user: 'BircleAI', text: replyText }]);
+        setMessages([
+          ...messages,
+          { id: messages.length + 1, user: "BircleAI", text: replyText },
+        ]);
       }, 1000);
 
-      return () => clearTimeout(timeoutId);  // Clear timeout if component unmounts
+      return () => clearTimeout(timeoutId); // Clear timeout if component unmounts
     }
   }, [messages]);
 
@@ -87,27 +92,85 @@ const AppFeature = () => {
             className={`message `}
             style={message.user === "You" ? styles.sent : styles.received}
           >
-            <div className="message-text">{message.text}</div>
+            <div className="message-text">
+              {/* Texto con efecto de máquina de escribir */}
+              <Typewriter text={message.text} initialDelay={3000} />
+            </div>
+
+            {/* Enlace con icono */}
+            {/* Enlace con imagen y texto */}
+            {message.user !== "You" && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <hr
+                  style={{
+                    width: "100%",
+                    borderTop: "1px solid #ccc",
+                    marginBottom: "8px",
+                    marginTop: "5px",
+                    opacity: 0,
+                    animation: "fade-in 1s ease-in-out 11s forwards",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    opacity: 0,
+                    animation: "fade-in 1s ease-in-out 12s forwards",
+                  }}
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZqUILjGqzxIBEFOTgrRoBSKWwDmC1vh_Mhz8zD515f3SYl5VKsBWA7nycHxkYmLFGvo&usqp=CAU" 
+                    alt="Icono de enlace"
+                    style={{
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  />
+                  <a
+                    href="https://api.whatsapp.com/send?phone=5493516152680"
+                    className="button"
+                    style={{
+                      opacity: 0,
+                      animation: "fade-in 1s ease-in-out 11s forwards",
+                      transition: "color 0.3s ease", 
+                      color: "black", 
+                    }}
+                    onMouseOver={(e) => (e.target.style.color = "#87CEEB")} 
+                    onMouseOut={(e) => (e.target.style.color = "black")}
+                  >
+                    Ir a pagar
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
+
       <div className="chat-footer" style={styles.chatFooter}>
         <input
           style={styles.input}
           type="text"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
-          placeholder= {t("appTypeMessage")}
+          placeholder={t("appTypeMessage")}
           disabled
         />
         <button onClick={handleSendMessage} style={styles.button} disabled>
-        <Image
-              alt="header text"
-              src="/send.svg"
-              className="object-cover"
-              width={30}
-              height={30}
-            />
+          <Image
+            alt="header text"
+            src="/send.svg"
+            className="object-cover"
+            width={30}
+            height={30}
+          />
         </button>
       </div>
     </div>
@@ -115,6 +178,12 @@ const AppFeature = () => {
 };
 
 export default AppFeature;
+
+
+
+
+
+
 
 // Styles
 const styles = {

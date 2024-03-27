@@ -11,10 +11,10 @@ function Home() {
   return (
     <main>
       <Hero />
-      <Feature />
       <Model />
-      <CallToAction />
+      <Feature />
       <HowItWorks />
+      <CallToAction />
       <Pricing />
       <BackedBy />
       <InterestedIn />

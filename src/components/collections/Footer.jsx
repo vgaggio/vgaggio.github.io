@@ -10,8 +10,8 @@ const Footer = () => {
   return (
     <footer>
       <Container>
-        <div className="flex flex-col items-center border-t border-gray-200 pb-12 pt-8 md:flex-row md:justify-between md:pt-6">
-          <p className="text-xs text-gray-500">
+      <div className="flex flex-col items-center border-t border-gray-200 pb-8 pt-8 md:flex-row md:justify-between ">
+          <p className="text-xs text-gray-500 text-center ">
             &copy; Copyright - BircleAI © Bircle Corp.{" "}
             {new Date().getFullYear()}. {t("allRightsReserved")}
           </p>

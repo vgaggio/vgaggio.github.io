@@ -8,13 +8,15 @@ import Button from "./Button";
 
 const InterestedIn = () => {
   const { t } = useTranslation();
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 500;
+
   return (
-    <section>
+    <section className={isMobile ? "py-10" : "py-20"}>
       <Container id="interestedin" aria-label="Features for building a portfolio">
-        <div className="py-20 sm:py-32">
-          <div className="mx-auto max-w-2xl sm:text-center">
+        <div >
+          <div className="mx-auto max-w-l text-center">
             <Title title={t('interestedInTitleCol')} className="text-2xl" />
-            <p className="mt-2 text-lg text-gray-600">{t('interestedInSubtitleCol')}</p>
+            <p className="mt-2 text-lg text-gray-600 text-center">{t('interestedInSubtitleCol')}</p>
             {/* Asegúrate de que el botón esté visible y centrado */}
             <div className="mt-4 flex justify-center">
               <Button
