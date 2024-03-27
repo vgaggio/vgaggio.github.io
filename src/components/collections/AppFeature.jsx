@@ -124,7 +124,7 @@ const AppFeature = () => {
                     animation: "fade-in 1s ease-in-out 12s forwards",
                   }}
                 >
-                  <img
+                  <Image
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZqUILjGqzxIBEFOTgrRoBSKWwDmC1vh_Mhz8zD515f3SYl5VKsBWA7nycHxkYmLFGvo&usqp=CAU" 
                     alt="Icono de enlace"
                     style={{
