@@ -103,6 +103,7 @@
   "featureThreeTitleCol": "Intuitive dashboard and real-time metrics.",
   "featureThreeSubtitleCol": "Manage all the available information about your clients and the status of their payments in real time. Access precise reports to better understand your client and their payment behavior.",
   "featureFourTitleCol": "Billing and automatic reconciliation.",
+  "featureFourSubtitleCol": "Automatically synchronize your paid and pending invoices, automatically reconciling your collections.",
   "_modelTitleCol": "Train the model to be your best employee!",
   "_modelSubtitleCol": "Easily teach your model.",
   "_modelOneTitleCol": "100% Customizable",
@@ -132,9 +133,8 @@
   "pricingTwoTitleCol": "Business",
   "pricingTwoSubtitleCol": "Aimed at teams requiring advanced solutions, tailored to their needs and requirements.",
   "pricingTwoAmmountCol": "Customized/month.",
-  "pricingButton":"",
+  "pricingButton":"Know us!",
   "interestedInTitleCol": "Interested in our customer service and sales solution?",
   "interestedInSubtitleCol": "Delighted to tell you more.",
   "interestedInButtonTitleCol": "Click here!"
-
 }
