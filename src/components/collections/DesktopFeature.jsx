@@ -158,25 +158,22 @@ export const FeatureMobile = () => {
   }, [activeIndex, isVisible]);
 
   return (
-    <div className="h-auto">
+    
+    <div className="h-auto flex flex-col">
+  <div
+    ref={slideContainerRef}
+    className="-mb-4 flex snap-x snap-mandatory -space-x-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 [scrollbar-width:none] sm:-space-x-6 [&::-webkit-scrollbar]:hidden"
+  >
+    {features.map((feature, featureIndex) => (
       <div
-        ref={slideContainerRef}
-        className="-mb-4 flex snap-x snap-mandatory -space-x-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 [scrollbar-width:none] sm:-space-x-6 [&::-webkit-scrollbar]:hidden"
+        key={featureIndex}
+        ref={(ref) => (slideRefs.current[featureIndex] = ref)}
+        className="flex-none snap-center px-4 sm:px-6" // Elimina la clase "fixed-width-element"
+        style={{ minHeight: "68vw", width: "100vw" }} // Establece el ancho al 90% del ancho de la ventana
       >
-        {features.map((feature, featureIndex) => (
-          <div
-            key={featureIndex}
-            ref={(ref) => (slideRefs.current[featureIndex] = ref)}
-            className="w-full flex-none snap-center px-4 sm:px-6 fixed-width-element" // Establecer la clase "fixed-width-element" para el ancho fijo
-          >
-            <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                {/* Coloca tu componente de fondo aquí */}
-              </div>
+        <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6" style={{ minHeight: "100%", minWidth: "100%" }}>
 
-              {/* Coloca tu componente de pantalla aquí */}
-
-              <div className="inset-x-0 bottom-0 p-6 backdrop-blur sm:p-10">
+        <div className="inset-x-0 bottom-0 p-6 backdrop-blur sm:p-10">
                 <Image
                   className="h-16 w-16"
                   src={feature.icon}
@@ -191,35 +188,38 @@ export const FeatureMobile = () => {
                   {t(feature.description)}
                 </p>
               </div>
-            </div>
-          </div>
-        ))}
+
+        </div>
       </div>
-      <div className="mt-6 flex justify-center gap-3">
-        {features.map((_, featureIndex) => (
-          <button
-            type="button"
-            key={featureIndex}
-            className={clsx(
-              'relative h-1 w-6 rounded-full',
-              featureIndex === activeIndex ? 'bg-gray-300' : 'bg-gray-500'
-            )}
-            aria-label={`Go to slide ${featureIndex + 1}`}
-            onClick={() => {
-              setActiveIndex(featureIndex);
-              if (isVisible) {
-                slideRefs.current[featureIndex].scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'nearest',
-                  inline: 'nearest',
-                });
-              }
-            }}
-          >
-            <span className="absolute -inset-x-1.5 -inset-y-3" />
-          </button>
-        ))}
-      </div>
-    </div>
+    ))}
+  </div>
+  <div className="mt-6 flex justify-center gap-3">
+    {features.map((_, featureIndex) => (
+      <button
+        type="button"
+        key={featureIndex}
+        className={clsx(
+          'relative h-1 w-6 rounded-full',
+          featureIndex === activeIndex ? 'bg-gray-300' : 'bg-gray-500'
+        )}
+        aria-label={`Go to slide ${featureIndex + 1}`}
+        onClick={() => {
+          setActiveIndex(featureIndex);
+          if (isVisible) {
+            slideRefs.current[featureIndex].scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'nearest',
+            });
+          }
+        }}
+      >
+        <span className="absolute -inset-x-1.5 -inset-y-3" />
+      </button>
+    ))}
+  </div>
+</div>
+
+
   );
 };

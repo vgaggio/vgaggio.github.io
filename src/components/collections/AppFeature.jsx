@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../../app/AppFeature.css";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import Typewriter from "../collections/TypeWriter"
+import Typewriter from "../collections/TypeWriter";
 
 const AppFeature = () => {
   const { t } = useTranslation();
@@ -110,39 +110,65 @@ const AppFeature = () => {
                   style={{
                     width: "100%",
                     borderTop: "1px solid #ccc",
-                    marginBottom: "8px",
+                    marginBottom: "1px",
                     marginTop: "5px",
                     opacity: 0,
                     animation: "fade-in 1s ease-in-out 11s forwards",
                   }}
                 />
+
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
                     opacity: 0,
-                    animation: "fade-in 1s ease-in-out 12s forwards",
+                    animation: "fade-in 1s ease-in-out 11s forwards",
                   }}
                 >
                   <Image
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZqUILjGqzxIBEFOTgrRoBSKWwDmC1vh_Mhz8zD515f3SYl5VKsBWA7nycHxkYmLFGvo&usqp=CAU" 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZqUILjGqzxIBEFOTgrRoBSKWwDmC1vh_Mhz8zD515f3SYl5VKsBWA7nycHxkYmLFGvo&usqp=CAU"
+                    width={40}
+                    height={40}
                     alt="Icono de enlace"
                     style={{
-                      width: "30px",
-                      height: "30px",
+                      cursor: "pointer",
+                      opacity: 0,
+                      animation: "fade-in 1s ease-in-out 12s forwards",
+                    }} 
+                    onClick={() => {
+                      window.open(
+                        "https://api.whatsapp.com/send?phone=5493516152680",
+                        "_blank"
+                      );
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.cursor = "pointer";
+                      e.target.nextElementSibling.style.color = "#87CEEB";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.cursor = "auto";
+                      e.target.nextElementSibling.style.color = "black";
                     }}
                   />
                   <a
                     href="https://api.whatsapp.com/send?phone=5493516152680"
+                    target="_blank"
                     className="button"
                     style={{
                       opacity: 0,
-                      animation: "fade-in 1s ease-in-out 11s forwards",
-                      transition: "color 0.3s ease", 
-                      color: "black", 
+                      marginRight: "16px",
+                      animation: "fade-in 1s ease-in-out 13s forwards", 
+                      transition: "color 0.3s ease",
+                      color: "black",
                     }}
-                    onMouseOver={(e) => (e.target.style.color = "#87CEEB")} 
-                    onMouseOut={(e) => (e.target.style.color = "black")}
+                    onMouseOver={(e) => {
+                      e.target.style.color = "#87CEEB";
+                      e.target.previousElementSibling.style.cursor = "pointer";
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.color = "black";
+                      e.target.previousElementSibling.style.cursor = "auto";
+                    }}
                   >
                     Ir a pagar
                   </a>
@@ -177,12 +203,6 @@ const AppFeature = () => {
 };
 
 export default AppFeature;
-
-
-
-
-
-
 
 // Styles
 const styles = {
