@@ -29,7 +29,7 @@ const Hero = () => {
       <section 
       id="home" 
       className={`overflow-hidden transition-opacity duration-100 
-      ${isMobile ? "py-10" : "py-32"} ${isVisible ? "opacity-100" : "opacity-0"}`}>
+      ${isMobile ? "mt-6 py-10" : "py-32"} ${isVisible ? "opacity-100" : "opacity-0"}`}>
       <Container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           {/* Right side */}

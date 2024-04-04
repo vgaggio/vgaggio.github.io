@@ -50,7 +50,7 @@ const Model = () => {
         <div className="mx-auto max-w-2xl sm:text-center">
           <Title
             title={t("modelTitle")}
-            className={`text-3xl transition-opacity duration-4000 text-center ${
+            className={`text-3xl transition-opacity duration-4000 text-center ${isMobile ? "mt-12" : "" } ${
               isVisible ? "opacity-100 ease-in-out" : "opacity-0"
             }`}
           />

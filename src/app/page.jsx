@@ -6,11 +6,13 @@ import HowItWorks from "../components/collections/HowItWorks";
 import Pricing from "../components/collections/Pricing";
 import BackedBy from "../components/collections/BackedBy";
 import InterestedIn from "../components/collections/InterestedIn";
+import TranslateButton from "../components/collections/TranslateButton";
 
 function Home() {
   return (
     <main>
       <Hero />
+      <TranslateButton />
       <Model />
       <Feature />
       <HowItWorks />

@@ -126,9 +126,10 @@ const AppFeature = () => {
                   }}
                 >
                   <Image
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZqUILjGqzxIBEFOTgrRoBSKWwDmC1vh_Mhz8zD515f3SYl5VKsBWA7nycHxkYmLFGvo&usqp=CAU"
-                    width={40}
-                    height={40}
+                    src="/icon.png"
+                    className=" mr-1 mt-1"
+                    width={24}
+                    height={24}
                     alt="Icono de enlace"
                     style={{
                       cursor: "pointer",

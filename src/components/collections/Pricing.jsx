@@ -16,7 +16,7 @@ const Pricing = () => {
         <div className=" mx-auto max-w-2xl sm:text-center">
           <Title
             title={t("pricingTitleCol")}
-            className="text-2xl text-center"
+            className={`text-2xl text-center ${isMobile ? "mt-12" : "" }`}
           />
           <p className="mt-2 text-lg text-gray-600 text-center">
             {t("pricingSubtitleCol")}
