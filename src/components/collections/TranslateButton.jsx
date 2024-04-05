@@ -58,10 +58,12 @@ const TranslateButton = () => {
     }
   }, [i18n]);
 
+  const currentLanguage = languageList.find(language => language.code === i18n.language);
+
   return (
     <div className="fixed bottom-4 left-4" style={{ zIndex: 100000 }}>
       <AnimatePresence>
-        {showButton && (
+        {showButton && currentLanguage && (
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -77,7 +79,7 @@ const TranslateButton = () => {
                 ref={buttonRef}
               >
                 <div className="flex items-center">
-                  <img src={languageList.find(language => language.code === i18n.language).flag} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
+                  <img src={currentLanguage.flag} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
                   {isMobile ? (i18n.language === "en" ? "EN" : "ES") : (i18n.language === "en" ? "EN" : "ES")}
                 </div>
                 <div className="ml-2" style={{ transform: `rotate(${showLanguages ? 90 : 0}deg)`, display: isMobile ? 'block' : 'inline-block', fontWeight: '600' }}>
