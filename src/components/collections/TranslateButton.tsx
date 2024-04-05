@@ -3,17 +3,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
-const TranslateButton = () => {
+const TranslateButton: React.FC = () => {
   const { i18n } = useTranslation();
-  const [showLanguages, setShowLanguages] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [showButton, setShowButton] = useState(false);
-  const buttonRef = useRef(null);
+  const [showLanguages, setShowLanguages] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [showButton, setShowButton] = useState<boolean>(true);
+  const buttonRef = useRef<HTMLDivElement>(null);
 
   const languageList = [
-    { code: "en", text: "EN", flag: "https://cdn.weglot.com/flags/rectangle_mat/us.svg" },
-    { code: "es", text: "ES", flag: "https://cdn.weglot.com/flags/rectangle_mat/ar.svg" }
+    { code: "en", text: "EN", flag: "/us.jpeg" },
+    { code: "es", text: "ES", flag: "/arg.jpeg" }
   ];
 
   useEffect(() => {
@@ -35,8 +36,8 @@ const TranslateButton = () => {
   }, []);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
         setShowLanguages(false);
       }
     }
@@ -46,7 +47,7 @@ const TranslateButton = () => {
     };
   }, [buttonRef]);
 
-  const changeLanguage = (code) => {
+  const changeLanguage = (code: string) => {
     localStorage.setItem("language", code); // Guardar el idioma seleccionado en localStorage
     window.location.reload(); // Recargar la página
   };
@@ -61,14 +62,14 @@ const TranslateButton = () => {
   const currentLanguage = languageList.find(language => language.code === i18n.language);
 
   return (
-    <div className="fixed bottom-4 left-4" style={{ zIndex: 100000 }}>
+    <div className="fixed bottom-4  left-4" style={{ zIndex: 100000 }}>
       <AnimatePresence>
         {showButton && currentLanguage && (
-          <motion.div
+           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-          >
+          > 
             <div className="relative">
               <div
                 className="flex items-center text-white px-4 py-2 rounded cursor-pointer relative font-semibold"
@@ -79,7 +80,7 @@ const TranslateButton = () => {
                 ref={buttonRef}
               >
                 <div className="flex items-center">
-                  <img src={currentLanguage.flag} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
+                  <Image width={20} height={20} src={(currentLanguage?.flag as string)} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
                   {isMobile ? (i18n.language === "en" ? "EN" : "ES") : (i18n.language === "en" ? "EN" : "ES")}
                 </div>
                 <div className="ml-2" style={{ transform: `rotate(${showLanguages ? 90 : 0}deg)`, display: isMobile ? 'block' : 'inline-block', fontWeight: '600' }}>
@@ -100,7 +101,7 @@ const TranslateButton = () => {
                     {languageList.map((language) => (
                       language.code !== i18n.language && (
                         <div key={language.code} className="flex items-center p-2 cursor-pointer" onClick={() => changeLanguage(language.code)}>
-                          <img src={language.flag} alt={language.text + " Flag"} className="w-6 h-auto mr-2" />
+                          <Image width={20} height={20} src={language.flag} alt={language.text + " Flag"} className="w-6 h-auto mr-2" />
                           <div style={{fontWeight: 'normal'}}>{isMobile ? language.code.toUpperCase() : language.text}</div>
                         </div>
                       )
@@ -110,7 +111,7 @@ const TranslateButton = () => {
               </AnimatePresence>
             </div>
           </motion.div>
-        )}
+        )} 
       </AnimatePresence>
     </div>
   );
