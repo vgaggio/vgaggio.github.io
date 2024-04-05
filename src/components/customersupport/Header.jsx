@@ -13,7 +13,6 @@ import { navData } from "../../constants";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import LanguageButton from "./LanguageButton";
 
 // Componente para los enlaces de navegación móvil
 const MobileNavLink = ({ children, ...props }) => {
