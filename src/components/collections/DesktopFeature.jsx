@@ -24,9 +24,7 @@ const DesktopFeature = () => {
   const prevIndex = usePrevious(selectedIndex);
   const isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex;
 
-  const animationControlsArray = features.map(() =>
-    useAnimation()
-  );
+  const animationControlsArray = features.map(() => useAnimation());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +39,9 @@ const DesktopFeature = () => {
               y: 0,
               rotate: 0,
               scale: 1,
-              transition: { duration: 2 }, // Ajusta la duración de la animación
+              transition: { duration: 2 },
             });
-          }, 400 * index); // Ajusta el intervalo de tiempo entre animaciones
+          }, 400 * index); 
         });
       }
     };
@@ -105,75 +103,130 @@ const DesktopFeature = () => {
 
 export default DesktopFeature;
 
-
 export const FeatureMobile = () => {
   const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [inSection, setInSection] = useState(false);
   const slideContainerRef = useRef();
   const slideRefs = useRef([]);
-  const [isVisible, setIsVisible] = useState(false);
+
+  const features = [
+    {
+      name: "featureOneTitleCol",
+      description: "featureOneSubtitleCol",
+      icon: "/Elementos-2D-16.svg",
+    },
+    {
+      name: "featureTwoTitleCol",
+      description: "featureTwoSubtitleCol",
+      icon: "/Elementos-2D-08.svg",
+    },
+    {
+      name: "featureThreeTitleCol",
+      description: "featureThreeSubtitleCol",
+      icon: "/Elementos-2D-12.svg",
+    },
+    {
+      name: "featureFourTitleCol",
+      description: "featureFourSubtitleCol",
+      icon: "/Elementos-2D-06.svg",
+    },
+  ];
+
+  const handleSlideChange = (index) => {
+    slideRefs.current[index].scrollIntoView({
+      block: 'nearest',
+      inline: 'nearest',
+    });
+  };
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5, // Change this value according to your needs
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const startAnimationHeight = 1500; 
+      const stopAnimationHeight = 1900; 
+      
+      if (scrollPosition > startAnimationHeight && scrollPosition < stopAnimationHeight) {
+        setInSection(true);
+      } else {
+        setInSection(false);
+      }
     };
 
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsVisible(entry.isIntersecting);
-    }, options);
-
-    if (slideContainerRef.current) {
-      observer.observe(slideContainerRef.current);
-    }
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      if (slideContainerRef.current) {
-        observer.unobserve(slideContainerRef.current);
-      }
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  // Función para avanzar al siguiente slide
-  const nextSlide = () => {
-    const newIndex = (activeIndex + 1) % features.length;
-    setActiveIndex(newIndex);
-    if (isVisible) {
-      slideRefs.current[newIndex].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'nearest',
-      });
-    }
-  };
-
-  // Establecer temporizador para cambiar de slide cada cierto tiempo
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      nextSlide();
-    }, 5000); // Cambiar cada 5 segundos (puedes ajustar el tiempo según tus necesidades)
+    let interval;
+    if (inSection) {
+      interval = setInterval(() => {
+        const nextIndex = (activeIndex + 1) % features.length;
+        handleSlideChange(nextIndex);
+      }, 3000);
+    }
 
-    return () => clearInterval(intervalId);
-  }, [activeIndex, isVisible]);
+    return () => clearInterval(interval);
+  }, [activeIndex, features.length, inSection]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (let entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveIndex(slideRefs.current.indexOf(entry.target));
+            setInSection(true);
+            break;
+          }
+        }
+      },
+      {
+        root: null,
+        threshold: 0.9,
+      }
+    );
+
+    slideRefs.current.forEach((slide) => {
+      if (slide) {
+        observer.observe(slide);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [slideRefs]);
 
   return (
-    
     <div className="h-auto flex flex-col">
-  <div
-    ref={slideContainerRef}
-    className="-mb-4 flex snap-x snap-mandatory -space-x-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 [scrollbar-width:none] sm:-space-x-6 [&::-webkit-scrollbar]:hidden"
-  >
-    {features.map((feature, featureIndex) => (
       <div
-        key={featureIndex}
-        ref={(ref) => (slideRefs.current[featureIndex] = ref)}
-        className="flex-none snap-center px-4 sm:px-6" // Elimina la clase "fixed-width-element"
-        style={{ minHeight: "68vw", width: "100vw" }} // Establece el ancho al 90% del ancho de la ventana
+        ref={slideContainerRef}
+        className="-mb-4 flex snap-x snap-mandatory -space-x-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 [scrollbar-width:none] sm:-space-x-6 [&::-webkit-scrollbar]:hidden"
       >
-        <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6" style={{ minHeight: "100%", minWidth: "100%" }}>
+        {features.map((feature, featureIndex) => (
+          <div
+            key={featureIndex}
+            ref={(ref) => (slideRefs.current[featureIndex] = ref)}
+            className="w-full flex-none snap-center px-4 sm:px-6"
+            style={{ minHeight: "68vw", width: "100vw" }} 
+         >
+            <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6" 
+                  style={{ minHeight: "100%", minWidth: "100%" }}
+            >
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                {/* <CircleBackground
+                  color="#98C9F0"
+                  className="animate-spin-slower"
+                /> */}
+              </div>
 
-        <div className="inset-x-0 bottom-0 p-6 backdrop-blur sm:p-10">
+              {/* <feature.screen /> */}
+
+              <div className="inset-x-0 bottom-0 p-6 backdrop-blur sm:p-10">
+                {/* <feature.icon className="h-8 w-8" /> */}
                 <Image
                   className="h-16 w-16"
                   src={feature.icon}
@@ -188,38 +241,26 @@ export const FeatureMobile = () => {
                   {t(feature.description)}
                 </p>
               </div>
-
-        </div>
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-  <div className="mt-6 flex justify-center gap-3">
-    {features.map((_, featureIndex) => (
-      <button
-        type="button"
-        key={featureIndex}
-        className={clsx(
-          'relative h-1 w-6 rounded-full',
-          featureIndex === activeIndex ? 'bg-gray-300' : 'bg-gray-500'
-        )}
-        aria-label={`Go to slide ${featureIndex + 1}`}
-        onClick={() => {
-          setActiveIndex(featureIndex);
-          if (isVisible) {
-            slideRefs.current[featureIndex].scrollIntoView({
-              behavior: 'smooth',
-              block: 'nearest',
-              inline: 'nearest',
-            });
-          }
-        }}
-      >
-        <span className="absolute -inset-x-1.5 -inset-y-3" />
-      </button>
-    ))}
-  </div>
-</div>
-
-
+      <div className="mt-6 flex justify-center gap-3">
+        {features.map((_, featureIndex) => (
+          <button
+            type="button"
+            key={featureIndex}
+            className={clsx(
+              "relative h-1 w-6 rounded-full",
+              featureIndex === activeIndex ? "bg-gray-300" : "bg-gray-500"
+            )}
+            aria-label={`Go to slide ${featureIndex + 1}`}
+            onClick={() => handleSlideChange(featureIndex)}
+          >
+            <span className="absolute -inset-x-1.5 -inset-y-3" />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 };
