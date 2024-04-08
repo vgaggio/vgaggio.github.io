@@ -16,3 +16,11 @@ i18next
             }
         }
     })
+
+module.exports = {
+    i18n: {
+      defaultLocale: 'en', // Idioma por defecto: inglés
+      locales: ['en', 'es'], // Lista de idiomas soportados
+    },
+  };
+  

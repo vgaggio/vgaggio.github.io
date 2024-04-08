@@ -1,19 +1,19 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
-const TranslateButton: React.FC = () => {
+const TranslateButton = () => {
   const { i18n } = useTranslation();
-  const [showLanguages, setShowLanguages] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [showButton, setShowButton] = useState<boolean>(true);
-  const buttonRef = useRef<HTMLDivElement>(null);
+  const [showLanguages, setShowLanguages] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const buttonRef = useRef(null);
 
   const languageList = [
-    { code: "en", text: "EN", flag: "/us.jpeg" },
-    { code: "es", text: "ES", flag: "/arg.jpeg" }
+    { code: "en", text: "EN", flag: "https://cdn.weglot.com/flags/rectangle_mat/us.svg" },
+    { code: "es", text: "ES", flag: "https://cdn.weglot.com/flags/rectangle_mat/ar.svg" }
   ];
 
   useEffect(() => {
@@ -35,8 +35,15 @@ const TranslateButton: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+    const savedLanguage = localStorage.getItem("language");
+    const defaultLanguage = "en";
+    const languageToUse = savedLanguage || defaultLanguage;
+    i18n.changeLanguage(languageToUse);
+  }, [i18n]);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (buttonRef.current && !buttonRef.current.contains(event.target)) {
         setShowLanguages(false);
       }
     }
@@ -46,38 +53,22 @@ const TranslateButton: React.FC = () => {
     };
   }, [buttonRef]);
 
-  const changeLanguage = (code: string) => {
-    localStorage.setItem("language", code); // Guardar el idioma seleccionado en localStorage
-    window.location.reload(); // Recargar la página
+  const changeLanguage = (code) => {
+    localStorage.setItem("language", code);
+    window.location.reload();
   };
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem("language");
-    if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage);
-    }
-  }, [i18n]);
 
   const currentLanguage = languageList.find(language => language.code === i18n.language);
 
-  useEffect(() => {
-    // Determinar el idioma del navegador
-    const browserLanguage = window.navigator.language || window.navigator.userLanguage;
-    // Verificar si el idioma del navegador es inglés o español
-    const isBrowserLanguageEnglishOrSpanish = browserLanguage.startsWith("en") || browserLanguage.startsWith("es");
-    // Mostrar el botón solo si el idioma del navegador es inglés o español
-    setShowButton(isBrowserLanguageEnglishOrSpanish);
-  }, []);
-
   return (
-    <div className="fixed bottom-4  left-4" style={{ zIndex: 100000 }}>
+    <div className="fixed bottom-4 left-4" style={{ zIndex: 100000 }}>
       <AnimatePresence>
         {showButton && (
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-          > 
+          >
             <div className="relative">
               <div
                 className="flex items-center text-white px-4 py-2 rounded cursor-pointer relative font-semibold"
@@ -88,26 +79,25 @@ const TranslateButton: React.FC = () => {
                 ref={buttonRef}
               >
                 <div className="flex items-center">
-                  <Image width={20} height={20} src={(currentLanguage?.flag as string)} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
+                  <img src={currentLanguage.flag} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
                   {isMobile ? (i18n.language === "en" ? "EN" : "ES") : (i18n.language === "en" ? "EN" : "ES")}
                 </div>
-                
               </div>
 
               <AnimatePresence>
                 {showLanguages && (
                   <motion.div
-                    className="absolute border border-gray-300 rounded shadow-lg overflow-hidden"
+                    className="absolute border  rounded shadow-lg overflow-hidden"
                     initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: isMobile ? 10 : 20 }}
                     transition={{ type: "spring", damping: 20, stiffness: 300 }}
-                    style={{ bottom: isMobile ? "2.5rem" : "2.75rem", backgroundColor: 'rgba(152, 201, 240, 0.9)', fontWeight: '600', backdropFilter: 'blur(8px)', color: 'white' }}
+                    style={{ bottom: isMobile ? "2.5rem" : "2.75rem", backgroundColor: 'rgba(152, 201, 240, 0.6)', fontWeight: '600', backdropFilter: 'blur(8px)', color: 'white' }}
                   >
                     {languageList.map((language) => (
                       language.code !== i18n.language && (
                         <div key={language.code} className="flex items-center p-2 cursor-pointer" onClick={() => changeLanguage(language.code)}>
-                          <Image width={20} height={20} src={language.flag} alt={language.text + " Flag"} className="w-6 h-auto mr-2" />
+                          <img src={language.flag} alt={language.text + " Flag"} className="w-6 h-auto mr-2" />
                           <div style={{fontWeight: 'normal'}}>{isMobile ? language.code.toUpperCase() : language.text}</div>
                         </div>
                       )
@@ -117,7 +107,7 @@ const TranslateButton: React.FC = () => {
               </AnimatePresence>
             </div>
           </motion.div>
-        )} 
+        )}
       </AnimatePresence>
     </div>
   );
