@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { motion, AnimatePresence } from "framer-motion";
@@ -61,11 +60,20 @@ const TranslateButton: React.FC = () => {
 
   const currentLanguage = languageList.find(language => language.code === i18n.language);
 
+  useEffect(() => {
+    // Determinar el idioma del navegador
+    const browserLanguage = window.navigator.language || window.navigator.userLanguage;
+    // Verificar si el idioma del navegador es inglés o español
+    const isBrowserLanguageEnglishOrSpanish = browserLanguage.startsWith("en") || browserLanguage.startsWith("es");
+    // Mostrar el botón solo si el idioma del navegador es inglés o español
+    setShowButton(isBrowserLanguageEnglishOrSpanish);
+  }, []);
+
   return (
     <div className="fixed bottom-4  left-4" style={{ zIndex: 100000 }}>
       <AnimatePresence>
-        {showButton && currentLanguage && (
-           <motion.div
+        {showButton && (
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -83,9 +91,7 @@ const TranslateButton: React.FC = () => {
                   <Image width={20} height={20} src={(currentLanguage?.flag as string)} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
                   {isMobile ? (i18n.language === "en" ? "EN" : "ES") : (i18n.language === "en" ? "EN" : "ES")}
                 </div>
-                <div className="ml-2" style={{ transform: `rotate(${showLanguages ? 90 : 0}deg)`, display: isMobile ? 'block' : 'inline-block', fontWeight: '600' }}>
-                  &gt;
-                </div>
+                
               </div>
 
               <AnimatePresence>
