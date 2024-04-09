@@ -18,7 +18,7 @@ const Pricing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setAnimationState((prevState) => !prevState);
-    }, 7000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
   return (
@@ -69,26 +69,26 @@ const Pricing = () => {
                   {t(item.ammount)}
                 </h3>
                 <hr className="flex justify-center my-4 border-gray-300" />{" "}
-                {/* Línea gris */}
+
                 <div className="flex justify-center">
                   {" "}
                   {/* Contenedor para centrar el botón */}
                   <motion.div
                     animate={{
                       y: animationState ? 0 : 0,
-                      rotate: animationState ? [0, 10, -10, 10, -10, 10, -10, 10, -10, 10, 0] : 0,
-                      scale: hovered ? 1.04 : 1, // Escala aumenta al hacer hover
-                      backgroundColor: hovered ? "#E5F3FF" : "transparent", // Celeste claro cuando hover
+                      rotate: animationState ? [0, 10, -10, 10, -10, 10, -10, 10, -10, 10,-10, 10,-10, 10,-10, 10, 0] : 0,
+                      scale: hovered ? 1.04 : 1,
+                      backgroundColor: hovered ? "#E5F3FF" : "transparent", 
                     }}
                     transition={{
-                      duration: hovered ? 0.2 : 0.6, // Duración de la transición al hacer hover
-                      ease: "easeInOut", // Tipo de transición
+                      duration: hovered ? 0.2 : 0.4, 
+                      ease: "easeInOut", 
                     }}
                     onHoverStart={() => setHovered(true)}
                     onHoverEnd={() => setHovered(false)}
                   >
                     <Button
-                      href="https://api.whatsapp.com/send?phone=5493516152680"
+                      href="https://cal.com/marcoslozada/demo-bircleai?date=2024-04-09&month=2024-04"
                       variant="outline"
                       className="py-2 px-4 text-gray-800 text-sm rounded transition duration-300"
                       target="_blank"

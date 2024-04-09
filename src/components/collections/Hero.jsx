@@ -19,7 +19,7 @@ const Hero = () => {
   const [languageChangeFlag, setLanguageChangeFlag] = useState(false); // Estado para forzar el cambio de idioma
 
   useEffect(() => {
-    // Inicia el temporizador para mostrar el componente después de 1 segundos
+    // Inicia el temporizador para mostrar el componente después de 4 segundos
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 1000);
@@ -126,7 +126,7 @@ const Hero = () => {
             <div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-bottom-20 lg:-top-10 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
               {languageReady && ( // Solo renderiza PhoneFrame cuando el idioma está listo para cambiar
                 <PhoneFrame
-                  className={`max-w-[366px] mx-auto bg-white transition-opacity duration-3000 ${
+                  className={`max-w-[366px] mx-auto bg-white transition-opacity duration-1000 ${
                     isVisible ? "opacity-100" : "opacity-0"
                   }`}
                   style={{ transitionDelay: isVisible ? "1000ms" : "0ms" }}

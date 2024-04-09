@@ -102,7 +102,7 @@ const AppFeature = () => {
               {/* Pasar keyProp como prop para forzar el re-renderizado del Typewriter */}
               <Typewriter
                 text={t(message.text)}
-                initialDelay={3000}
+                initialDelay={800}
                 keyProp={keyProp}
               />
             </div>
@@ -123,7 +123,7 @@ const AppFeature = () => {
                     marginBottom: "1px",
                     marginTop: "5px",
                     opacity: 0,
-                    animation: "fade-in 1s ease-in-out 11s forwards",
+                    animation: "fade-in 1s ease-in-out 8s forwards",
                   }}
                 />
 
@@ -132,7 +132,7 @@ const AppFeature = () => {
                     display: "flex",
                     alignItems: "center",
                     opacity: 0,
-                    animation: "fade-in 1s ease-in-out 11s forwards",
+                    animation: "fade-in 1s ease-in-out 9s forwards",
                   }}
                 >
 
@@ -145,7 +145,7 @@ const AppFeature = () => {
                     style={{
                       cursor: "pointer",
                       opacity: 0,
-                      animation: "fade-in 1s ease-in-out 12s forwards",
+                      animation: "fade-in 1s ease-in-out 9s forwards",
                     }}
                     onClick={() => {
                       window.open(
@@ -169,7 +169,7 @@ const AppFeature = () => {
                     style={{
                       opacity: 0,
                       marginRight: "16px",
-                      animation: "fade-in 1s ease-in-out 13s forwards",
+                      animation: "fade-in 1s ease-in-out 10s forwards",
                       transition: "color 0.3s ease",
                       color: "black",
                     }}
@@ -182,7 +182,7 @@ const AppFeature = () => {
                       e.target.previousElementSibling.style.cursor = "auto";
                     }}
                   >
-                    Ir a pagar
+                  {t("linkPay")}
                   </a>
                 </div>
               </div>

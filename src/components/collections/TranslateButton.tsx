@@ -71,9 +71,9 @@ const TranslateButton = () => {
           >
             <div className="relative">
               <div
-                className="flex items-center text-white px-4 py-2 rounded-t cursor-pointer relative font-semibold"
+                className="flex items-center text-white px-4 py-2 rounded-t rounded-tl-none cursor-pointer relative font-semibold"
                 style={{
-                  backgroundColor: '#005699', // Cambiar color principal
+                  backgroundColor: 'rgba(0, 86, 153, 0.8)', // color principal
                   fontWeight: '600',
                   backdropFilter: 'blur(8px)',
                   color: 'white'
@@ -83,7 +83,7 @@ const TranslateButton = () => {
                 }}
                 ref={buttonRef}
               >
-                <div className="flex items-center rounded-t ">
+                <div className="flex items-center rounded-t rounded-tl-none font-semibold">
                   {currentLanguage && (
                     <Image src={currentLanguage.flag} alt={i18n.language + " Flag"} width={24} height={24} className="mr-2" />
                   )}
@@ -101,7 +101,7 @@ const TranslateButton = () => {
                     transition={{ type: "spring", damping: 20, stiffness: 300 }}
                     style={{
                       bottom: "2.5rem",
-                      backgroundColor: '#98C9F0', // Cambiar color secundario
+                      backgroundColor: 'rgba(159,201,240, 0.5)', // color secundario 159,201,240
                       fontWeight: '600',
                       backdropFilter: 'blur(8px)',
                       color: 'white'
@@ -109,9 +109,9 @@ const TranslateButton = () => {
                   >
                     {languageList.map((language) => (
                       language.code !== i18n.language && (
-                        <div key={language.code} className="flex items-center p-2 cursor-pointer" onClick={() => changeLanguage(language.code)}>
+                        <div key={language.code} className="flex items-center p-2 cursor-pointer " onClick={() => changeLanguage(language.code)}>
                           <Image src={language.flag} alt={language.text + " Flag"} width={24} height={24} className="mr-2"/>
-                          <div style={{fontWeight: 'normal'}}>{isMobile ? language.code.toUpperCase() : language.text}</div>
+                          <div style={{fontWeight: 'semibold'}}>{isMobile ? language.code.toUpperCase() : language.text}</div>
                         </div>
                       )
                     ))}

@@ -25,31 +25,28 @@ const DesktopFeature = () => {
   const isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex;
 
   const animationControlsArray = features.map(() => useAnimation());
+  const intervalRef = useRef(null);
 
+  const nextFeature = () => {
+    setSelectedIndex((prevIndex) =>
+      prevIndex === features.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  
   useEffect(() => {
-    const handleScroll = () => {
-      const threshold = 1200;
-      const isVisible = window.scrollY < threshold;
+    intervalRef.current = setInterval(nextFeature, 3000);
 
-      if (isVisible) {
-        animationControlsArray.forEach((control, index) => {
-          setTimeout(() => {
-            control.start({
-              opacity: 1,
-              y: 0,
-              rotate: 0,
-              scale: 1,
-              transition: { duration: 2 },
-            });
-          }, 400 * index); 
-        });
-      }
-    };
+    return () => clearInterval(intervalRef.current);
+  }, []);
 
-    window.addEventListener("scroll", handleScroll);
+  const handleMouseEnter = () => {
+    clearInterval(intervalRef.current);
+  };
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [animationControlsArray]);
+  const handleMouseLeave = () => {
+    intervalRef.current = setInterval(nextFeature, 3000);
+  };
 
   return (
     <div className="grid grid-cols-12 items-center gap-8 lg:gap-16 xl:gap-24 px-6">
@@ -57,7 +54,11 @@ const DesktopFeature = () => {
         {features.map((feature, featureIndex) => (
           <motion.li
           key={t(feature.name)}
-          className="relative rounded-2xl transition-all hover:bg-gray-800/30"
+          className={`relative rounded-2xl transition-all hover:bg-gray-800/30 ${
+            featureIndex === selectedIndex ? "bg-gray-800/30" : ""
+          }`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
             {featureIndex === selectedIndex && (
               <motion.div

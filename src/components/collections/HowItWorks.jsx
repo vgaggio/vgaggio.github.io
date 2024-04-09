@@ -53,18 +53,14 @@ const HowItWorks = () => {
         >
           {howDataCol.map((item, index) => (
             <li
-              key={t(item.name)}
-              className={`rounded-2xl border border-gray-200 p-8 group flex items-center transition-opacity duration-4000 ${
-                isVisible
-                  ? "opacity-100 transition-opacity duration-2000"
-                  : "opacity-0"
-              }`}
-              style={{
-                transitionDelay: `${
-                  isVisible ? (isMobile ? index * 800 : index * 530) : 0
-                }ms`,
-              }}
-            >
+            key={t(item.name)}
+            className={`rounded-2xl border border-gray-200 p-8 group flex items-center transition-opacity duration-4000 
+            ${isVisible ? "opacity-100 transition-opacity duration-2000" : "opacity-0"} 
+            hover:bg-gray-100 hover:bg-opacity-50 hover:border-gray-300 cursor-pointer`}
+            style={{
+              transitionDelay: `${isVisible ? (isMobile ? index * 800 : index * 530) : 0}ms`,
+            }}
+          >
               <Image
                 className="h-8 w-8 mr-10 sm:h-10 sm:w-10"
                 src={item.icon}
