@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image"; 
 
 const TranslateButton = () => {
   const { i18n } = useTranslation();
@@ -30,7 +30,7 @@ const TranslateButton = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowButton(true);
-    }, 3000); // Aparece después de 3 segundos
+    }, 2000); // Aparece después de 3 segundos
     return () => clearTimeout(timer);
   }, []);
 
@@ -55,13 +55,13 @@ const TranslateButton = () => {
 
   const changeLanguage = (code) => {
     localStorage.setItem("language", code);
-    window.location.reload();
+    i18n.changeLanguage(code);
   };
 
-  const currentLanguage = languageList.find(language => language.code === i18n.language);
+  const currentLanguage = languageList.find(language => language.code === i18n.language) || languageList[0]; // Usamos el primer idioma como valor predeterminado si no se encuentra el idioma actual
 
   return (
-    <div className="fixed bottom-4 left-4" style={{ zIndex: 100000 }}>
+    <div className="fixed bottom-0 left-4" style={{ zIndex: 100000 }}>
       <AnimatePresence>
         {showButton && (
           <motion.div
@@ -71,15 +71,22 @@ const TranslateButton = () => {
           >
             <div className="relative">
               <div
-                className="flex items-center text-white px-4 py-2 rounded cursor-pointer relative font-semibold"
-                style={{ backgroundColor: 'rgba(152, 201, 240, 0.9)', fontWeight: '600', backdropFilter: 'blur(8px)', color: 'white' }}
+                className="flex items-center text-white px-4 py-2 rounded-t cursor-pointer relative font-semibold"
+                style={{
+                  backgroundColor: '#005699', // Cambiar color principal
+                  fontWeight: '600',
+                  backdropFilter: 'blur(8px)',
+                  color: 'white'
+                }}
                 onClick={() => {
                   setShowLanguages(!showLanguages);
                 }}
                 ref={buttonRef}
               >
-                <div className="flex items-center">
-                  <img src={currentLanguage.flag} alt={i18n.language + " Flag"} className="w-6 h-auto mr-2" />
+                <div className="flex items-center rounded-t ">
+                  {currentLanguage && (
+                    <Image src={currentLanguage.flag} alt={i18n.language + " Flag"} width={24} height={24} className="mr-2" />
+                  )}
                   {isMobile ? (i18n.language === "en" ? "EN" : "ES") : (i18n.language === "en" ? "EN" : "ES")}
                 </div>
               </div>
@@ -87,17 +94,23 @@ const TranslateButton = () => {
               <AnimatePresence>
                 {showLanguages && (
                   <motion.div
-                    className="absolute border  rounded shadow-lg overflow-hidden"
+                    className="absolute rounded-t overflow-hidden font-semibold"
                     initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: isMobile ? 10 : 20 }}
                     transition={{ type: "spring", damping: 20, stiffness: 300 }}
-                    style={{ bottom: isMobile ? "2.5rem" : "2.75rem", backgroundColor: 'rgba(152, 201, 240, 0.6)', fontWeight: '600', backdropFilter: 'blur(8px)', color: 'white' }}
+                    style={{
+                      bottom: "2.5rem",
+                      backgroundColor: '#98C9F0', // Cambiar color secundario
+                      fontWeight: '600',
+                      backdropFilter: 'blur(8px)',
+                      color: 'white'
+                    }}
                   >
                     {languageList.map((language) => (
                       language.code !== i18n.language && (
                         <div key={language.code} className="flex items-center p-2 cursor-pointer" onClick={() => changeLanguage(language.code)}>
-                          <img src={language.flag} alt={language.text + " Flag"} className="w-6 h-auto mr-2" />
+                          <Image src={language.flag} alt={language.text + " Flag"} width={24} height={24} className="mr-2"/>
                           <div style={{fontWeight: 'normal'}}>{isMobile ? language.code.toUpperCase() : language.text}</div>
                         </div>
                       )

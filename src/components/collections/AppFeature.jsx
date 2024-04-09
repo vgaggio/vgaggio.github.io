@@ -6,11 +6,14 @@ import { useTranslation } from "next-i18next";
 import Typewriter from "../collections/TypeWriter";
 
 const AppFeature = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [messages, setMessages] = useState([
-    { id: 1, user: "You", text: t("appHello") },
+    { id: 1, user: "You", text: "appHello" },
+    { id: 2, user: "Me", text: "appAnswerDefaultCol" },
+
   ]);
   const [newMessage, setNewMessage] = useState("");
+  const [keyProp, setKeyProp] = useState(0); // Estado para forzar el re-renderizado del Typewriter
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
@@ -49,9 +52,14 @@ const AppFeature = () => {
         ]);
       }, 1000);
 
-      return () => clearTimeout(timeoutId); // Clear timeout if component unmounts
+      return () => clearTimeout(timeoutId); // Limpiar el temporizador si el componente se desmonta
     }
-  }, [messages]);
+  }, [messages, t]);
+
+  // Actualizar keyProp cada vez que cambie el idioma
+  useEffect(() => {
+    setKeyProp((prevKey) => prevKey + 1);
+  }, [i18n.language]);
 
   return (
     <div
@@ -81,7 +89,6 @@ const AppFeature = () => {
               <path d="M14.3 5.7a.999.999 0 0 1 1.4 1.4l-8 8a.997.997 0 0 1-1.4 0l-4-4a.999.999 0 1 1 1.4-1.4l3.3 3.3 7.3-7.3z" />
             </svg>
           </div>
-          {/* Additional header elements can go here */}
         </div>
       </header>
       <div className="chat-body" style={styles.chatBody}>
@@ -92,12 +99,15 @@ const AppFeature = () => {
             style={message.user === "You" ? styles.sent : styles.received}
           >
             <div className="message-text">
-              {/* Texto con efecto de máquina de escribir */}
-              <Typewriter text={message.text} initialDelay={3000} />
+              {/* Pasar keyProp como prop para forzar el re-renderizado del Typewriter */}
+              <Typewriter
+                text={t(message.text)}
+                initialDelay={3000}
+                keyProp={keyProp}
+              />
             </div>
+            {/* Código para el mensaje recibido */}
 
-            {/* Enlace con icono */}
-            {/* Enlace con imagen y texto */}
             {message.user !== "You" && (
               <div
                 style={{
@@ -125,6 +135,7 @@ const AppFeature = () => {
                     animation: "fade-in 1s ease-in-out 11s forwards",
                   }}
                 >
+
                   <Image
                     src="/icon.png"
                     className=" mr-1 mt-1"
@@ -135,7 +146,7 @@ const AppFeature = () => {
                       cursor: "pointer",
                       opacity: 0,
                       animation: "fade-in 1s ease-in-out 12s forwards",
-                    }} 
+                    }}
                     onClick={() => {
                       window.open(
                         "https://api.whatsapp.com/send?phone=5493516152680",
@@ -158,7 +169,7 @@ const AppFeature = () => {
                     style={{
                       opacity: 0,
                       marginRight: "16px",
-                      animation: "fade-in 1s ease-in-out 13s forwards", 
+                      animation: "fade-in 1s ease-in-out 13s forwards",
                       transition: "color 0.3s ease",
                       color: "black",
                     }}
@@ -179,7 +190,6 @@ const AppFeature = () => {
           </div>
         ))}
       </div>
-
       <div className="chat-footer" style={styles.chatFooter}>
         <input
           style={styles.input}
@@ -204,6 +214,8 @@ const AppFeature = () => {
 };
 
 export default AppFeature;
+
+
 
 // Styles
 const styles = {

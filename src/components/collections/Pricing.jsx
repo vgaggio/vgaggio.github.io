@@ -6,17 +6,28 @@ import { pricingDataCol } from "../../constants";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Button from "./Button";
+import { motion } from "framer-motion";
+
 
 const Pricing = () => {
   const { t } = useTranslation();
+  const [hovered, setHovered] = useState(false);
+  const [animationState, setAnimationState] = useState(false);
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimationState((prevState) => !prevState);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section id="pricing" className={isMobile ? "py-20" : "py-40"}>
       <Container aria-label="Features for building a portfolio">
         <div className=" mx-auto max-w-2xl sm:text-center">
           <Title
             title={t("pricingTitleCol")}
-            className={`text-2xl text-center ${isMobile ? "mt-12" : "" }`}
+            className={`text-2xl text-center ${isMobile ? "mt-12" : ""}`}
           />
           <p className="mt-2 text-lg text-gray-600 text-center">
             {t("pricingSubtitleCol")}
@@ -40,23 +51,20 @@ const Pricing = () => {
                   width={10}
                 />
                 <h3
-                  className={`mt-6 ml-3 font-semibold text-gray-900 group-hover:text-black duration-300 ${
-                    isMobile ? "text-lg" : "text-base"
-                  }`}
+                  className={`mt-6 ml-3 font-semibold text-gray-900 group-hover:text-black duration-300 ${isMobile ? "text-lg" : "text-base"
+                    }`}
                 >
                   {t(item.name)}
                 </h3>
                 <p
-                  className={`mt-6 ml-3 text-gray-700 group-hover:text-black duration-300 ${
-                    isMobile ? "text-md" : "text-base"
-                  }`}
+                  className={`mt-6 ml-3 text-gray-700 group-hover:text-black duration-300 ${isMobile ? "text-md" : "text-base"
+                    }`}
                 >
                   {t(item.description)}
                 </p>
                 <h3
-                  className={`mt-6 ml-3 font-semibold text-gray-900 group-hover:text-black duration-300 ${
-                    isMobile ? "text-md" : "text-base"
-                  }`}
+                  className={`mt-6 ml-3 font-semibold text-gray-900 group-hover:text-black duration-300 ${isMobile ? "text-md" : "text-base"
+                    }`}
                 >
                   {t(item.ammount)}
                 </h3>
@@ -65,14 +73,29 @@ const Pricing = () => {
                 <div className="flex justify-center">
                   {" "}
                   {/* Contenedor para centrar el botón */}
-                  <Button
-                    href="https://api.whatsapp.com/send?phone=5493516152680"
-                    variant="outline"
-                    className="py-2 px-4 text-gray-800 text-sm rounded hover:bg-blue-100 transition duration-300"
-                    target="_blank"
+                  <motion.div
+                    animate={{
+                      y: animationState ? 0 : 0,
+                      rotate: animationState ? [0, 10, -10, 10, -10, 10, -10, 10, -10, 10, 0] : 0,
+                      scale: hovered ? 1.04 : 1, // Escala aumenta al hacer hover
+                      backgroundColor: hovered ? "#E5F3FF" : "transparent", // Celeste claro cuando hover
+                    }}
+                    transition={{
+                      duration: hovered ? 0.2 : 0.6, // Duración de la transición al hacer hover
+                      ease: "easeInOut", // Tipo de transición
+                    }}
+                    onHoverStart={() => setHovered(true)}
+                    onHoverEnd={() => setHovered(false)}
                   >
-                    {t("pricingButton")}
-                  </Button>
+                    <Button
+                      href="https://api.whatsapp.com/send?phone=5493516152680"
+                      variant="outline"
+                      className="py-2 px-4 text-gray-800 text-sm rounded transition duration-300"
+                      target="_blank"
+                    >
+                      {t("pricingButton")}
+                    </Button>
+                  </motion.div>
                 </div>
               </li>
             ))}

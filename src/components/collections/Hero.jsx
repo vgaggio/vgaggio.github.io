@@ -1,23 +1,25 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Container from "./Container";
 import Title from "./Title";
 import Button from "./Button";
 import { BsPlayCircle } from "react-icons/bs";
-// import ExtraLogos from "./ExtraLogos";
 import BackgroundDesign from "./BackgroundDesign";
 import PhoneFrame from "./PhoneFrame";
 import AppFeature from "./AppFeature";
 import { useTranslation } from "next-i18next";
 
-
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
-
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth <= 500;
+  const [languageReady, setLanguageReady] = useState(false); // Estado para indicar si el idioma está listo para cambiar
+  const [languageChangeFlag, setLanguageChangeFlag] = useState(false); // Estado para forzar el cambio de idioma
 
   useEffect(() => {
+    // Inicia el temporizador para mostrar el componente después de 1 segundos
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 1000);
@@ -25,11 +27,28 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Establece un temporizador para indicar que el idioma está listo para cambiar después de 1 segundo
+    const languageTimer = setTimeout(() => {
+      setLanguageReady(true);
+    }, 1000);
+
+    return () => clearTimeout(languageTimer);
+  }, []);
+
+  useEffect(() => {
+    // Cambia el estado del indicador de cambio de idioma
+    setLanguageChangeFlag(!languageChangeFlag);
+  }, [i18n.language]); // Escucha cambios en el idioma
+
   return (
-      <section 
-      id="home" 
+    <section
+      id="home"
       className={`overflow-hidden transition-opacity duration-100 
-      ${isMobile ? "mt-6 py-10" : "py-32"} ${isVisible ? "opacity-100" : "opacity-0"}`}>
+      ${isMobile ? "mt-6 py-10" : "py-32"} ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <Container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           {/* Right side */}
@@ -52,7 +71,6 @@ const Hero = () => {
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              {/* <Image className="w-32 h-auto" src={playStore} alt="playImg" /> */}
               {!isMobile ? (
                 <>
                   <Button
@@ -106,14 +124,17 @@ const Hero = () => {
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
             <BackgroundDesign className="absolute left-1/2 top-4 h-[1026px] w-[1026px] -translate-x-1/3 stroke-gray-300/70 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
             <div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-bottom-20 lg:-top-10 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
-              <PhoneFrame
-                className={`max-w-[366px] mx-auto bg-white transition-opacity duration-1000 ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
-                style={{ transitionDelay: isVisible ? "1000ms" : "0ms" }}
-              >
-                <AppFeature />
-              </PhoneFrame>
+              {languageReady && ( // Solo renderiza PhoneFrame cuando el idioma está listo para cambiar
+                <PhoneFrame
+                  className={`max-w-[366px] mx-auto bg-white transition-opacity duration-3000 ${
+                    isVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{ transitionDelay: isVisible ? "1000ms" : "0ms" }}
+                  key={languageChangeFlag} // Agrega una clave única para forzar la actualización cuando cambia el idioma
+                >
+                  <AppFeature />
+                </PhoneFrame>
+              )}
             </div>
           </div>
         </div>

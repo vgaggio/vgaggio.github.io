@@ -39,12 +39,10 @@ const InterestedIn = () => {
             <div className="mt-4 flex justify-center">
               <motion.div
                 animate={{
-                  y: animationState ? 0 : 0,
-                  rotate: animationState ? [0, 10, -10, 10, -10, 10, -10, 10, -10, 10, 0] : 0,
-                  scale: hovered ? 1.06 : 1, // Escala aumenta al hacer hover
+                  scale: hovered ? 1.05 : 1, // Escala aumenta al hacer hover
                 }}
                 transition={{
-                  duration: 1, // Duración de la animación
+                  duration: 0.2, // Duración de la animación
                   ease: "easeInOut", // Tipo de transición
                 }}
                 onHoverStart={() => setHovered(true)}
@@ -53,7 +51,7 @@ const InterestedIn = () => {
                 <Button
                   href="https://bircle.ai/customersupport"
                   variant="outline"
-                  className={`py-2 px-4 bg-gray-500 text-white font-bold rounded transition duration-300 ${hovered ? 'hover:shadow-lg hover:bg-gray-600' : ''}`}
+                  className={`py-2 px-4 bg-gray-500 text-white font-bold rounded transition duration-200 ${hovered ? 'hover:shadow-lg hover:bg-gray-600' : ''}`}
                   target="_blank"
                 >
                   {t("interestedInButtonTitleCol")}

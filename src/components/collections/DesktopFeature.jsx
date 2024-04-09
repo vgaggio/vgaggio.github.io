@@ -56,11 +56,9 @@ const DesktopFeature = () => {
       <ul className="relative z-10 order-last col-span-6 space-y-6">
         {features.map((feature, featureIndex) => (
           <motion.li
-            key={t(feature.name)}
-            initial={{ opacity: 0, y: 50, rotate: -10, scale: 0.8 }}
-            animate={animationControlsArray[featureIndex]}
-            className="relative rounded-2xl transition-all hover:bg-gray-800/30"
-          >
+          key={t(feature.name)}
+          className="relative rounded-2xl transition-all hover:bg-gray-800/30"
+        >
             {featureIndex === selectedIndex && (
               <motion.div
                 layoutId="activeBackground"
