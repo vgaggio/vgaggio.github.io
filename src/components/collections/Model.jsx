@@ -12,6 +12,7 @@ const Model = () => {
   const [headerHeight, setHeaderHeight] = useState(0);
   const headerRef = useRef(null);
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
+  const [hoveredIndex, setHoveredIndex] = useState(null); // Estado para mantener el índice del elemento que se está haciendo hover
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +43,7 @@ const Model = () => {
   };
 
   return (
-    <section id="model" className={isMobile ? "py-10" : "py-40" }>
+    <section id="model" className={isMobile ? "py-10" : "py-40"}>
       <div ref={headerRef}> {/* Ref al encabezado para obtener su altura */}
         {/* Contenido de tu encabezado */}
       </div>
@@ -50,9 +51,8 @@ const Model = () => {
         <div className="mx-auto max-w-2xl sm:text-center">
           <Title
             title={t("modelTitleCol")}
-            className={`text-3xl transition-opacity duration-4000 text-center ${isMobile ? "mt-12" : "" } ${
-              isVisible ? "opacity-100 ease-in-out" : "opacity-0"
-            }`}
+            className={`text-3xl transition-opacity duration-4000 text-center ${isMobile ? "mt-12" : ""} ${isVisible ? "opacity-100 ease-in-out" : "opacity-0"
+              }`}
           />
         </div>
 
@@ -63,31 +63,31 @@ const Model = () => {
           {modelDataCol.map((item, index) => (
             <li
               key={t(item.name)}
-              className={`w-full sm:max-w-none sm:min-w-[320px] sm:w-auto justify-center shadow-2xl shadow-light rounded-[40px] p-8 transition-opacity duration-2000 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
+              className={`w-full sm:max-w-none sm:min-w-[320px] sm:w-auto justify-center shadow-2xl shadow-light rounded-[40px] p-8 transition-opacity duration-2000 ${isVisible ? "opacity-100" : "opacity-0"
+                }`}
               style={{
-                transitionDelay: `${
-                  isVisible ? (isMobile ? index * 200 : index * 1000) : 0
-                }ms`,
+                transitionDelay: `${isVisible ? (isMobile ? index * 200 : index * 1000) : 0
+                  }ms`,
                 opacity: isVisible ? 1 : 0,
                 ...(isMobile && {
                   transform: "none",
-                  transition: `opacity 2000ms ease-in-out ${
-                    isVisible ? index * 200 : 0
-                  }ms`,
+                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
+                    }ms`,
                 }),
                 ...(!isMobile && {
                   transform: isVisible
                     ? "translateX(0)"
                     : `translateX(${index % 2 === 0 ? "-" : ""}100px)`,
-                  transition: `opacity 2000ms ease-in-out ${
-                    isVisible ? index * 200 : 0
-                  }ms, transform 1000ms ease-in-out ${
-                    isVisible ? index * 200 : 0
-                  }ms`,
+                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
+                    }ms, transform 1000ms ease-in-out ${isVisible ? index * 200 : 0
+                    }ms, scale 300ms ease`, // Hacer la transformación de escala más gradual
+                  // Aplicar transformación de escala solo cuando el elemento está completamente visible y se está haciendo hover
+                  transformOrigin: 'center',
+                  scale: hoveredIndex === index && isVisible ? 1.03 : 1,
                 }),
               }}
+              onMouseEnter={() => setHoveredIndex(index)} // Manejar el evento onMouseEnter
+              onMouseLeave={() => setHoveredIndex(null)} // Manejar el evento onMouseLeave
             >
               {!isMobile ? (
                 <Image
@@ -114,7 +114,7 @@ const Model = () => {
             </li>
           ))}
         </ul>
-       
+
       </Container>
     </section>
   );
@@ -122,43 +122,43 @@ const Model = () => {
 
 export default Model;
 
-    /*
-    <section>
-      <Container
-        id="model"
-        aria-label="Features for building a portfolio"
-        className="py-20 sm:py-32"
-      >
-        <div className=" mx-auto max-w-2xl sm:text-center">
-          <Title
-            title={t('modelTitleCol')}
-            className="text-2xl"
-          />
-          <p className="mt-2 text-lg text-gray-600">
-          {t('modelSubtitleCol')}
-          </p>
-        </div>
-        <ul
-          role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 text-sm sm:mt-20 sm:grid-cols-2 md:gap-y-10 lg:max-w-none lg:grid-cols-2"
+/*
+<section>
+  <Container
+    id="model"
+    aria-label="Features for building a portfolio"
+    className="py-20 sm:py-32"
+  >
+    <div className=" mx-auto max-w-2xl sm:text-center">
+      <Title
+        title={t('modelTitleCol')}
+        className="text-2xl"
+      />
+      <p className="mt-2 text-lg text-gray-600">
+      {t('modelSubtitleCol')}
+      </p>
+    </div>
+    <ul
+      role="list"
+      className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 text-sm sm:mt-20 sm:grid-cols-2 md:gap-y-10 lg:max-w-none lg:grid-cols-2"
+    >
+      {modelDataCol.map((item) => (
+        <li
+          key={t(item.name)}
+          className="rounded-2xl border border-gray-200 hover:border-gray-300 p-8 group hover:bg-gray-100 duration-300 cursor-pointer"
         >
-          {modelDataCol.map((item) => (
-            <li
-              key={t(item.name)}
-              className="rounded-2xl border border-gray-200 hover:border-gray-300 p-8 group hover:bg-gray-100 duration-300 cursor-pointer"
-            >
-              {/* <item.icon className="h-8 w-8" /> *//*}
-              <Image className="h-16 w-16" src={item.icon} alt="" height={10} width={10}/>
-              <h3 className="mt-6 font-semibold text-gray-900 group-hover:text-black duration-300">
-                {t(item.name)}
-              </h3>
-              <p className="mt-2 text-gray-700 group-hover:text-black duration-300">
-                {t(item.description)}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </section>
-  );
+          {/* <item.icon className="h-8 w-8" /> *//*}
+<Image className="h-16 w-16" src={item.icon} alt="" height={10} width={10}/>
+<h3 className="mt-6 font-semibold text-gray-900 group-hover:text-black duration-300">
+{t(item.name)}
+</h3>
+<p className="mt-2 text-gray-700 group-hover:text-black duration-300">
+{t(item.description)}
+</p>
+</li>
+))}
+</ul>
+</Container>
+</section>
+);
 };*/

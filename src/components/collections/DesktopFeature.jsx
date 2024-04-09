@@ -10,7 +10,6 @@ import CircleBackground from "./CircleBackground";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
-
 const usePrevious = (value) => {
   let ref = useRef();
   useEffect(() => {
@@ -19,16 +18,8 @@ const usePrevious = (value) => {
 };
 
 const DesktopFeature = () => {
-
-  const scrollStartRef = 1300;
-  const scrollEndRef = 2100;
-
   const { t } = useTranslation();
-  const [changeCount, setChangeCount] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const prevIndex = usePrevious(selectedIndex);
-  const isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex;
-
   const animationControlsArray = features.map(() => useAnimation());
   const intervalRef = useRef(null);
 
@@ -38,27 +29,22 @@ const DesktopFeature = () => {
     );
   };
 
-  
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      
-      if (scrollY >= scrollStart && scrollY < scrollEnd) {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition >= 1200 && scrollPosition <= 2100) {
         if (!intervalRef.current) {
           intervalRef.current = setInterval(nextFeature, 3000);
         }
       } else {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
+        setSelectedIndex(0); // Reiniciar el índice cuando salimos del rango de scroll
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      clearInterval(intervalRef.current);
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleMouseEnter = () => {
@@ -66,9 +52,7 @@ const DesktopFeature = () => {
   };
 
   const handleMouseLeave = () => {
-    if (!intervalRef.current) {
-      intervalRef.current = setInterval(nextFeature, 3000);
-    }
+    intervalRef.current = setInterval(nextFeature, 3000);
   };
 
   return (
@@ -76,13 +60,13 @@ const DesktopFeature = () => {
       <ul className="relative z-10 order-last col-span-6 space-y-6">
         {features.map((feature, featureIndex) => (
           <motion.li
-          key={t(feature.name)}
-          className={`relative rounded-2xl transition-all hover:bg-gray-800/30 ${
-            featureIndex === selectedIndex ? "bg-gray-800/30" : ""
-          }`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+            key={t(feature.name)}
+            className={`relative rounded-2xl transition-all hover:bg-gray-800/30 ${
+              featureIndex === selectedIndex ? 'bg-gray-800/30' : ''
+            }`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             {featureIndex === selectedIndex && (
               <motion.div
                 layoutId="activeBackground"

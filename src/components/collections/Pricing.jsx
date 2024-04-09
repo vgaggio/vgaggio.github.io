@@ -73,27 +73,30 @@ const Pricing = () => {
                 <div className="flex justify-center">
                   {" "}
                   {/* Contenedor para centrar el botón */}
+
                   <motion.div
                     animate={{
-                      scale: hovered ? 1.04 : 1,
-                      backgroundColor: hovered ? "#E5F3FF" : "transparent", 
+                      scale: hovered ? 1.05 : 1, // Escala aumenta al hacer hover
                     }}
                     transition={{
-                      duration: hovered ? 0.2 : 0.4, 
+                      duration: 0.2, 
                       ease: "easeInOut", 
                     }}
                     onHoverStart={() => setHovered(true)}
                     onHoverEnd={() => setHovered(false)}
                   >
                     <Button
-                      href="https://cal.com/marcoslozada/demo-bircleai?date=2024-04-09&month=2024-04"
+                      href="https://bircle.ai/customersupport"
                       variant="outline"
-                      className="py-2 px-4 text-gray-800 text-sm rounded transition duration-300"
+                      className={`py-2 px-4 bg-white text-gray-800 text-sm font-bold rounded transition duration-200 ${hovered ? 'hover:shadow-lg hover:bg-blue-100' : ''
+                        }`} 
                       target="_blank"
                     >
                       {t("pricingButton")}
                     </Button>
                   </motion.div>
+
+
                 </div>
               </li>
             ))}
