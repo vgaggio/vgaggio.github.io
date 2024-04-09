@@ -77,12 +77,12 @@ const Hero = () => {
                     <BsPlayCircle className="text-xl" />
                     <span className="ml-1">{t("heroWatchTheVideoCol")}</span>
                   </Button>*/}
-                  <div style={{ display: "flex", gap: "20px" }}>
+                  <div className="flex gap-4">
                     <Button
                       href="https://cal.com/marcoslozada/demo-bircleai"
                       variant="outline"
                       target="_blank"
-                      style={{ transitionDelay: isVisible ? "2000ms" : "0ms"}}
+                      className="transition delay-2000 duration-300 ease-in-out bg-transparent hover:bg-blue-100 py-2 px-4 border hover:border-transparent rounded"
                     >
                       {t("buttonOne")}
                     </Button>
@@ -90,7 +90,7 @@ const Hero = () => {
                       href="https://api.whatsapp.com/send?phone=5493516152680"
                       variant="outline"
                       target="_blank"
-                      style={{ transitionDelay: isVisible ? "3000ms" : "0ms" }}
+                      className="transition delay-3000 duration-300 ease-in-out bg-transparent hover:bg-blue-100 py-2 px-4 border hover:border-transparent rounded"
                     >
                       {t("buttonTwo")}
                     </Button>
@@ -99,12 +99,12 @@ const Hero = () => {
                 </>
               ) : (
                 <>
-                  <div style={{ display: "flex", gap: "10px" }}>
+                  <div className="flex gap-4">
                     <Button
                       href="https://cal.com/marcoslozada/demo-bircleai"
                       variant="outline"
                       target="_blank"
-                      style={{ transitionDelay: isVisible ? "2000ms" : "0ms", margin: "0", padding: "10px" }}
+                      className="transition delay-2000 duration-300 ease-in-out bg-transparent hover:bg-blue-100 py-2 px-4 border hover:border-transparent rounded"
                     >
                       {t("buttonOne")}
                     </Button>
@@ -112,7 +112,7 @@ const Hero = () => {
                       href="https://api.whatsapp.com/send?phone=5493516152680"
                       variant="outline"
                       target="_blank"
-                      style={{ transitionDelay: isVisible ? "3000ms" : "0ms", margin: "0", padding: "10px" }}
+                      className="transition delay-3000 duration-300 ease-in-out bg-transparent hover:bg-blue-100 py-2 px-4 border hover:border-transparent rounded"
                     >
                       {t("buttonTwo")}
                     </Button>
