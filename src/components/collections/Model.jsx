@@ -49,7 +49,7 @@ const Model = () => {
       <Container aria-label="Features for building a portfolio">
         <div className="mx-auto max-w-2xl sm:text-center">
           <Title
-            title={t("modelTitle")}
+            title={t("modelTitleCol")}
             className={`text-3xl transition-opacity duration-4000 text-center ${isMobile ? "mt-12" : "" } ${
               isVisible ? "opacity-100 ease-in-out" : "opacity-0"
             }`}

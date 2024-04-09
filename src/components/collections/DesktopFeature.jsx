@@ -10,6 +10,7 @@ import CircleBackground from "./CircleBackground";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
+
 const usePrevious = (value) => {
   let ref = useRef();
   useEffect(() => {
@@ -18,6 +19,10 @@ const usePrevious = (value) => {
 };
 
 const DesktopFeature = () => {
+
+  const scrollStartRef = 1300;
+  const scrollEndRef = 2100;
+
   const { t } = useTranslation();
   const [changeCount, setChangeCount] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -35,9 +40,25 @@ const DesktopFeature = () => {
 
   
   useEffect(() => {
-    intervalRef.current = setInterval(nextFeature, 3000);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      
+      if (scrollY >= scrollStart && scrollY < scrollEnd) {
+        if (!intervalRef.current) {
+          intervalRef.current = setInterval(nextFeature, 3000);
+        }
+      } else {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
 
-    return () => clearInterval(intervalRef.current);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearInterval(intervalRef.current);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleMouseEnter = () => {
@@ -45,7 +66,9 @@ const DesktopFeature = () => {
   };
 
   const handleMouseLeave = () => {
-    intervalRef.current = setInterval(nextFeature, 3000);
+    if (!intervalRef.current) {
+      intervalRef.current = setInterval(nextFeature, 3000);
+    }
   };
 
   return (

@@ -75,8 +75,6 @@ const Pricing = () => {
                   {/* Contenedor para centrar el botón */}
                   <motion.div
                     animate={{
-                      y: animationState ? 0 : 0,
-                      rotate: animationState ? [0, 10, -10, 10, -10, 10, -10, 10, -10, 10,-10, 10,-10, 10,-10, 10, 0] : 0,
                       scale: hovered ? 1.04 : 1,
                       backgroundColor: hovered ? "#E5F3FF" : "transparent", 
                     }}

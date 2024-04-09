@@ -163,7 +163,7 @@ const AppFeature = () => {
                     }}
                   />
                   <a
-                    href="https://api.whatsapp.com/send?phone=5493516152680"
+                    href="https://cal.com/marcoslozada/demo-bircleai?month=2024-04"
                     target="_blank"
                     className="button"
                     style={{
