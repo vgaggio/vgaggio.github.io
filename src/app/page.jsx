@@ -11,7 +11,7 @@ import TranslateButton from "../components/collections/TranslateButton";
 function Home() {
   return (
     <main>
-      <Hero />
+      {/*<Hero />*/}
       <TranslateButton />
       <Model />
       <Feature />
