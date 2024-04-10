@@ -12,7 +12,7 @@ const Model = () => {
   const [headerHeight, setHeaderHeight] = useState(0);
   const headerRef = useRef(null);
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
-  const [hoveredIndex, setHoveredIndex] = useState(null); // Estado para mantener el índice del elemento que se está haciendo hover
+  const [hoveredIndex, setHoveredIndex] = useState(null); 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +27,6 @@ const Model = () => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", handleScroll);
 
-      // Obtener la altura del encabezado
       setHeaderHeight(headerRef.current.clientHeight);
 
       return () => {
@@ -36,11 +35,6 @@ const Model = () => {
     }
   }, [isMobile]);
 
-  const handleModelClick = () => {
-    // Calcular el desplazamiento ajustado restando la altura del encabezado
-    const destination = document.getElementById("model").offsetTop - headerHeight;
-    window.scrollTo({ top: destination, behavior: "smooth" });
-  };
 
   return (
     <section id="model" className={isMobile ? "py-10" : "py-40"}>
@@ -62,33 +56,36 @@ const Model = () => {
         >
           {modelDataCol.map((item, index) => (
             <li
-              key={t(item.name)}
-              className={`w-full sm:max-w-none sm:min-w-[320px] sm:w-auto justify-center shadow-2xl shadow-light rounded-[40px] p-8 transition-opacity duration-2000 ${isVisible ? "opacity-100" : "opacity-0"
+            key={t(item.name)}
+            className={`w-full sm:max-w-none sm:min-w-[320px] sm:w-auto justify-center shadow-2xl shadow-light rounded-[40px] p-8 transition-opacity duration-2000 ${isVisible ? "opacity-100" : "opacity-0"
                 }`}
-              style={{
-                transitionDelay: `${isVisible ? (isMobile ? index * 200 : index * 1000) : 0
-                  }ms`,
-                opacity: isVisible ? 1 : 0,
-                ...(isMobile && {
-                  transform: "none",
-                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
+            style={{
+                transitionDelay: `${isVisible ? (isMobile ? index * 1000 : index * 1000) : 0
                     }ms`,
-                }),
-                ...(!isMobile && {
-                  transform: isVisible
-                    ? "translateX(0)"
-                    : `translateX(${index % 2 === 0 ? "-" : ""}100px)`,
-                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
-                    }ms, transform 1000ms ease-in-out ${isVisible ? index * 200 : 0
-                    }ms, scale 300ms ease`, // Hacer la transformación de escala más gradual
-                  // Aplicar transformación de escala solo cuando el elemento está completamente visible y se está haciendo hover
-                  transformOrigin: 'center',
-                  scale: hoveredIndex === index && isVisible ? 1.03 : 1,
-                }),
-              }}
-              onMouseEnter={() => setHoveredIndex(index)} // Manejar el evento onMouseEnter
-              onMouseLeave={() => setHoveredIndex(null)} // Manejar el evento onMouseLeave
-            >
+                opacity: isVisible ? 1 : 0,
+                ...(isMobile
+                    ? { // Si es móvil, centrar y no aplicar transformación
+                        margin: 'auto', // Centrar horizontalmente
+                        transform: "none",
+                        transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
+                            }ms`,
+                    }
+                    : { // Si no es móvil, aplicar transformaciones
+                        transform: isVisible
+                            ? "translateX(0)"
+                            : `translateX(${index % 2 === 0 ? "-" : ""}100px)`,
+                        transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
+                            }ms, transform 1000ms ease-in-out ${isVisible ? index * 200 : 0
+                            }ms, scale 300ms ease`, // Hacer la transformación de escala más gradual
+                        // Aplicar transformación de escala solo cuando el elemento está completamente visible y se está haciendo hover
+                        transformOrigin: 'center',
+                        scale: hoveredIndex === index && isVisible ? 1.03 : 1,
+                    }),
+            }}
+            onMouseEnter={() => setHoveredIndex(index)} // Manejar el evento onMouseEnter
+            onMouseLeave={() => setHoveredIndex(null)} // Manejar el evento onMouseLeave
+        >
+          
               {!isMobile ? (
                 <Image
                   className="h-12 w-12 mr-4 sm:h-16 sm:w-16 sm:mr-8 float-left"
