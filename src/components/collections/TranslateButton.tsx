@@ -1,8 +1,26 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image"; 
+
+const detectLanguage = () => {
+  const userLanguage = navigator.language || navigator.userLanguage;
+  console.log("User Language:", userLanguage);
+  const primaryLanguage = userLanguage.split("-")[0];
+  console.log("Primary Language:", primaryLanguage);
+  // Lógica para detectar el idioma basado en la región del usuario
+  // Por ejemplo, si el usuario es de Argentina, devolver "es"
+  // De lo contrario, devolver el idioma predeterminado
+  if (primaryLanguage.includes("es")) {
+    console.log("Detected Language: Spanish");
+    return "es";
+  } else {
+    console.log("Detected Language: English");
+    return "en";
+  }
+};
 
 const TranslateButton = () => {
   const { i18n } = useTranslation();
@@ -36,7 +54,7 @@ const TranslateButton = () => {
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language");
-    const defaultLanguage = "en";
+    const defaultLanguage = detectLanguage(); // Obtener el idioma predeterminado basado en la región
     const languageToUse = savedLanguage || defaultLanguage;
     i18n.changeLanguage(languageToUse);
   }, [i18n]);

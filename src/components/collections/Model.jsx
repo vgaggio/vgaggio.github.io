@@ -5,16 +5,24 @@ import Title from "./Title";
 import { modelDataCol } from "../../constants";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
+import { resolveObjectURL } from "buffer";
 
 const Model = () => {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const headerRef = useRef(null);
-  const isNotMobile = typeof window !== "undefined" && window.innerWidth > 500;
+  const [isNotMobile, setIsNotMobile] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
+
+    const setResponsiveness = () => {
+        setIsNotMobile(window.innerWidth > 500);
+      };
+      setResponsiveness();
+      window.addEventListener("resize", setResponsiveness);
+  
     const handleScroll = () => {
       const threshold = isNotMobile ? 300 : 610;
       if (window.scrollY > threshold) {
@@ -33,6 +41,10 @@ const Model = () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
+    return () => {
+      window.removeEventListener("resize", setResponsiveness);
+    };
+
   }, [isNotMobile]);
 
 
