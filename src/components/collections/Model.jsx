@@ -1,11 +1,11 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import Container from "./Container";
 import Title from "./Title";
 import { modelDataCol } from "../../constants";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-import { resolveObjectURL } from "buffer";
 
 const Model = () => {
   const { t } = useTranslation();
@@ -16,49 +16,42 @@ const Model = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
-
     const setResponsiveness = () => {
-        setIsNotMobile(window.innerWidth > 500);
-      };
-      setResponsiveness();
-      window.addEventListener("resize", setResponsiveness);
-  
-    const handleScroll = () => {
-      const threshold = isNotMobile ? 300 : 610;
-      if (window.scrollY > threshold) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsNotMobile(window.innerWidth > 500);
     };
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const threshold = isNotMobile ? 300 : 610;
+      setIsVisible(window.scrollY > threshold);
+    };
 
-      setHeaderHeight(headerRef.current.clientHeight);
+    setResponsiveness();
+    window.addEventListener("resize", setResponsiveness);
+    window.addEventListener("scroll", handleScroll);
 
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
     return () => {
       window.removeEventListener("resize", setResponsiveness);
+      window.removeEventListener("scroll", handleScroll);
     };
 
   }, [isNotMobile]);
 
+  useEffect(() => {
+    if (headerRef.current) {
+      setHeaderHeight(headerRef.current.clientHeight);
+    }
+  }, []);
 
   return (
-    <section id="model" className={isNotMobile ? "py-40" : "py-10"}>
-      <div ref={headerRef}> {/* Ref al encabezado para obtener su altura */}
-        {/* Contenido de tu encabezado */}
+    <section id="model" className={`py-${isNotMobile ? '40' : '10'}`}>
+      <div ref={headerRef}>
+        {/* Aquí va el contenido del encabezado */}
       </div>
       <Container aria-label="Features for building a portfolio">
         <div className="mx-auto max-w-2xl sm:text-center">
           <Title
             title={t("modelTitleCol")}
-            className={`text-3xl transition-opacity duration-4000 text-center ${isNotMobile ? "" : "mt-12"} ${isVisible ? "opacity-100 ease-in-out" : "opacity-0"
-              }`}
+            className={`text-3xl transition-opacity duration-4000 text-center ${isNotMobile ? "" : "mt-12"} ${isVisible ? "opacity-100 ease-in-out" : "opacity-0"}`}
           />
         </div>
 
@@ -69,56 +62,33 @@ const Model = () => {
           {modelDataCol.map((item, index) => (
             <li
               key={t(item.name)}
-              className={`w-full sm:max-w-none sm:min-w-[320px] sm:w-auto justify-center shadow-2xl shadow-light rounded-[40px] p-8 transition-opacity duration-2000 ${isVisible ? "opacity-100" : "opacity-0"
-                }`}
+              className={`w-full sm:max-w-none sm:min-w-[320px] sm:w-auto justify-center shadow-2xl shadow-light rounded-[40px] p-8 transition-opacity duration-2000 ${isVisible ? "opacity-100" : "opacity-0"}`}
               style={{
-                transitionDelay: `${isVisible ? (isNotMobile ? index * 1000 : index * 1000) : 0
-                  }ms`,
+                transitionDelay: `${isVisible ? (isNotMobile ? index * 1000 : index * 1000) : 0}ms`,
                 opacity: isVisible ? 1 : 0,
-                ...(isNotMobile
-                  ? {
-                    // Si no es móvil, aplicar transformaciones
-                    transform: isVisible
-                      ? "translateX(0)"
-                      : `translateX(${index % 2 === 0 ? "-" : ""}100px)`,
-                    transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
-                      }ms, transform 1000ms ease-in-out ${isVisible ? index * 200 : 0
-                      }ms, scale 300ms ease`, // Hacer la transformación de escala más gradual
-                    // Aplicar transformación de escala solo cuando el elemento está completamente visible y se está haciendo hover
-                    transformOrigin: 'center',
-                    scale: hoveredIndex === index && isVisible ? 1.03 : 1,
-                  }
-                  : {
-                    // Si es móvil, centrar y no aplicar transformación
-                    margin: 'auto', // Centrar horizontalmente
-                    transform: "none",
-                    transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0
-                      }ms`,
-                  }),
+                ...(isNotMobile ? {
+                  transform: isVisible
+                    ? "translateX(0)"
+                    : `translateX(${index % 2 === 0 ? "-" : ""}100px)`,
+                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0}ms, transform 1000ms ease-in-out ${isVisible ? index * 200 : 0}ms, scale 300ms ease`,
+                  transformOrigin: 'center',
+                  scale: hoveredIndex === index && isVisible ? 1.03 : 1,
+                } : {
+                  margin: 'auto',
+                  transform: "none",
+                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0}ms`,
+                }),
               }}
-              onMouseEnter={() => setHoveredIndex(index)} // Manejar el evento onMouseEnter
-              onMouseLeave={() => setHoveredIndex(null)} // Manejar el evento onMouseLeave
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-
-              {!isNotMobile ? (
-                <Image
-                  className="h-12 w-12 mb-2"
-                  src={item.icon}
-                  alt=""
-                  height={10}
-                  width={10}
-                />
-              ) : (
-
-                <Image
-                  className="h-12 w-12 mr-4 sm:h-16 sm:w-16 sm:mr-8 float-left"
-                  src={item.icon}
-                  alt=""
-                  height={10}
-                  width={10}
-                />
-
-              )}
+              <Image
+                className={`h-12 w-12 ${isNotMobile ? "mr-4 sm:h-16 sm:w-16 sm:mr-8 float-left" : "mb-2"}`}
+                src={item.icon}
+                alt=""
+                height={10}
+                width={10}
+              />
               <div>
                 <h3 className="pt-1 sm:pt-5 font-semibold text-gray-900 text-sm sm:text-base">
                   {t(item.name)}
@@ -134,6 +104,7 @@ const Model = () => {
 };
 
 export default Model;
+
 
 /*
 <section>
