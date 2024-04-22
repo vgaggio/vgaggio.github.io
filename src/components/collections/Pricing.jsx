@@ -86,7 +86,7 @@ const Pricing = () => {
                     onHoverEnd={() => setHovered(false)}
                   >
                     <Button
-                      href="https://bircle.ai/customersupport"
+                      href="https://cal.com/marcoslozada/demo-bircleai?date=2024-04-22&month=2024-04"
                       variant="outline"
                       className={`py-2 px-4 bg-white text-gray-800 text-sm font-bold rounded transition duration-200 ${hovered ? 'hover:shadow-lg hover:bg-blue-100' : ''
                         }`} 

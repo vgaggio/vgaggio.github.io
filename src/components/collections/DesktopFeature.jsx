@@ -32,7 +32,7 @@ const DesktopFeature = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      if (scrollPosition >= 1200 && scrollPosition <= 2100) {
+      if (scrollPosition >= 1060 && scrollPosition <= 2200) {
         if (!intervalRef.current) {
           intervalRef.current = setInterval(nextFeature, 3000);
         }
