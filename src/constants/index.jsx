@@ -13,6 +13,7 @@ export const navData = [
   { _id: 102, title: "model", href: "#model" },
   { _id: 103, title: "features", href: "#features" },
   { _id: 104, title: "howitworks", href: "#howitworks" },
+  { _id: 106, title: "vision", href: "#vision" },
   { _id: 105, title: "pricing", href: "#pricing" },
 ];
 
@@ -144,6 +145,30 @@ export const modelDataCol = [
     icon: "/Elementos-2D-02.svg",
   },
 ];
+
+export const DataVision = [
+  {
+    name: "Integridad",
+    icon: "/forma44.svg",
+  },
+  {
+    name: "Innovación",
+    icon: "/forma44.svg",
+  },
+  {
+    name: "Orientacion al Cliente",
+    icon: "/forma44.svg",
+  },
+  {
+    name: "Transparencia",
+    icon: "/forma44.svg",
+  },
+  {
+    name: "Responsabilidad",
+    icon: "/forma44.svg",
+  },
+];
+
 
 export const pricingData = [
   {
