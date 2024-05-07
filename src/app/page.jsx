@@ -18,9 +18,9 @@ function Home() {
       <Feature />
       <HowItWorks />
       <CallToAction />
+      <Pricing/>
       <Vision />
       <BackedBy />
-      <Pricing/>
       <InterestedIn />
     </main>
   );
