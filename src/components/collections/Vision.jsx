@@ -36,14 +36,14 @@ const Vision = () => {
           <div className="flex flex-wrap justify-center items-start">
             <Title
               title={t("Visión")}
-              className="text-6xl font-bold pb-2 font-semibold mb-4"
+              className="text-6xl font-bold font-semibold"
             />
             <div className="text-center">
               <p className="pt-20 px-6 text-xl">{t("Vision de la Empresa")}</p>
             </div>
           </div>
         </div>
-        <Slider {...settings} className="mx-auto max-w-3xl sm:text-center pt-20">
+        <Slider {...settings} className="mx-auto max-w-3xl sm:text-center pt-20 pb-20">
           {DataVision.map((item, index) => (
             <div key={index} className="word-slide text-2xl">
               <span style={{ marginRight: "20px",
