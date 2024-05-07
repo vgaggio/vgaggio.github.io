@@ -27,8 +27,6 @@ const Vision = () => {
     useCSS: true, // Desactiva CSS para mejorar la velocidad en la transición  
   };
 
-  const clonedDataVision = [...DataVision, ...DataVision, ...DataVision];
-
   return (
     <section id="vision" className={isMobile ? "py-20" : "py-32"}>
       <Container aria-label="Vision Section">
