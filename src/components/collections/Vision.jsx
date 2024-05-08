@@ -2,6 +2,8 @@
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
+import CircleBackground from "./CircleBackground";
+
 import { useTranslation } from "react-i18next";
 import { DataVision } from "../../constants";
 import Slider from "react-slick";
@@ -13,40 +15,41 @@ const Vision = () => {
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
   const settings = {
     dots: false,
-    infinite: true, // Desplazamiento infinito
-    speed: 5000, // Velocidad de desplazamiento (en milisegundos)
-    slidesToShow: 1, // Mostrar una palabra a la vez
-    slidesToScroll: 1, // Desplazarse una palabra a la vez
-    autoplay: true, // Reproducción automática
-    autoplaySpeed: 0, // Velocidad de reproducción automática (en milisegundos)
-    cssEase: 'linear', // Tipo de animación
-    variableWidth: true, // Ancho variable para que cada palabra sea su propio slide
-    pauseOnHover: false, // No pausar al pasar el mouse
-    pauseOnFocus: false, // No pausar al enfocar
-    swipeToSlide: true, // Permite deslizar para cambiar de slide
-    useCSS: true, // Desactiva CSS para mejorar la velocidad en la transición  
+    infinite: true,
+    speed: 5000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    cssEase: 'linear',
+    variableWidth: true,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    swipeToSlide: true,
+    useCSS: true,
   };
 
   return (
-    <section id="vision" className={isMobile ? "py-20" : "py-32"}>
+    <section id="vision" className="relative overflow-hidden py-20 sm:py-28">
+            <div className="absolute left-20 top-1/2 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2">
+        <CircleBackground color="#000" className="animate-spin-slower" />
+      </div>
       <Container aria-label="Vision Section">
-        <div className="mx-auto max-w-6xl sm:text-center">
+        <div className="mx-auto max-w-md sm:text-center">
           <div className="flex flex-wrap justify-center items-start">
             <Title
               title={t("Visión")}
-              className="text-6xl text-center font-bold font-semibold"
+              className="text-3xl sm:text-4xl text-center"
             />
             <div className="text-center">
-              <p className="pt-20 px-6 text-xl">{t("Vision de la Empresa")}</p>
+              <p className="mt-4 text-lg text-center">{t("Vision de la Empresa")}</p>
             </div>
           </div>
         </div>
-        <Slider {...settings} className="mx-auto max-w-3xl sm:text-center pt-20 pb-20">
+        <Slider {...settings} className="mx-auto max-w-lg sm:text-center">
           {DataVision.map((item, index) => (
-            <div key={index} className="word-slide text-2xl">
-              <span style={{ marginRight: "20px",
-                    padding: '25px',
-               }}>{t(item.name)}</span>
+            <div key={index} className="mt-4 text-lg text-center">
+              <span style={{ marginRight: "20px", padding: '25px' }}>{t(item.name)}</span>
             </div>
           ))}
         </Slider>
@@ -56,6 +59,7 @@ const Vision = () => {
 };
 
 export default Vision;
+
 
 
 
