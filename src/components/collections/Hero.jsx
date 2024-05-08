@@ -45,7 +45,7 @@ const Hero = () => {
     <section
       id="home"
       className={`overflow-hidden transition-opacity duration-100 
-      ${isMobile ? "mt-6 pb-20" : "py-32"} ${isVisible ? "opacity-100" : "opacity-0"
+      ${isMobile ? "mt-6 py-10" : "py-32"} ${isVisible ? "opacity-100" : "opacity-0"
         }`}
     >
       <Container>
