@@ -31,25 +31,25 @@ const Vision = () => {
 
   return (
     <section id="vision" className="relative overflow-hidden py-20 sm:py-28">
-            <div className="absolute left-20 top-1/2 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2">
-        <CircleBackground color="#000" className="animate-spin-slower" />
+      <div className="absolute left-20 top-1/2 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2">
+        <CircleBackground color="#005699" className="animate-spin-slower" />
       </div>
       <Container aria-label="Vision Section">
-        <div className="mx-auto max-w-md sm:text-center">
+        <div className="mx-auto max-w-md sm:text-center mb-8"> {/* Añadido mb-8 para espacio debajo del título */}
           <div className="flex flex-wrap justify-center items-start">
             <Title
               title={t("Visión")}
               className="text-3xl sm:text-4xl text-center"
             />
-            <div className="text-center">
-              <p className="mt-4 text-lg text-center">{t("Vision de la Empresa")}</p>
+            <div className="text-center mt-10"> {/* Añadido mt-4 para espacio entre el título y el texto */}
+              <p className="text-lg">{t("Vision de la Empresa")}</p>
             </div>
           </div>
         </div>
         <Slider {...settings} className="mx-auto max-w-lg sm:text-center">
           {DataVision.map((item, index) => (
             <div key={index} className="mt-4 text-lg text-center">
-              <span style={{ marginRight: "20px", padding: '25px' }}>{t(item.name)}</span>
+              <span style={{ padding: '25px' }}>{t(item.name)}</span> {/* Eliminado marginRight */}
             </div>
           ))}
         </Slider>
