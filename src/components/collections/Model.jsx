@@ -43,7 +43,7 @@ const Model = () => {
   }, []);
 
   return (
-    <section id="model" className={`${isNotMobile ? 'pt-30' : 'py-10'}`}>
+    <section id="model" className={`py-${isNotMobile ? '40' : '10'}`}>
       <div ref={headerRef}>
         {/* Aquí va el contenido del encabezado */}
       </div>
