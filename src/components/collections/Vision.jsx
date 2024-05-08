@@ -34,7 +34,7 @@ const Vision = () => {
           <div className="flex flex-wrap justify-center items-start">
             <Title
               title={t("Visión")}
-              className="text-6xl font-bold font-semibold"
+              className="text-6xl text-center font-bold font-semibold"
             />
             <div className="text-center">
               <p className="pt-20 px-6 text-xl">{t("Vision de la Empresa")}</p>
