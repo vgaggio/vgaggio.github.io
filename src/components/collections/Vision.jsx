@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
@@ -35,13 +35,13 @@ const Vision = () => {
         <CircleBackground color="#005699" className="animate-spin-slower" />
       </div>
       <Container aria-label="Vision Section">
-        <div className="mx-auto max-w-md sm:text-center mb-8"> {/* Añadido mb-8 para espacio debajo del título */}
+        <div className="mx-auto max-w-md sm:text-center mb-8">
           <div className="flex flex-wrap justify-center items-start">
             <Title
               title={t("Visión")}
               className="text-3xl sm:text-4xl text-center"
             />
-            <div className="text-center mt-10"> {/* Añadido mt-4 para espacio entre el título y el texto */}
+            <div className="text-center mt-10">
               <p className="text-lg">{t("Vision de la Empresa")}</p>
             </div>
           </div>
@@ -49,7 +49,7 @@ const Vision = () => {
         <Slider {...settings} className="mx-auto max-w-lg sm:text-center">
           {DataVision.map((item, index) => (
             <div key={index} className="mt-4 text-lg text-center">
-              <span style={{ padding: '25px' }}>{t(item.name)}</span> {/* Eliminado marginRight */}
+              <span style={{ padding: '25px' }}>{t(item.name)}</span>
             </div>
           ))}
         </Slider>
@@ -58,7 +58,7 @@ const Vision = () => {
   );
 };
 
-export default Vision;
+export default Vision;*/
 
 
 

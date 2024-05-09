@@ -19,7 +19,7 @@ function Home() {
       <HowItWorks />
       <CallToAction />
       <Pricing/>
-      <Vision />
+  
       <BackedBy />
       <InterestedIn />
     </main>
