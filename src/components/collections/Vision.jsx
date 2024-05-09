@@ -30,7 +30,7 @@ const Vision = () => {
   };
 
   return (
-    <section id="vision" className="relative overflow-hidden py-20 sm:py-28">
+    <section id="vision" className="relative overflow-hidden py-20 py-40">
       <div className="absolute left-20 top-1/2 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2">
         <CircleBackground color="#005699" className="animate-spin-slower" />
       </div>

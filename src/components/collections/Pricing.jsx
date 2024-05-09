@@ -22,7 +22,7 @@ const Pricing = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <section id="pricing" className={isMobile ? "py-20" : "py-40"}>
+    <section id="pricing" className={isMobile ? "py-20" : "py-30"}>
       <Container aria-label="Features for building a portfolio">
         <div className=" mx-auto max-w-2xl sm:text-center">
           <Title
