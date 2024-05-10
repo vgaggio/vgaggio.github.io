@@ -2,7 +2,6 @@
 import React from "react";
 import Container from "./Container";
 import Title from "./Title";
-import CircleBackground from "./CircleBackground";
 import LineBackground from "./LineBackground"; // Importa el nuevo componente
 
 import { useTranslation } from "react-i18next";
