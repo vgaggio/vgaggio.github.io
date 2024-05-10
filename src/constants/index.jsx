@@ -156,7 +156,7 @@ export const DataVision = [
     icon: "/forma44.svg",
   },
   {
-    name: "Orientacion al Cliente",
+    name: "Privacidad",
     icon: "/forma44.svg",
   },
   {

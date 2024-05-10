@@ -32,22 +32,22 @@ const Vision = () => {
   return (
     <section id="vision" className={isMobile ? "pb-20" : "pb-32"}>
       <Container aria-label="Vision Section">
-        <div className="mx-auto max-w-md sm:text-center mb-8">
+        <div className="mx-auto max-w-md sm:text-center">
           <div className="flex flex-wrap justify-center items-start">
             <Title
               title={t("Visión")}
-              className="text-3xl sm:text-3xl text-center mb-8 "
+              className="text-3xl text-center"
             />
-            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="mb-2"/> {/* Línea como separación */}
-            <div className="text-center ">
+            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-4"/> {/* Línea como separación */}
+            <div className="text-center">
               <p className="text-lg">{t("Vision de la Empresa")}</p>
             </div>
-            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="mt-3"/> {/* Línea como separación */}
+            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-5"/> {/* Línea como separación */}
           </div>
         </div>
-        <Slider {...settings} className="mx-auto max-w-lg sm:text-center">
+        <Slider {...settings} className="mx-auto max-w-md text-center">
           {DataVision.map((item, index) => (
-            <div key={index} className="mt-4 text-lg text-center ">
+            <div key={index} className="text-lg text-center ">
               <span style={{ padding: '20px'}}>{t(item.name)}</span>
             </div>
           ))}
