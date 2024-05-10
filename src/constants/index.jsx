@@ -13,8 +13,8 @@ export const navData = [
   { _id: 102, title: "model", href: "#model" },
   { _id: 103, title: "features", href: "#features" },
   { _id: 104, title: "howitworks", href: "#howitworks" },
-  { _id: 105, title: "pricing", href: "#pricing" },
-  /*{ _id: 106, title: "vision", href: "#vision" },*/
+  { _id: 105, title: "vision", href: "#vision" },
+  { _id: 106, title: "pricing", href: "#pricing" },
 ];
 
 
