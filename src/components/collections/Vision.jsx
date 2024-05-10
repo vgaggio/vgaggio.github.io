@@ -57,7 +57,7 @@ const Vision = () => {
               className="text-3xl text-center"
             />
             <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-4"/> {/* Línea como separación */}
-            <div className={isMobile ? "text-lg text-justify" : "text-lg text-center"}>
+            <div className={"text-lg text-center"}>
               <p >{t("Vision de la Empresa")}</p>
             </div>
             <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-5"/> {/* Línea como separación */}
