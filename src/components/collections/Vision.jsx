@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "./Container";
 import Title from "./Title";
 import LineBackground from "./LineBackground"; // Importa el nuevo componente
@@ -12,7 +12,25 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Vision = () => {
   const { t } = useTranslation();
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 500;
+  
+  //const isMobile = typeof window !== "undefined" && window.innerWidth < 500;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 500);
+    };
+
+    // Ejecutar handleResize al cargar y al redimensionar la ventana
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // Eliminar el event listener al desmontar el componente
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -32,15 +50,15 @@ const Vision = () => {
   return (
     <section id="vision" className={isMobile ? "pt-20" : "pt-36"}>
       <Container aria-label="Vision Section">
-        <div className="mx-auto max-w-md sm:text-center">
+        <div className="mx-auto max-w-md">
           <div className="flex flex-wrap justify-center items-start">
             <Title
               title={t("Visión")}
               className="text-3xl text-center"
             />
             <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-4"/> {/* Línea como separación */}
-            <div className="text-center">
-              <p className="text-lg">{t("Vision de la Empresa")}</p>
+            <div className={isMobile ? "text-lg text-justify" : "text-lg text-center"}>
+              <p >{t("Vision de la Empresa")}</p>
             </div>
             <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-5"/> {/* Línea como separación */}
           </div>
