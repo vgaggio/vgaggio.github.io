@@ -1,7 +1,7 @@
-import { useId } from "react";
 import React from "react";
+import { useId } from "react";
 
-const LineBackground = ({ color1, color2, width = 558, height = 558, ...props }) => {
+const LineBackground = ({ color1, color2, width, height, ...props }) => {
   let id = useId();
 
   return (
@@ -16,7 +16,7 @@ const LineBackground = ({ color1, color2, width = 558, height = 558, ...props })
       <style>
         {`
         .line-background {
-          stroke-width: 8; /* Ajusta el ancho de la línea según sea necesario */
+          stroke-width: 2; /* Ajusta el ancho de la línea según sea necesario */
         }
 
         /* Define la animación del gradiente */
@@ -38,10 +38,10 @@ const LineBackground = ({ color1, color2, width = 558, height = 558, ...props })
       <defs>
         <linearGradient
           id={id}
-          x1="0"
-          y1="0"
-          x2={width}
-          y2={height}
+          x1="0%"
+          y1="50%"
+          x2="100%"
+          y2="50%"
           gradientUnits="userSpaceOnUse"
         >
           {/* Define dos paradas de color */}
@@ -50,7 +50,7 @@ const LineBackground = ({ color1, color2, width = 558, height = 558, ...props })
         </linearGradient>
       </defs>
       <path
-        d={`M0 ${height / 3} H${width}`} // Ajusta la coordenada y del inicio de la línea para hacerla más ancha en relación con el eje y
+        d={`M${width / 4} ${height / 2} H${(width * 3) / 4}`} // Mueve la línea desde el cuarto izquierdo hasta el cuarto derecho del ancho
         stroke={`url(#${id})`}
         strokeLinecap="round"
         className="line-background" // Agrega una clase para aplicar el estilo de la línea
@@ -60,6 +60,7 @@ const LineBackground = ({ color1, color2, width = 558, height = 558, ...props })
 };
 
 export default LineBackground;
+
 
 
 
