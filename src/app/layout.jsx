@@ -19,6 +19,15 @@ const DOMAIN = "https://bircle.ai";
         <meta property="og:image" content={`${DOMAIN}/BircleAI.png`}></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
       </head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYSWTG8KH5"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYSWTG8KH5');
+      </script>
       <body>
         <Header />
         {children}
