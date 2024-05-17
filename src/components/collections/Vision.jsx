@@ -48,7 +48,7 @@ const Vision = () => {
   };
 
   return (
-    <section id="vision" className={isMobile ? "pt-20" : "pt-36"}>
+    <section id="vision" className={isMobile ? "py-20" : "py-36"}>
       <Container aria-label="Vision Section">
         <div className="mx-auto max-w-md">
           <div className="flex flex-wrap justify-center items-start">

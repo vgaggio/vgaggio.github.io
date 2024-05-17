@@ -14,7 +14,8 @@ export const navData = [
   { _id: 103, title: "features", href: "#features" },
   { _id: 104, title: "howitworks", href: "#howitworks" },
   { _id: 105, title: "vision", href: "#vision" },
-  { _id: 106, title: "pricing", href: "#pricing" },
+  { _id: 106, title: "client", href: "#client" },
+  { _id: 107, title: "pricing", href: "#pricing" },
 ];
 
 
@@ -145,6 +146,33 @@ export const modelDataCol = [
     icon: "/Elementos-2D-02.svg",
   },
 ];
+
+export const Gestion = [
+  {
+    name: "Accede a tu Estado de Cuenta",
+    text: "Gestion1",
+  },
+  {
+    name: "Explora Opciones de Pago Personalizadas",
+    text: "Gestion2",
+  },
+  {
+    name: "Realiza Pagos Fácilmente",
+    text: "Gestion3",
+  },
+  {
+    name: "Consulta y Asistencia Constante",
+    text: "Gestion4",
+  },
+  {
+    name: "Transparencia Total",
+    text: "Gestion5",
+  },
+  {
+    name: "Compromiso con la Privacidad",
+    text: "Gestion6",
+  },
+]
 
 export const DataVision = [
   {

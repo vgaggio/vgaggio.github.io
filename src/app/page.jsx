@@ -7,7 +7,8 @@ import Pricing from "../components/collections/Pricing";
 import BackedBy from "../components/collections/BackedBy";
 import InterestedIn from "../components/collections/InterestedIn";
 import TranslateButton from "../components/collections/TranslateButton";
-import Vision from "../components/collections/Vision" 
+import Vision from "../components/collections/Vision";
+import Client from "../components/collections/Client";
 
 function Home() {
   return (
@@ -19,6 +20,7 @@ function Home() {
       <HowItWorks />
       <CallToAction />
       <Vision />
+      <Client />
       <Pricing/>
       <BackedBy />
       <InterestedIn />
