@@ -85,7 +85,7 @@ const Client = () => {
                 <div
                     className="flex items-center mx-auto max-w-3xl justify-center p-6 pb-10 rounded-lg"
                 >
-                    <p className={`${isMobile ? "text-lg text-center text-white px-5 flex-1" : "text-2xl text-center text-white px-10 flex-1"}`}>
+                    <p className={`${isMobile ? "text-lg text-center text-slate-200 px-5 flex-1" : "text-2xl text-center text-slate-200	 px-10 flex-1"}`}>
                         {t('Resuelve Tus Deudas con Facilidad y Tranquilidad')}
                     </p>
                 </div>
@@ -97,9 +97,10 @@ const Client = () => {
                     <Slider {...settings} className="mx-auto max-w-xl text-center py-6">
                         {Gestion.map((item, index) => (
                             <div key={index} className="text-center py-2 px-6 ">
-                                <div className="bg-white mx-auto max-w-md sm:text-center rounded-xl h-52 py-2 px-2 content-center">
-                                    <div className="p-4 text-xl font-bold">{t(item.name)}</div>
-                                    <div className="p-2 text-sm">{t(item.text)}</div>
+                                <div className="bg-gray-700 mx-auto max-w-md sm:text-center rounded-xl h-52 py-2 px-2 content-center"
+                                >
+                                    <div className="p-4 text-slate-200	 text-xl font-bold">{t(item.name)}</div>
+                                    <div className="p-2 text-slate-200	 text-sm">{t(item.text)}</div>
                                 </div>
                             </div>
                         ))}
