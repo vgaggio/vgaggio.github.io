@@ -73,7 +73,7 @@ const Client = () => {
                     </p>
                 </div>
                 <div
-                    className="flex items-center mx-auto max-w-xl justify-center pt-4 rounded-lg"
+                    className="flex items-center mx-auto max-w-xl justify-center pt-4 rounded-3xl"
                     style={{
                       background: "linear-gradient(to right, #CAF1B8, #98C9F0)",
                   }}
