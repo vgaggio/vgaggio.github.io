@@ -58,7 +58,7 @@ const Client = () => {
     };
 
     const currentLanguage = i18n.language;
-    const imageToShow = currentLanguage === 'es' ? GestionPago1 : GestionPago2;
+    const imageToShow = currentLanguage === 'en' ? GestionPago2 : GestionPago1;
 
     return (
         <section id="client" className={`bg-gray-900 ${isMobile ? "py-20" : "py-40"}`}>
@@ -73,11 +73,13 @@ const Client = () => {
                     </p>
                 </div>
                 <div
-                    className="flex items-center mx-auto max-w-3xl justify-between pt-4 rounded-lg"
-
+                    className="flex items-center mx-auto max-w-xl justify-center pt-4 rounded-lg"
+                    style={{
+                      background: "linear-gradient(to right, #CAF1B8, #98C9F0)",
+                  }}
                 >
                     <div>
-                        <Image src={imageToShow} className={`${isMobile ? "min-h-52 p-2" : "h-3/6	 p-6"}`} alt="" layout="responsive" />
+                        <Image src={imageToShow} className={`${isMobile ? "min-h-52 p-2" : "min-h-96 p-6"}`} alt="" layout="responsive" />
                     </div>
                 </div>
                 <div
