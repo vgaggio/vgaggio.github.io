@@ -32,24 +32,11 @@ const Client = () => {
 
     const settings = {
         dots: true,
-        appendDots: dots => (
-            <div>
-                <ul style={{ margin: "0px" }}> {dots} </ul>
-            </div>
-        ),
-        customPaging: i => (
-            <div
-                className="rounded-full"
-                style={{
-                    width: "10px",
-                    height: "10px",
-                    margin: "0 5px"
-                }}
-            />
-        ),
-        arrows: false,
+        className: "center",
+        centerMode: isMobile ? false : true,
+        arrows: isMobile ? false : true, // Control de flechas basado en isMobile
         infinite: true,
-        slidesToShow: 1,
+        slidesToShow: isMobile ? 1 : 2,
         slidesToScroll: 1,
         adaptiveHeight: true,
         autoplay: true,  // Enable auto-play
@@ -73,7 +60,7 @@ const Client = () => {
                     </p>
                 </div>
                 <div
-                    className="flex items-center mx-auto max-w-xl justify-center pt-4 rounded-3xl"
+                    className="flex items-center mx-auto max-w-3xl justify-center pt-4 rounded-3xl"
                     style={{
                       background: "linear-gradient(to right, #CAF1B8, #98C9F0)",
                   }}
@@ -85,22 +72,28 @@ const Client = () => {
                 <div
                     className="flex items-center mx-auto max-w-3xl justify-center p-6 pb-10 rounded-lg"
                 >
-                    <p className={`${isMobile ? "text-lg text-center text-slate-200 px-5 flex-1" : "text-2xl text-center text-slate-200	 px-10 flex-1"}`}>
+                    <p className={`${isMobile ? "text-lg text-center text-slate-200 px-5 flex-1" : "text-lg text-center text-slate-200 px-10 flex-1"}`}>
                         {t('Resuelve Tus Deudas con Facilidad y Tranquilidad')}
                     </p>
                 </div>
-                <div>
+                <div >
                     <Title
                         title={t('howItWorksTitleCol')}
                         className="text-3xl text-white pt-6 text-center"
                     />
-                    <Slider {...settings} className="mx-auto max-w-xl text-center py-6">
+                    <Slider {...settings} className="mx-auto max-w-4xl text-left py-6">
                         {Gestion.map((item, index) => (
                             <div key={index} className="text-center py-2 px-6 ">
-                                <div className="bg-gray-700 mx-auto max-w-md sm:text-center rounded-xl h-52 py-2 px-2 content-center"
-                                >
-                                    <div className="p-4 text-slate-200	 text-xl font-bold">{t(item.name)}</div>
-                                    <div className="p-2 text-slate-200	 text-sm">{t(item.text)}</div>
+                                <div className={`${isMobile ? "bg-gray-700 mx-auto max-w-xl sm:text-left rounded-xl h-56 py-2 px-2 content-center" : "bg-gray-700 mx-auto max-w-xl sm:text-left rounded-xl h-72 py-2 px-2 content-center"}`}>
+                                <Image
+                                        className={`${isMobile ? "px-2 h-10 w-12 sm:h-24 sm:w-20" : "px-2 h-10 w-12 sm:h-20 sm:w-20"}`}
+                                        src={item.icon}
+                                        alt=""
+                                        height={30}
+                                        width={30}
+                                    />
+                                    <div className={`${isMobile ? "p-2 text-slate-200 font-bold text-left text-base" : "p-2 text-slate-200 font-bold text-left text-2xl"}`}>{t(item.name)}</div>
+                                    <div className={`${isMobile ? "p-2 text-slate-200 font-bold text-left text-xs" : "p-4 text-slate-200 text-left text-sm"}`}>{t(item.text)}</div>
                                 </div>
                             </div>
                         ))}

@@ -151,26 +151,32 @@ export const Gestion = [
   {
     name: "Accede a tu Estado de Cuenta",
     text: "Gestion1",
+    icon:"/forma15.svg",
   },
   {
     name: "Explora Opciones de Pago Personalizadas",
     text: "Gestion2",
+    icon:"/forma51.svg",
   },
   {
     name: "Realiza Pagos Fácilmente",
     text: "Gestion3",
+    icon:"/forma17.svg",
   },
   {
     name: "Consulta y Asistencia Constante",
     text: "Gestion4",
+    icon:"/forma57.svg",
   },
   {
     name: "Transparencia Total",
     text: "Gestion5",
+    icon:"/forma7.svg",
   },
   {
     name: "Compromiso con la Privacidad",
     text: "Gestion6",
+    icon:"/forma39.svg",
   },
 ]
 
