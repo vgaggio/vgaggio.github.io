@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Container from "./Container";
 import Title from "./Title";
 import Phone1Esp from "../../../public/Phone1Esp.svg";
@@ -21,26 +21,45 @@ const Client = () => {
 
     const [isMobile, setIsMobile] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 500);
         };
 
-        const handleScroll = () => {
-            const threshold = isMobile ? 610 : 300;
-            setIsVisible(window.scrollY > threshold);
-        };
-
         handleResize();
         window.addEventListener("resize", handleResize);
-        window.addEventListener("scroll", handleScroll);
 
         return () => {
             window.removeEventListener("resize", handleResize);
-            window.removeEventListener("scroll", handleScroll);
         };
-    }, [isMobile]);
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                    } else {
+                        setIsVisible(false);
+                    }
+                });
+            },
+            { threshold: 0.1 } // Adjust the threshold as needed
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
 
     const settings = {
         dots: true,
@@ -59,7 +78,7 @@ const Client = () => {
     const imageToShow2 = currentLanguage === 'en' ? Phone2Eng : Phone2Esp;
 
     return (
-        <section id="client" className={`bg-gray-900 ${isMobile ? "py-20" : "py-40"}`}>
+        <section ref={sectionRef} id="client" className={`bg-gray-900 ${isMobile ? "py-20" : "py-40"}`}>
             <Container>
                 <div className="mx-auto max-w-xl text-center pb-16">
                     <Title
@@ -83,7 +102,7 @@ const Client = () => {
                             style={{
                                 transform: isVisible
                                     ? "translateY(0)"
-                                    : `translateY(-200px)`,
+                                    : `translateY(-150px)`,
                                 transition: `opacity 4000ms ease-in-out, transform 2000ms ease-in-out`,
                             }}
                         />
@@ -94,8 +113,8 @@ const Client = () => {
                             layout="responsive"
                             style={{
                                 transform: isVisible
-                                    ? "translatey(0)"
-                                    : `translatey(200px)`,
+                                    ? "translateY(0)"
+                                    : `translateY(150px)`,
                                 transition: `opacity 4000ms ease-in-out, transform 2000ms ease-in-out`,
                             }}
                         />
