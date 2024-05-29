@@ -181,7 +181,7 @@ const Client = () => {
                                         width={30}
                                     />
                                     <div className={`${isMobile ? "p-2 text-slate-200 font-bold text-left text-base" : "p-2 text-slate-200 font-bold text-left text-xl"}`}>{t(item.name)}</div>
-                                    <div className={`${isMobile ? "p-2 text-slate-200 font-bold text-left text-xs" : "p-4 text-slate-200 text-left text-sm"}`}>{t(item.text)}</div>
+                                    <div className={`${isMobile ? "p-2 text-gray-400 text-left text-xs" : "p-4 text-gray-400 text-left text-sm"}`}>{t(item.text)}</div>
                                 </div>
                             </div>
                         ))}
