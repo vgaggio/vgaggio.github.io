@@ -159,11 +159,11 @@ const Client = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center mx-auto max-w-3xl justify-center p-6 pb-10 rounded-lg">
+                {/*<div className="flex items-center mx-auto max-w-3xl justify-center p-6 pb-10 rounded-lg">
                     <p className={`${isMobile ? "text-lg text-center text-slate-200 px-5 flex-1" : "text-lg text-center text-slate-200 px-10 flex-1"}`}>
                         {t('Resuelve Tus Deudas con Facilidad y Tranquilidad')}
                     </p>
-                </div>
+                </div>*/}
                 <div>
                     <Title
                         title={t('howItWorksTitleCol')}
