@@ -14,7 +14,7 @@ export const navData = [
   { _id: 103, title: "features", href: "#features" },
   { _id: 104, title: "howitworks", href: "#howitworks" },
   { _id: 105, title: "vision", href: "#vision" },
-  { _id: 106, title: "client", href: "#client" },
+  { _id: 106, title: "clients", href: "#clients" },
   { _id: 107, title: "pricing", href: "#pricing" },
 ];
 

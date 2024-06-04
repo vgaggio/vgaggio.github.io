@@ -116,7 +116,7 @@ const Client = () => {
     const imageToShow2 = currentLanguage === 'en' ? Phone2Eng : Phone2Esp;
 
     return (
-        <section ref={sectionRef} id="client" className={`bg-gray-900 ${isMobile ? "py-20" : "py-40"}`}>
+        <section ref={sectionRef} id="clients" className={`bg-gray-900 ${isMobile ? "py-20" : "py-40"}`}>
             <Container>
                 <div className="mx-auto max-w-xl text-center pb-16">
                     <Title
