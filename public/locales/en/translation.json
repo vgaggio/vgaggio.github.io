@@ -166,5 +166,10 @@
   "opinion": "Leave us your opinion to improve the experience. Thank you so much!",
   "tryIt":"Try it right now!",
   "turnOff":"Press to turn off!",
-  "wait":"Wait a few seconds..."
+  "wait":"Wait a few seconds...",
+  "inputWorkEmail":"Enter a work email",
+  "enterWorkEmail":"Enter a work email.",
+  "tryBircleEmail":"Try Bircle. Send me an email!"
+
+
 }

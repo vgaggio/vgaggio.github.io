@@ -150,9 +150,10 @@ function EmailSender() {
   const handleButtonClick = (e) => {
     e.preventDefault();
     const { name, job } = extractInfo(email);
+
+    setResult({ name, job });
     console.log("name ", result.name)
     console.log("job ", result.job)
-    setResult({ name, job });
     handleSubmit(e);
   };
 
@@ -167,10 +168,10 @@ function EmailSender() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: email,
           user_name: result.name, // Utiliza el nombre extraído
-          work_email: result.job, // Utiliza el trabajo extraído
-          language: i18n.language
+          email: email,
+          language: i18n.language,
+          work_email: result.job // Utiliza el trabajo extraído
         }),
       });
 
@@ -192,21 +193,32 @@ function EmailSender() {
   return (
     <div className="flex items-center mt-8 animate-fade-in-down">
       <div className="flex flex-col">
+
+        <div className="absolute">
+          <svg className="arrow" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 43.1 85.9" style={{ enableBackground: 'new 0 0 43.1 85.9' }} width="43.1" height="85.9">
+            <path strokeLinecap="round" strokeLinejoin="round" className="st0 draw-arrow" d="M11.3,2.5c-5.8,5-8.7,12.7-9,20.3s2,15.1,5.3,22c6.7,14,18,25.8,31.7,33.1" stroke="#171717" fill="none" strokeWidth="5px"></path>
+            <path strokeLinecap="round" strokeLinejoin="round" className="draw-arrow tail-1" d="M40.6,78.1C39,71.3,37.2,64.6,35.2,58" stroke="#171717" fill="none" strokeWidth="5px"></path>
+            <path strokeLinecap="round" strokeLinejoin="round" className="draw-arrow tail-2" d="M39.8,78.5c-7.2,1.7-14.3,3.3-21.5,4.9" stroke="#171717" fill="none" strokeWidth="5px"></path>
+          </svg>
+
+
+        </div>
         <Title
-          title={"Try Bircle. Send me an email!"}
-          className={`text-xl transition-opacity`}
+          title={t("tryBircleEmail")}
+          className={`text-xl transition-opacity ml-14 m-t-2`}
         />
         <form
           onSubmit={handleSubmit}
-          className="mt-4 flex w-full max-w-md rounded-lg bg-white p-2 shadow-lg animate-slide-in-up"
+          className="mt-6 ml-14 flex w-full max-w-md rounded-lg bg-white p-2 shadow-lg animate-slide-in-up"
         >
           <input
             type="email"
-            placeholder="Enter your work email"
+            placeholder={t("inputWorkEmail")}
             value={email}
             onChange={handleInputChange}
             className="flex-1 border-none bg-transparent px-4 text-sm text-gray-700 placeholder-gray-400 focus:outline-none"
           />
+
           <button
             onClick={handleButtonClick}
             type="submit"
@@ -219,7 +231,7 @@ function EmailSender() {
 
         </form>
         {isInvalidDomain && (
-          <p className="text-red-500 text-xs mt-1 ml-4">Ingrese un mail de trabajo.</p>
+          <p className="text-red-500 text-xs mt-1 ml-16">{t("inputWorkEmail")}</p>
         )}
       </div>
     </div>

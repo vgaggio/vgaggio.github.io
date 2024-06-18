@@ -168,6 +168,8 @@
    "opinion": "Dejanos tu opinión para mejorar la experiencia. ¡Muchas gracias!",
    "tryIt":"¡Pruébalo ahora mismo!",
    "turnOff":"¡Presiona para apagar!",
-   "wait":"Espera unos segundos..."
-
+   "wait":"Espera unos segundos...",
+   "inputWorkMail":"Ingrese un mail de trabajo",
+   "enterWorkMail":"Ingrese su mail de trabajo",
+   "tryBircleMail":"Prueba Bircle. ¡Enviame un mail!"
   }
