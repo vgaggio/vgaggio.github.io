@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image"; 
 
 const detectLanguage = () => {
-  const userLanguage = navigator.language || navigator.userLanguage;
+  const userLanguage = navigator.language;
   console.log("User Language:", userLanguage);
   const primaryLanguage = userLanguage.split("-")[0];
   console.log("Primary Language:", primaryLanguage);
