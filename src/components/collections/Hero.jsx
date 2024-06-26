@@ -180,15 +180,15 @@ function EmailSender() {
       if (response.ok) {
         setEmail("");
         setIsSubmitting(false);
-        toast.success("Se le envió un mail a su casilla de correo. Revisar en spam si no lo encuentra.");
+        toast.success(t("emailSent"));
         setOpinion('');
       } else {
         setIsSubmitting(false);
-        toast.error(`Hubo un problema... Intente nuevamente.`);
+        toast.error(t("errorTryAgain"));
       }
     } catch (error) {
       setIsSubmitting(false);
-      toast.error(`Error de conexión`);
+      toast.error(t("connectionError"));
     }
   };
 
