@@ -108,7 +108,7 @@ export default function Component() {
                             <div className="max-w-md mx-auto">
                                 <div className="flex">
                                     <h1 className="text-2xl justify-start font-semibold mb-4">
-                                        {t("saludo")},
+                                        {t("saludo")}
                                     </h1>
                                     <a href="https://bircle.ai" target="_blank" className="ml-auto">
                                         <Image
