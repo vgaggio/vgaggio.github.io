@@ -101,7 +101,6 @@ function EmailSender() {
   const [result, setResult] = useState({ name: '', job: '' });
   const { t, i18n } = useTranslation();
   const [isInvalidDomain, setIsInvalidDomain] = useState(false);
-  const apiUrl = process.env.NEXT_PUBLIC_BIRCLE_API_URL;
 
 
   const extractInfo = (email, language = i18n.language) => {
@@ -156,15 +155,10 @@ function EmailSender() {
     setResult({ name, job });
     console.log("name ", result.name)
     console.log("job ", result.job)
-    handleSubmit(e);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
     setIsSubmitting(true);
     try {
       // Realiza la solicitud al backend
-      const response = await fetch(`https://emailservice.openharbor.xyz/aws/ses/requestDemo`, {
+      const response = fetch(`https://emailservice.openharbor.xyz/aws/ses/requestDemo`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -210,7 +204,6 @@ function EmailSender() {
           className={`text-xl transition-opacity ml-14 m-t-2`}
         />
         <form
-          onSubmit={handleSubmit}
           className="mt-6 ml-14 flex w-full max-w-md rounded-lg bg-white p-2 shadow-lg animate-slide-in-up"
         >
           <input
