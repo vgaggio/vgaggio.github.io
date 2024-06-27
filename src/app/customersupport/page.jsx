@@ -11,7 +11,7 @@ import TranslateButton from "../../components/customersupport/TranslateButton";
 function Home() {
   return (
     <main>
-      <Hero />
+      {/* <Hero />
       <TranslateButton/>
       <Feature />
       <Model />
@@ -19,7 +19,7 @@ function Home() {
       <HowItWorks />
       <Pricing />
       <BackedBy />
-      <Reviews />
+  <Reviews />*/}
     </main>
   );
 }

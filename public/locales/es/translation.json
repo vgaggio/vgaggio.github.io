@@ -171,5 +171,24 @@
    "wait":"Espera unos segundos...",
    "inputWorkMail":"Ingrese un mail de trabajo",
    "enterWorkMail":"Ingrese su mail de trabajo",
-   "tryBircleMail":"Prueba Bircle. ¡Enviame un mail!"
-  }
+   "tryBircleMail":"Prueba Bircle. ¡Enviame un mail!",
+    "saludo": "Hola Deudor",
+    "cuentaPendiente": "Vamos a resolver tu cuenta pendiente con ",
+    "saldoPendiente": "Saldo pendiente",
+    "seeDetails": "Ver detalle",
+    "paymentOptionss": "Opciones de pago disponibles",
+    "siglePayment": "PAGO ÚNICO",
+    "payInFull": "Pago Completo",
+    "resolveYourAccountWithoOnePayment": "Cancela tu deuda en un solo pago.",
+    "payIn": "Pago en",
+    "cuotes": "cuotas",
+    "pay": "Paga",
+    "now": "ahora",
+    "perCuote": "por cuota",
+    "spreadYourPaymentOver": "Divide tu pago en",
+    "months.": "meses.",
+    "pleaseVisit": "Por favor visita el sitio web de ", 
+    "websiteIfYouPrefer": "si prefieres.",
+    "poweredBy": "Patrocinado por",
+    "validateEmailLink": "Dirijase a su casilla de correo y valide el link proporcionado por nuestro proovedor AWS SES. Una vez realizada esa operacion toque en el boton de Validar"
+}

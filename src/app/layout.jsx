@@ -9,7 +9,6 @@ import { metadata } from './metadata';
 function RootLayout({ children }) {
 const DOMAIN = "https://bircle.ai";
 
-
   return (
     <html lang="es" className="scroll-smooth">
       <head>

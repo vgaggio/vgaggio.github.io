@@ -169,7 +169,25 @@
   "wait":"Wait a few seconds...",
   "inputWorkEmail":"Enter a work email",
   "enterWorkEmail":"Enter a work email.",
-  "tryBircleEmail":"Try Bircle. Send me an email!"
-
-
+  "tryBircleEmail":"Try Bircle. Send me an email!",
+  "cuentaPendiente": "Let's get your overdue account sorted with ",
+  "saldoPendiente": "Outstanding balance",
+  "seeDetails": "see Details",
+  "paymentOptionss": "Payment options",
+  "siglePayment": "SINGLE PAYMENT",
+  "payInFull": "Pay in full",
+  "resolveYourAccountWithoOnePayment": "Resolve your account with one payment.",
+  "payIn": "Pay in",
+  "cuotes": "cuotes",
+  "pay": "Pay",
+  "now": "now",
+  "perCuote": "per cuote",
+  "spreadYourPaymentOver": "Spread your payment over",
+  "months.": "months.",
+  "pleaseVisit": "Please visit ",
+  "websiteIfYouPrefer": "website if you prefer.",
+  "poweredBy": "Powered by",
+  "validateEmailLink": "Go to your mailbox and validate the link provided by our provider AWS SES. Once this operation is done, click the Validate button.",
+  "saludo": "Hey Debtor,"
 }
+  
