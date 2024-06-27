@@ -98,7 +98,6 @@ export default Hero;
 function EmailSender() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [result, setResult] = useState({ name: '', job: '' });
   const { t, i18n } = useTranslation();
   const [isInvalidDomain, setIsInvalidDomain] = useState(false);
 
@@ -148,26 +147,25 @@ function EmailSender() {
     }
   };
 
-  const handleButtonClick = (e) => {
+  const handleButtonClick = async (e) => {
     e.preventDefault();
     const { name, job } = extractInfo(email);
 
-    setResult({ name, job });
-    console.log("name ", result.name)
-    console.log("job ", result.job)
+    console.log("name ", name)
+    console.log("job ", job)
     setIsSubmitting(true);
     try {
       // Realiza la solicitud al backend
-      const response = fetch(`https://emailservice.openharbor.xyz/aws/ses/requestDemo`, {
+      const response =  await fetch(`https://emailservice.openharbor.xyz/aws/ses/requestDemo`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          user_name: result.name, // Utiliza el nombre extraído
+          user_name: name, // Utiliza el nombre extraído
           email: email,
           language: i18n.language,
-          work_email: result.job // Utiliza el trabajo extraído
+          work_email: job // Utiliza el trabajo extraído
         }),
       });
 
