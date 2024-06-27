@@ -180,7 +180,6 @@ function EmailSender() {
       }
     } catch (error) {
       setIsSubmitting(false);
-      toast.error(t("connectionError"));
     }
   };
 
