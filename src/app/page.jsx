@@ -1,3 +1,4 @@
+"use client";
 import Hero from "../components/collections/Hero";
 import Feature from "../components/collections/Feature";
 import Model from "../components/collections/Model";
@@ -9,10 +10,13 @@ import InterestedIn from "../components/collections/InterestedIn";
 import TranslateButton from "../components/collections/TranslateButton";
 import Vision from "../components/collections/Vision";
 import Client from "../components/collections/Client";
+import Footer from "../components/customersupport/Footer";
+import Header from "../components/customersupport/Header";
 
 function Home() {
   return (
     <main>
+      <Header/>
       <Hero />
       <TranslateButton />
       <Model />
@@ -24,6 +28,7 @@ function Home() {
       <Pricing/>
       <BackedBy />
       <InterestedIn />
+      <Footer/>
     </main>
   );
 }
