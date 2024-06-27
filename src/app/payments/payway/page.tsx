@@ -156,8 +156,8 @@ export default function Component() {
                                     <CardFooter>
                                     <a href="https://api.whatsapp.com/send?phone=5493516152680" target="_blank">
                                         <Button>
-                                            {t("pay")} $
-                                            {formatAsArgentineCurrency(Number("250000"))}{" "}
+                                            {t("pay")} 
+                                          {" "}
                                             {t("now")}
                                         </Button>
                                         </a>
@@ -183,8 +183,7 @@ export default function Component() {
                                     <CardFooter>
                                     <a href="https://api.whatsapp.com/send?phone=5493516152680" target="_blank">
                                         <Button>
-                                            {t("pay")} $
-                                            {formatAsArgentineCurrency(Number("83333.33"))}{" "}
+                                            {t("pay")}{" "}
                                             {t("now")}
                                         </Button>
                                         </a>
