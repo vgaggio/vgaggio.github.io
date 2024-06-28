@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ {/*import React, { useState } from 'react';
 import { useRouter } from "next/router";
 import { toast } from "sonner";
 
@@ -7,7 +7,7 @@ interface OpinionFormProps {
   type: 'positive' | 'negative';
   onCancel: () => void;
 }
-
+ {/*
 const OpinionForm: React.FC<OpinionFormProps> = ({ onSubmit, type, onCancel }) => {
   const [opinion, setOpinion] = useState('');
     const router = useRouter();
@@ -15,6 +15,7 @@ const OpinionForm: React.FC<OpinionFormProps> = ({ onSubmit, type, onCancel }) =
   const projectPathSegments = router.asPath.split("/");
   const projectID = projectPathSegments[1];
 
+  {/*
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (opinion.trim()) {
@@ -46,7 +47,6 @@ const OpinionForm: React.FC<OpinionFormProps> = ({ onSubmit, type, onCancel }) =
     } else {
       toast.error("Debes completar la descripción para enviar.");
     }
-  };
 
   return (
     <form onSubmit={handleSubmit} className="px-8">
@@ -75,3 +75,4 @@ const OpinionForm: React.FC<OpinionFormProps> = ({ onSubmit, type, onCancel }) =
 };
 
 export default OpinionForm;
+*/}
