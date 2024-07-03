@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Vapi from "@vapi-ai/web";
 import { ThumbsUp, ThumbsDown } from "../global/icons";
-import OpinionForm from "./OpinionForm";
+//import OpinionForm from "./OpinionForm";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import SphereWaiting from "./voiceSphereWaiting";
@@ -175,13 +175,13 @@ export default function VoiceAI() {
               </div>
             </div>
           )}
-          {formVisible && (
+          {/*formVisible && (
             <OpinionForm
               onSubmit={handleNewOpinion}
               type={opinionType}
               onCancel={handleCancel}
             />
-          )}
+          )*/}
         </div>
         <TranslateButton />
       </div>
