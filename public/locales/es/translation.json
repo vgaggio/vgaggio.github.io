@@ -175,7 +175,7 @@
    "connectionError": "Error de conexión",
    "inputWorkMail":"Ingrese un mail de trabajo",
    "enterWorkMail":"Ingrese su mail de trabajo",
-   "tryBircleEMail":"Prueba Bircle. ¡Enviame un mail!",
+   "tryBircleEmail":"Prueba Bircle. ¡Enviame un mail!",
     "saludo": "Hola Deudor",
     "cuentaPendiente": "Vamos a resolver tu cuenta pendiente con ",
     "saldoPendiente": "Saldo pendiente",
