@@ -109,6 +109,66 @@ function FourthScreen({ custom, animated = false }) {
   );
 }
 
+function FiveScreen({ custom, animated = false }) {
+  return (
+    <AppScreen className="w-full">
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/oneline.svg"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
+    </AppScreen>
+  );
+}
+function SixScreen({ custom, animated = false }) {
+  return (
+    <AppScreen className="w-full">
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/oneline.svg"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
+    </AppScreen>
+  );
+}
+function SevenScreen({ custom, animated = false }) {
+  return (
+    <AppScreen className="w-full">
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/oneline.svg"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
+    </AppScreen>
+  );
+}
+function EigthScreen({ custom, animated = false }) {
+  return (
+    <AppScreen className="w-full">
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          alt="header text"
+          src="/oneline.svg"
+          className="object-cover"
+          width={300}
+          height={300}
+        />
+      </div>
+    </AppScreen>
+  );
+}
 export const features = [
   {
     name: "featureOneTitleCol",
@@ -133,5 +193,33 @@ export const features = [
     description: "featureFourSubtitleCol",
     icon: "/Elementos-2D-06.svg",
     screen: FourthScreen,
+  },
+  {
+    name: "featureFiveTitleCol",
+    description: "featureFiveSubtitleCol",
+    icon: "/Elementos-2D-04.svg",
+    screen: FiveScreen,
+
+  },
+  {
+    name: "featureSixTitleCol",
+    description:"featureSixSubtitleCol",
+    icon: "/Elementos-2D-09.svg",
+    screen: SixScreen,
+
+  },
+  {
+    name: "featureSevenTitleCol",
+    description: "featureSevenSubtitleCol",
+      icon: "/Elementos-2D-07.svg",
+      screen: SevenScreen,
+
+  },
+  {
+    name: "featureEightTitleCol",
+    description: "featureEightSubtitleCol",
+    icon: "/Elementos-2D-11.svg",
+    screen: EigthScreen,
+
   },
 ];

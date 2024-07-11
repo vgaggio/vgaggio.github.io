@@ -188,6 +188,8 @@
   "websiteIfYouPrefer": "website if you prefer.",
   "poweredBy": "Powered by",
   "validateEmailLink": "Go to your mailbox and validate the link provided by our provider AWS SES. Once this operation is done, click the Validate button.",
-  "saludo": "Hey Debtor,"
+  "saludo": "Hey Debtor,",
+  "porpouse": "Porpouse",
+  "weAre": "About us"
 }
   

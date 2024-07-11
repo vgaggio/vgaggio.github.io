@@ -57,7 +57,7 @@ const DesktopFeature = () => {
 
   return (
     <div className="grid grid-cols-12 items-center gap-8 lg:gap-16 xl:gap-24 px-6">
-      <ul className="relative z-10 order-last col-span-6 space-y-6">
+      <ul className="relative z-10 order-last grid grid-cols-2 col-span-6">
         {features.map((feature, featureIndex) => (
           <motion.li
             key={t(feature.name)}
@@ -137,6 +137,29 @@ export const FeatureMobile = () => {
       description: "featureFourSubtitleCol",
       icon: "/Elementos-2D-06.svg",
     },
+    {
+      name: "featureFiveTitleCol",
+      description: "featureFiveSubtitleCol",
+      icon: "/Elementos-2D-04.svg",
+  
+    },
+    {
+      name: "featureSixTitleCol",
+      description:"featureSixSubtitleCol",
+      icon: "/Elementos-2D-09.svg",  
+    },
+    {
+      name: "featureSevenTitleCol",
+      description: "featureSevenSubtitleCol",
+        icon: "/Elementos-2D-07.svg",  
+    },
+    {
+      name: "featureEightTitleCol",
+      description: "featureEightSubtitleCol",
+      icon: "/Elementos-2D-05.svg",  
+    },
+
+
   ];
 
   const handleSlideChange = (index) => {

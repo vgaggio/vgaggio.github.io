@@ -12,7 +12,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Vision = () => {
   const { t } = useTranslation();
-  
+
   //const isMobile = typeof window !== "undefined" && window.innerWidth < 500;
   const [isMobile, setIsMobile] = useState(false);
 
@@ -47,26 +47,47 @@ const Vision = () => {
     useCSS: true,
   };
 
+  const texts = [" Nos esforzamos por alcanzar los más altos estándares de calidad en todos nuestros servicios.  ",
+    "Estamos comprometidos con el éxito de nuestros clientes y trabajamos arduamente para ayudarles a alcanzar sus metas.  ",
+    "Mantenemos la honestidad y la transparencia en todas nuestras interacciones y decisiones.  ",
+    "Fomentamos un ambiente de trabajo en equipo, donde cada miembro del equipo aporta su experiencia y conocimientos para lograr resultados óptimos.  ",
+    "Estamos constantemente buscando nuevas formas de mejorar y adaptarnos a los cambios del mercado, utilizando tecnologías y métodos vanguardistas."
+
+  ]; // Aquí define los textos que quieres que se vayan cambiando
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(prevIndex => (prevIndex + 1) % texts.length);
+    }, 7000); // Cambia el texto cada 7 segundos
+
+    return () => clearInterval(interval);
+  }, []); // Este efecto se ejecuta solo una vez al montar el componente
+
+
   return (
-    <section id="vision" className={isMobile ? "py-20" : "py-36"}>
+    <section id="vision" className={isMobile ? "py-20" : "py-40"}>
       <Container aria-label="Vision Section">
         <div className="mx-auto max-w-md">
           <div className="flex flex-wrap justify-center items-start">
             <Title
-              title={t("Visión")}
+              title={t("Valores")}
               className="text-4xl text-center"
             />
-            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-4"/> {/* Línea como separación */}
-            <div className={"text-lg text-center"}>
-              <p >{t("Vision de la Empresa")}</p>
-            </div>
-            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-5"/> {/* Línea como separación */}
+            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-4" /> {/* Línea como separación */}
+            {texts.map((text, idx) => (
+              <p key={idx} className={`text-center transition-opacity duration-2000 ${idx === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'}`}>
+                {t(text)}
+              </p>
+            ))}
+            <LineBackground color1="#CAF1B8" color2="#98C9F0" width={500} height={25} className="my-5" /> {/* Línea como separación */}
+
           </div>
         </div>
         <Slider {...settings} className="mx-auto max-w-md text-center">
           {DataVision.map((item, index) => (
             <div key={index} className="text-lg text-center ">
-              <span style={{ padding: '20px'}}>{t(item.name)}</span>
+              <span style={{ padding: '20px' }}>{t(item.name)}</span>
             </div>
           ))}
         </Slider>

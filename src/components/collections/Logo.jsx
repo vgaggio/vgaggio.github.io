@@ -7,7 +7,7 @@ const Logo = ({ className, props }) => {
     <Link href="/" className="flex space-x-2">
       <Image
         alt="header text"
-        src="/logo2.svg"
+        src="/logo.svg"
         className="object-cover"
         width={30}
         height={30}

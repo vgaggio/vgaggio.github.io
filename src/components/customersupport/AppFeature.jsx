@@ -61,7 +61,7 @@ const AppFeature = () => {
           <div className="header-title">
             <Image
               alt="header text"
-              src="/logo2.svg"
+              src="/logo.svg"
               className="object-cover invert mr-2"
               width={30}
               height={30}

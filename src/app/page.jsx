@@ -21,12 +21,12 @@ function Home() {
       <TranslateButton />
       <Model />
       <Feature />
-      <HowItWorks />
-      <CallToAction />
       <Vision />
-      <Client />
-      <Pricing/>
-      <BackedBy />
+      {/*<HowItWorks />*/}
+      <CallToAction />
+       {/* <Client />*/}
+      {/* <Pricing/> />*/}
+      {/* <BackedBy /> />*/}
       <InterestedIn />
       <Footer/>
     </main>

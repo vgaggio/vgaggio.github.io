@@ -10,13 +10,10 @@
 
 export const navData = [
   { _id: 101, title: "home", href: "#home" },
-  { _id: 102, title: "model", href: "#model" },
-  { _id: 103, title: "features", href: "#features" },
-  { _id: 104, title: "howitworks", href: "#howitworks" },
-  { _id: 105, title: "vision", href: "#vision" },
-  { _id: 106, title: "clients", href: "#clients" },
-  { _id: 107, title: "pricing", href: "#pricing" },
-
+  { _id: 102, title: "weAre", href: "#model" },
+  { _id: 103, title: "howitworks", href: "#features" },
+  { _id: 104, title: "Valores", href: "#vision" },
+  { _id: 105, title: "porpouse", href: "#call-to-action" },
 ];
 
 
@@ -31,20 +28,21 @@ export const modelData = [
     name: "modelTwoTitle",
     description:
       "modelTwoSubtitle",
-      icon: "/Elementos-2D-02.svg",
+    icon: "/Elementos-2D-02.svg",
   },
   {
     name: "modelThreeTitle",
     description:
       "modelThreeSubtitle",
-      icon: "/Elementos-2D-03.svg",
+    icon: "/Elementos-2D-03.svg",
   },
   {
     name: "modelFourTitle",
     description:
       "modelFourSubtitle",
-      icon: "/Elementos-2D-04.svg",
+    icon: "/Elementos-2D-04.svg",
   },
+
 
   // {
   //   name: "Privacy-first features",
@@ -152,54 +150,54 @@ export const Gestion = [
   {
     name: "Accede a tu Estado de Cuenta",
     text: "Gestion1",
-    icon:"/forma15.svg",
+    icon: "/forma15.svg",
   },
   {
     name: "Explora Opciones de Pago Personalizadas",
     text: "Gestion2",
-    icon:"/forma51.svg",
+    icon: "/forma51.svg",
   },
   {
     name: "Realiza Pagos Fácilmente",
     text: "Gestion3",
-    icon:"/forma17.svg",
+    icon: "/forma17.svg",
   },
   {
     name: "Consulta y Asistencia Constante",
     text: "Gestion4",
-    icon:"/forma57.svg",
+    icon: "/forma57.svg",
   },
   {
     name: "Transparencia Total",
     text: "Gestion5",
-    icon:"/forma7.svg",
+    icon: "/forma7.svg",
   },
   {
     name: "Compromiso con la Privacidad",
     text: "Gestion6",
-    icon:"/forma39.svg",
+    icon: "/forma39.svg",
   },
 ]
 
 export const DataVision = [
   {
+    name: "Excelencia",
+    icon: "/forma44.svg",
+  },
+  {
+    name: "Compromiso",
+    icon: "/forma44.svg",
+  },
+  {
     name: "Integridad",
     icon: "/forma44.svg",
   },
   {
+    name: "Colaboración",
+    icon: "/forma44.svg",
+  },
+  {
     name: "Innovación",
-    icon: "/forma44.svg",
-  },
-  {
-    name: "Privacidad",
-    icon: "/forma44.svg",
-  },
-  {
-    name: "Transparencia",
-    icon: "/forma44.svg",
-  },
-  {
-    name: "Responsabilidad",
     icon: "/forma44.svg",
   },
 ];
@@ -210,7 +208,7 @@ export const pricingData = [
     name: "pricingOneTitle",
     description:
       "pricingOneSubtitle",
-    ammount: 
+    ammount:
       "pricingOneAmmount",
     icon: "/Elementos-2D-10.svg",
   },
@@ -218,7 +216,7 @@ export const pricingData = [
     name: "pricingTwoTitle",
     description:
       "pricingTwoSubtitle",
-    ammount: 
+    ammount:
       "pricingTwoAmmount",
     icon: "/Elementos-2D-15.svg",
   },

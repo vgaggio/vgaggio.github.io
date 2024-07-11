@@ -47,7 +47,7 @@ const Header = () => {
       }`}
     >
       <nav>
-        <Container className="relative z-50 flex justify-between py-8">
+        <Container className="relative z-50 flex justify-between">
           {/* Logo */}
           <div className="relative z-10 flex items-center gap-16">
             <LogoBlack />
@@ -59,7 +59,7 @@ const Header = () => {
           {/* Buttons */}
           <div className="flex items-center gap-6">
             <Button
-              href="https://cal.com/marcoslozada/demo-bircleai"
+              href="https://calendly.com/valentino-bircle/30min"
               variant="outline"
               className="hidden lg:block"
               target="_blank"
@@ -67,7 +67,7 @@ const Header = () => {
               {t("buttonOne")}
             </Button>
             <Button
-              href="https://api.whatsapp.com/send?phone=5493516152680"
+              href="https://api.whatsapp.com/send?phone=5493516785895"
               className="hidden lg:block"
               target="_blank"
             >
@@ -121,14 +121,14 @@ const Header = () => {
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button
-                              href="https://cal.com/marcoslozada/demo-bircleai"
+                              href="https://calendly.com/valentino-bircle/30min"
                               variant="outline"
                               target="_blank"
                             >
                               {t("buttonOne")}
                             </Button>
                             <Button
-                              href="https://api.whatsapp.com/send?phone=5493516152680"
+                              href="https://api.whatsapp.com/send?phone=5493516785895"
                               target="_blank"
                             >
                               {t("buttonTwo")}

@@ -23,6 +23,23 @@ const InterestedIn = () => {
     return () => clearInterval(interval);
   }, [hovered]);
 
+
+  const email = "2113503@ucc.edu.ar";
+  const subject = "Envió de CV para Teams";
+  const body = `Estimado/a,
+
+Me dirijo a usted para expresar mi interés en el puesto de [Nombre del Puesto] en [Nombre de la Empresa]. Adjunto a este correo encontrará mi currículum vitae, en el cual podrá encontrar información detallada sobre mi formación académica y experiencia laboral.
+
+Estoy seguro/a de que mi perfil cumple con los requisitos del puesto y que puedo aportar valor a su equipo. Agradezco su tiempo y consideración, y quedo a la espera de una respuesta favorable.
+
+Atentamente,
+[Tu Nombre]
+[Tu Número de Teléfono]
+[Tu Dirección de Email]`;
+
+  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+
   return (
     <section className={isMobile ? "py-10" : "py-20"}>
       <Container
@@ -49,7 +66,7 @@ const InterestedIn = () => {
                 onHoverEnd={() => setHovered(false)}
               >
                 <Button
-                  href="https://bircle.ai/customersupport"
+                  href={mailtoLink}
                   variant="outline"
                   className={`py-2 px-4 bg-gray-500 text-white font-bold rounded transition duration-200 ${hovered ? 'hover:shadow-lg hover:bg-gray-600' : ''}`}
                   target="_blank"

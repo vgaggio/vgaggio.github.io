@@ -118,47 +118,6 @@ const Client = () => {
     return (
         <section ref={sectionRef} id="clients" className={`bg-gray-900 ${isMobile ? "py-20" : "py-40"}`}>
             <Container>
-                <div className="mx-auto max-w-xl text-center pb-16">
-                    <Title
-                        title={t('Gestion de Deuda')}
-                        className="text-4xl text-white text-center"
-                    />
-                    <div className="content-center flex items-center justify-content: center">
-                        <LineBackground color1="#CAF1B8" color2="#98C9F0" width={isMobile ? 500 : 576} height={isMobile ? 60 : 80}/> {/* Línea como separación */}
-                    </div>
-                    <p className="text-lg text-gray-300 text-center px-5">
-                        {t('Explicacion de la Gestion de Deuda')}
-                    </p>
-                </div>
-                <div className="flex items-center mx-auto max-w-3xl justify-center rounded-3xl">
-                    <div className="flex relative">
-                        <Image
-                            src={imageToShow1}
-                            className={`transition-opacity duration-4000 ${isMobile ? "max-h-80 p-2" : "min-h-32 p-6"} ${isVisible ? "opacity-100 ease-in-out" : "opacity-0"}`}
-                            alt=""
-                            layout="responsive"
-                            style={{
-                                transform: isVisible
-                                    ? "translateY(0)"
-                                    : `translateY(-150px)`,
-                                transition: `opacity 4000ms ease-in-out, transform 2000ms ease-in-out`,
-                            }}
-                        />
-                        <Image
-                            src={imageToShow2}
-                            className={`transition-opacity duration-4000 ${isMobile ? "max-h-80 p-2" : "min-h-32 p-6"} ${isVisible ? "opacity-100 ease-in-out" : "opacity-0"}`}
-                            alt=""
-                            layout="responsive"
-                            style={{
-                                transform: isVisible
-                                    ? "translateY(0)"
-                                    : `translateY(150px)`,
-                                transition: `opacity 4000ms ease-in-out, transform 2000ms ease-in-out`,
-                            }}
-                        />
-                    </div>
-                </div>
-
                 {/*<div className="flex items-center mx-auto max-w-3xl justify-center p-6 pb-10 rounded-lg">
                     <p className={`${isMobile ? "text-lg text-center text-slate-200 px-5 flex-1" : "text-lg text-center text-slate-200 px-10 flex-1"}`}>
                         {t('Resuelve Tus Deudas con Facilidad y Tranquilidad')}

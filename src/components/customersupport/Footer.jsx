@@ -12,14 +12,27 @@ const Footer = () => {
       <Container>
         <div className="flex flex-col items-center border-t border-gray-200 pb-12 pt-8 md:flex-row md:justify-between md:pt-6">
           <p className="text-xs text-gray-500">
-            &copy; Copyright - BircleAI © Bircle Corp.{" "}
+            &copy; Copyright - TEAM © Enlace Laboral{" "}
             {new Date().getFullYear()}. {t("allRightsReserved")}
           </p>
           <div className="flex w-full justify-center md:w-auto mt-6 md:mt-0">
-            <Link
-              href="https://twitter.com/BircleAI"
+          <Link
+              href=""
               className="group mr-4"
-              aria-label="BircleAI on Twitter"
+              aria-label="Teams on Instagram"
+            >
+               <svg
+                viewBox="0 0 50 50"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                className="h-6 w-6 fill-gray-500 group-hover:fill-gray-300"
+              >
+                <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path> </svg>
+            </Link>
+            <Link
+              href=""
+              className="group mr-4"
+              aria-label="Teams on Twitter"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,9 +45,9 @@ const Footer = () => {
             </Link>
 
             <Link
-              href="https://www.linkedin.com/company/bircleai"
+              href=""
               className="group"
-              aria-label="BircleAI on LinkedIn"
+              aria-label="Teams on LinkedIn"
             >
               <svg
                 viewBox="0 0 20 20"
@@ -45,6 +58,8 @@ const Footer = () => {
                 <path d="M17.0391667,17.0433333 L14.0775,17.0433333 L14.0775,12.4025 C14.0775,11.2958333 14.055,9.87166667 12.5341667,9.87166667 C10.99,9.87166667 10.7541667,11.0758333 10.7541667,12.3208333 L10.7541667,17.0433333 L7.7925,17.0433333 L7.7925,7.5 L10.6375,7.5 L10.6375,8.80083333 L10.6758333,8.80083333 C11.0733333,8.05083333 12.04,7.25916667 13.4841667,7.25916667 C16.485,7.25916667 17.04,9.23416667 17.04,11.805 L17.04,17.0433333 L17.0391667,17.0433333 Z M4.4475,6.19416667 C3.49416667,6.19416667 2.72833333,5.4225 2.72833333,4.47333333 C2.72833333,3.525 3.495,2.75416667 4.4475,2.75416667 C5.3975,2.75416667 6.1675,3.525 6.1675,4.47333333 C6.1675,5.4225 5.39666667,6.19416667 4.4475,6.19416667 Z M5.9325,17.0433333 L2.9625,17.0433333 L2.9625,7.5 L5.9325,7.5 L5.9325,17.0433333 Z M18.5208333,0 L1.47583333,0 C0.66,0 0,0.645 0,1.44083333 L0,18.5591667 C0,19.3558333 0.66,20 1.47583333,20 L18.5183333,20 C19.3333333,20 20,19.3558333 20,18.5591667 L20,1.44083333 C20,0.645 19.3333333,0 18.5183333,0 L18.5208333,0 Z" />
               </svg>
             </Link>
+            
+
           </div>
         </div>
       </Container>

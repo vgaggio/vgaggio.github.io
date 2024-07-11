@@ -77,7 +77,7 @@ const Header = () => {
         } ${headerVisible ? "opacity-100" : "opacity-0"}`}
       >
         <nav>
-          <Container className="relative z-50 flex justify-between py-8">
+          <Container className="relative z-50 flex justify-between">
             <div className="relative z-10 flex items-center gap-16">
               {/* Agrega la animación inicial al logo */}
               <motion.div
@@ -92,16 +92,16 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-6">
               <Button
-                href="https://cal.com/marcoslozada/demo-bircleai"
-                variant="outline"
+                  href="https://calendly.com/valentinogaggio/30min"
+                  variant="outline"
                 className={`hidden lg:block ${buttonsVisible ? 'opacity-100' : 'opacity-0'}`} 
                 target="_blank"
               >
                 {t("buttonOne")}
               </Button>
               <Button
-                href="https://api.whatsapp.com/send?phone=5493516152680"
-                className={`hidden lg:block ${buttonsVisible ? 'opacity-100' : 'opacity-0'}`} 
+                  href="https://api.whatsapp.com/send?phone=5493516785895"
+                  className={`hidden lg:block ${buttonsVisible ? 'opacity-100' : 'opacity-0'}`} 
                 target="_blank"
               >
                 {t("buttonTwo")}

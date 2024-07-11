@@ -5,7 +5,7 @@ import "../../i18n";
 import { metadata } from './metadata';
 
 function RootLayout({ children }) {
-const DOMAIN = "https://bircle.ai";
+const DOMAIN = "https://Team.EnlaceLaboral";
 
   return (
     <html lang="es" className="scroll-smooth">

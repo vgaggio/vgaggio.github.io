@@ -10,6 +10,7 @@ import PhoneFrame from "./PhoneFrame";
 import AppFeature from "./AppFeature";
 import { useTranslation } from "next-i18next";
 import { toast, Toaster } from "sonner";
+import Lottie from 'lottie-react';
 
 
 const Hero = () => {
@@ -36,6 +37,16 @@ const Hero = () => {
     setLanguageChangeFlag(!languageChangeFlag);
   }, [i18n.language]); // Escucha cambios en el idioma
 
+
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch('/animation1.json')
+      .then(response => response.json())
+      .then(data => setAnimationData(data));
+  }, []);
+
+
   return (
     <section
       id="home"
@@ -45,7 +56,7 @@ const Hero = () => {
     >
       <Container>
 
-      <Toaster position="bottom-right" /> {/* Asegúrate de tener el Toaster aquí */}
+        <Toaster position="bottom-right" /> {/* Asegúrate de tener el Toaster aquí */}
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           {/* Right side */}
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
@@ -54,12 +65,43 @@ const Hero = () => {
               className={`text-4xl transition-opacity duration-100 ${isVisible ? "opacity-100" : "opacity-0"
                 }`}
             />
+            <Title
+              title={t("heroSubtitleCol")}
+              className={`text-4xl transition-opacity duration-100 ${isVisible ? "opacity-100" : "opacity-0"
+                }`}
+            />
             <p
               className={`mt-6 text-md text-gray-600 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"
                 }`}
             >
-              {t("heroSubtitleCol")}
-              <EmailSender />
+              {t("heroSubtitleCol2")}
+              {/*<EmailSender />*/}
+              <div className="mt-8 flex flex-wrap items-center gap-x-2 gap-2">
+                {/* <Image className="w-32 h-auto" src={playStore} alt="playImg" /> */}
+                <Button
+                  variant="outline"
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1pvZm-9g2sg5fvhk9tRnP-4t1BYVG98jn/view?usp=drive_link"
+                >
+                  <BsPlayCircle className="text-xl" />
+                  <span className="ml-2.5">{t("heroWatchTheVideo")}</span>
+                </Button>
+                <Button
+                  href="https://calendly.com/valentinogaggio/30min"
+                  variant="outline"
+                  target="_blank"
+                >
+                  {t("buttonOne")}
+                </Button>
+                <Button
+                  href="https://api.whatsapp.com/send?phone=5493516785895"
+                  variant="outline"
+                  target="_blank"
+                >
+                  {t("buttonTwo")}
+                </Button>
+
+              </div>
 
             </p>
             <div
@@ -74,16 +116,12 @@ const Hero = () => {
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
             <BackgroundDesign className="absolute left-1/2 top-4 h-[1026px] w-[1026px] -translate-x-1/3 stroke-gray-300/70 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
             <div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-bottom-20 lg:-top-10 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
-              {languageReady && ( // Solo renderiza PhoneFrame cuando el idioma está listo para cambiar
-                <PhoneFrame
-                  className={`max-w-[366px] mx-auto bg-white transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
-                    }`}
-                  style={{ transitionDelay: isVisible ? "1000ms" : "0ms" }}
-                  key={languageChangeFlag} // Agrega una clave única para forzar la actualización cuando cambia el idioma
-                >
-                  <AppFeature />
-                </PhoneFrame>
-              )}
+            {animationData && (
+          <div className="flex sm:ml-20 ml-0">
+        <Lottie animationData={animationData} style={{ width: 500, height: 500 }} />
+        </div>
+
+      )}
             </div>
           </div>
         </div>
@@ -156,7 +194,7 @@ function EmailSender() {
     setIsSubmitting(true);
     try {
       // Realiza la solicitud al backend
-      const response =  await fetch(`https://emailservice.openharbor.xyz/aws/ses/requestDemo`, {
+      const response = await fetch(`https://emailservice.openharbor.xyz/aws/ses/requestDemo`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

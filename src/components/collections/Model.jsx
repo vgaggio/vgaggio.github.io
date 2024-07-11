@@ -6,6 +6,7 @@ import Title from "./Title";
 import { modelDataCol } from "../../constants";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
+import Lottie from 'lottie-react';
 
 const Model = () => {
   const { t } = useTranslation();
@@ -42,63 +43,58 @@ const Model = () => {
     }
   }, []);
 
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch('/animation2.json')
+      .then(response => response.json())
+      .then(data => setAnimationData(data));
+  }, []);
+
+
   return (
     <section id="model" className={`py-${isNotMobile ? '40' : '10'}`}>
       <div ref={headerRef}>
         {/* Aquí va el contenido del encabezado */}
       </div>
-      <Container aria-label="Features for building a portfolio">
-        <div className="mx-auto max-w-2xl sm:text-center">
-          <Title
-            title={t("modelTitleCol")}
-            className={`text-3xl transition-opacity duration-4000 text-center ${isNotMobile ? "" : "mt-12"} ${isVisible ? "opacity-100 ease-in-out" : "opacity-0"}`}
-          />
+      <div className={`text-center ${isVisible ? "opacity-100 ease-in-out" : "opacity-0"}`}>
+      <Container aria-label="Features for building a portfolio" className="flex flex-row items-center justify-center">
+      {/* Imagen a la izquierda */}
+      <div className="flex-1">
+      {animationData && (
+          <div className="flex sm:ml-20 ml-0">
+        <Lottie animationData={animationData} style={{ width: 500, height: 500 }} />
         </div>
 
-        <ul
-          role="list"
-          className="mt-8 mb-24 grid max-w-2xl grid-cols-1 gap-6 text-sm sm:mt-20 sm:grid-cols-1 md:gap-y-10 lg:max-w-none lg:grid-cols-1"
-        >
-          {modelDataCol.map((item, index) => (
-            <li
-              key={t(item.name)}
-              className={`w-full sm:max-w-none sm:min-w-[320px] sm:w-auto justify-center shadow-2xl shadow-light rounded-[40px] p-8 transition-opacity duration-2000 ${isVisible ? "opacity-100" : "opacity-0"}`}
-              style={{
-                transitionDelay: `${isVisible ? (isNotMobile ? index * 1000 : index * 1000) : 0}ms`,
-                opacity: isVisible ? 1 : 0,
-                ...(isNotMobile ? {
-                  transform: isVisible
-                    ? "translateX(0)"
-                    : `translateX(${index % 2 === 0 ? "-" : ""}100px)`,
-                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0}ms, transform 1000ms ease-in-out ${isVisible ? index * 200 : 0}ms, scale 300ms ease`,
-                  transformOrigin: 'center',
-                  scale: hoveredIndex === index && isVisible ? 1.03 : 1,
-                } : {
-                  margin: 'auto',
-                  transform: "none",
-                  transition: `opacity 2000ms ease-in-out ${isVisible ? index * 200 : 0}ms`,
-                }),
-              }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <Image
-                className={`h-12 w-12 ${isNotMobile ? "mr-4 sm:h-16 sm:w-16 sm:mr-8 float-left" : "mb-2"}`}
-                src={item.icon}
-                alt=""
-                height={10}
-                width={10}
-              />
-              <div>
-                <h3 className="pt-1 sm:pt-5 font-semibold text-gray-900 text-sm sm:text-base">
-                  {t(item.name)}
-                </h3>
-              </div>
-            </li>
-          ))}
-        </ul>
+      )}      </div>
 
-      </Container>
+      {/* Contenido a la derecha */}
+      <div className="flex-1 mx-auto max-w-4xl text-center">
+        <Title
+          title={t("modelTitleCol")} // Asegúrate de tener definida la función `t` para traducción si es necesario
+          className="text-3xl transition-opacity duration-4000 text-center mb-4"
+        />
+
+        <p>
+          Somos una consultora especializada en el reclutamiento y selección de personas con sede en Córdoba Capital, Argentina. Nos consideramos socios estratégicos de nuestros clientes y trabajamos para brindarles un servicio de calidad y compromiso, basado en nuestra amplia experiencia en el campo.
+        </p>
+        <br/>
+        <p>
+          Nuestro negocio abarca una amplia gama de servicios para satisfacer las necesidades de nuestros clientes. Nos encargamos de definir perfiles de puesto, buscar y seleccionar candidatos, evaluar competencias y habilidades, verificar referencias, y coordinar entrevistas y evaluaciones.
+        </p>
+        <br/>
+        <p>
+          Atendemos a diversas industrias y sectores, desde servicios financieros y tecnología hasta la industria manufacturera y el sector de la salud. Reconocemos la importancia de contar con el mejor talento en el equipo de una empresa y de gestionar de manera efectiva los recursos humanos. Por eso, nos esforzamos por mantenernos actualizados en las últimas tendencias del mercado laboral y las mejores prácticas en reclutamiento y selección.
+        </p>
+        <br/>
+        <p>
+          En Team, trabajamos con dedicación para ayudar a las empresas a encontrar los candidatos ideales y establecer equipos exitosos. Nos enorgullece ofrecer servicios integrales y personalizados para cumplir con las expectativas de nuestros clientes y contribuir a su éxito en la atracción y retención del talento.
+        </p>
+      </div>
+
+    </Container>
+    </div>
+
     </section>
   );
 };
